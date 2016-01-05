@@ -1,0 +1,14 @@
+{
+  "name": "v2ex",
+  "version": "1.0.0",
+  "description": "a mobile v2ex rebuild",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "v2ex"
+  ],
+  "author": "Vincent",
+  "license": "MIT"
+}
