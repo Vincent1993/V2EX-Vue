@@ -1,16 +1,10 @@
 var webpack = require('webpack')
-//webpck插件
-var plugins = [
-    // 使用 ProvidePlugin 加载使用率高的依赖库
-    new webpack.ProvidePlugin({
-      $: 'webpack-zepto'
-    })
-];
+
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: './build',
-    publicPath: 'build/',
+    path: './static',
+    publicPath: '/static/',
     filename: 'build.js'
   },
   module: {
@@ -20,21 +14,18 @@ module.exports = {
         loader: 'vue'
       },
       {
-        // edit this for additional asset file types
-        test: /\.(png|jpg|gif)$/,
-        loader: 'file?name=[name].[ext]?[hash]'
+        test: /\.js$/,
+        // excluding some local linked packages.
+        // for normal use cases only node_modules is needed.
+        exclude: /node_modules|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
+        loader: 'babel'
       }
     ]
   },
-  resolve: {
-        // require时省略的扩展名，如：require('module') 不需要module.js
-        extension: ['', '.js']
-        //别名
-        // alias: {
-        //     filter: path.join(__dirname, 'src/filters')
-        // }
-    },
-    plugins: plugins
+  babel: {
+    presets: ['es2015'],
+    plugins: ['transform-runtime']
+  }
 }
 
 if (process.env.NODE_ENV === 'production') {
