@@ -1,11 +1,7 @@
 <template>
-  <div>
-    <!-- header -->
-    <!-- main view -->
     <router-view
       keep-alive
     </router-view>
-  </div>
 </template>
 
 <style>
