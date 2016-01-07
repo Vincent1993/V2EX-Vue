@@ -6,13 +6,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 col-md-9">
-						<ul class="nav nav-tabs">
-		                    <li class="active"><span>最新的</span></li>
-		                    <li><span>热门的</span></li>
-		                    <li><span>热门的</span></li>
-		                </ul>
-
-		                	<item-con v-ref:listItem></item-con>
+						<load-con :show="showLoad"></load-con>
+		                <item-con :show="!showLoad" v-ref:listItem></item-con>
 					</div>
 				</div>
 			</div>
@@ -23,6 +18,7 @@
 <script>
 import navCon from '../components/Nav.vue'
 import itemCon from '../components/Item.vue'
+import loadCon from '../components/loading.vue'
 
 export default {
 
@@ -30,35 +26,48 @@ export default {
 
   data(){
   	return{
-  		topics:{}
+  		navActive:true,
+  		showLoad:false
   	}
   },
 
   components:{
     navCon,
-    itemCon
+    itemCon,
+    loadCon
   },
 
   ready(){
-  	this.getTopics()
+  	this.getLatest()
   },
 
 
   methods:{
-  	getTopics (searchKey){
+  	//获取最新列表
+  	getLatest (){
+  		this.showLoad = true
   	    this.$http.get('https://www.v2ex.com/api/topics/latest.json',(data)=> {
   	        if(data){
+  	        	this.showLoad = false
   	            this.$refs.listitem.items = data
   	        }
   	    })
   	},
+  	//获取热门列表
+  	getHot(){
+  		this.$http.get('https://www.v2ex.com/api/topics/hot.json',(data)=>{
+  			if (data) {
+  				this.$refs.listitem.items = data
+  			};
+  		})
+  	}
   }
 
 }
 </script>
 <style>
 	#wrap{
-		height: 1500px;
+		height: auto;
 	}
 	.nav-tabs{
 		display: flex;
