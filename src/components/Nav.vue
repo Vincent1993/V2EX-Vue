@@ -1,25 +1,29 @@
 <template>
 <div class="gloable-nav">
-	<nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" @click="toggleSlide">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="#">V2EX</a>
-	    </div>
-	  </div>
-	</nav>
-	<div class="slide-bar" v-show="showSlide">
-		<ul>
-			<li>最新</li>
-			<li>最热</li>
-			<li>关注</li>
-		</ul>
-	</div>
+	<nav class="navbar navbar-default" role="banner">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" v-show="!isDetail">V2EX</a>
+                <span class="glyphicon glyphicon glyphicon-arrow-left back" v-link="'/list'" v-show="isDetail"></span>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a @click="toggleLatest">最新</a></li>
+                    <li><a @click="toggleHot">最热</a></li>
+                    <li><a>分类</a></li>
+                    <li><a>节点</a></li>
+                    <li><a>提醒</a></li>
+                    <li><a>个人</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </div>
 </template>
 <script>
@@ -28,13 +32,26 @@
 
 		data(){
 			return{
-				showSlide:false
 			}
 		},
 
 		methods:{
-			toggleSlide(){
-				this.showSlide = !this.showSlide
+			toggleCollapse(){
+				$("#bs-example-navbar-collapse-1").collapse('hide')
+			},
+			toggleLatest(){
+				this.toggleCollapse()
+				this.$parent.getLatest()
+			},
+			toggleHot(){
+				this.toggleCollapse()
+				this.$parent.getHot()
+			}
+		},
+
+		computed:{
+			isDetail() {
+				return this.$route.name === 'content'?true:false
 			}
 		}
 	}
@@ -42,16 +59,15 @@
 <style>
 	.gloable-nav{
 		width: 100%;
-		height: 50px;
+		height:auto;
 		top:0;
 	}
-	nav{
-		width: 100%;
-		height: 50px;
-		background-color:#333;
+	#bs-example-navbar-collapse-1>ul>li>a{
+		text-align: center;
+		font-size: 18px;
 	}
-	.slide-bar{
-		z-index: 100;
-		background-color: #eee;
+	.back{
+		line-height: 50px;
+		margin-left: 10px;
 	}
 </style>

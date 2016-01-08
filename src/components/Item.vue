@@ -1,6 +1,7 @@
 <template>
 <div class="steam-list" v-for="item in items" v-show="show">
-	<section class="steam-list-item">
+	<section class="steam-list-item"
+				v-link="{ name: 'content',params: { id: item.id}}">
 		<div class="man-picture">
 			<img :src="item.member.avatar_mini">
 		</div>
@@ -27,7 +28,7 @@
 
 		data(){
 			return {
-				items:{}
+				items:Object
 			}
 		}
 	}

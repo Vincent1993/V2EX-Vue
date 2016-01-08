@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "es6-promise": "^3.0.2",
-    "moment": "^2.11.0",
+    "markdown": "^0.5.0",
     "normalize.css": "^3.0.3",
     "vue": "^1.0.8",
     "vue-resource": "^0.6.0",
