@@ -6,7 +6,7 @@
 		</div>
 		<div class="con-author">
 			<ul class="list-inline">
-				<li class="author">By {{conHeadCon.member.username}}</li>
+				<li class="author" v-link="{ name: 'user',params: { username: conHeadCon.member.username}}">By {{conHeadCon.member.username}}</li>
 				<span class="split">·</span>
 				<li class="create-time">At {{conHeadCon.created | getLastTimeStr true}}</li>
 				<span class="split">·</span>
@@ -58,10 +58,11 @@ import MD from 'markdown'
 	}
 	.con-title{
 		display: inline-block;
+		max-width: 85%;
 	}
 	.author-img {
 	    display: inline-block;
 	    float: right;
-	    margin-right: 5px;
+	    margin: 5px;
 	}
 </style>

@@ -45,8 +45,9 @@ export default {
   	//获取最新列表
   	getLatest (){
   		var _self = this
+      sessionStorage.node_name = '最新'
   		_self.showLoad = true
-  	    _self.$http.get('https://www.v2ex.com/api/topics/latest.json?page=2&page_size=20',(data)=> {
+  	  _self.$http.get('https://www.v2ex.com/api/topics/latest.json',(data)=> {
   	        if(data){
   	            _self.$refs.listitem.items = data
   	            setTimeout(function(){
@@ -58,6 +59,7 @@ export default {
   	//获取热门列表
   	getHot(){
   		var _self = this
+      sessionStorage.node_name = '最热'
   		_self.showLoad = true
   		_self.$http.get('https://www.v2ex.com/api/topics/hot.json',(data)=>{
   			if (data) {
@@ -67,7 +69,22 @@ export default {
   	            }, 1000)
   			};
   		})
-  	}
+  	},
+    //获取相关节点列表
+    getListByNode(nodeid,nodename){
+        var _self = this
+        sessionStorage.node_name = nodename
+        var params = $.param({node_id:nodeid})
+        _self.showLoad = true
+        _self.$http.get('https://www.v2ex.com/api/topics/show.json?'+params,(data)=> {
+              if(data){
+                  _self.$refs.listitem.items = data
+                  setTimeout(function(){
+                    _self.showLoad = false
+                  }, 1000)
+              }
+          })
+    }
   }
 
 }

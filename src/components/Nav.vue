@@ -14,10 +14,9 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a @click="toggleLatest">最新</a></li>
-                    <li><a @click="toggleHot">最热</a></li>
-                    <li><a>分类</a></li>
-                    <li><a>节点</a></li>
+                    <li><a  @click="toggleLatest">最新</a></li>
+                    <li><a  @click="toggleHot">最热</a></li>
+                    <li><a v-link="'node'" @click="toggleNode">节点</a></li>
                     <li><a>提醒</a></li>
                     <li><a>个人</a></li>
                 </ul>
@@ -27,11 +26,13 @@
 </div>
 </template>
 <script>
+	import router from 'vue-router'
 	export default {
 		name:'nav',
 
 		data(){
 			return{
+				node_name:""
 			}
 		},
 
@@ -46,6 +47,9 @@
 			toggleHot(){
 				this.toggleCollapse()
 				this.$parent.getHot()
+			},
+			toggleNode(){
+				this.toggleCollapse()
 			}
 		},
 

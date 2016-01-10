@@ -1,9 +1,10 @@
 import Vue from 'vue'
-import MD from 'markdown'
 import Router from 'vue-router'
 import App from './components/App.vue'
 import List from './views/list.vue'
 import Content from './views/content.vue'
+import User from './views/user.vue'
+import Node from './views/node.vue'
 import Resource from 'vue-resource'
 import filters from './filters/filter'
 // 挂载路由
@@ -24,6 +25,14 @@ router.map({
   '/content/:id/':{
   	name:'content',
   	component:Content
+  },
+  '/user/:username/':{
+    name:'user',
+    component:User
+  },
+  '/node':{
+    name:'node',
+    component:Node
   }
 })
 
