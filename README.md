@@ -12,7 +12,7 @@
 
 ##界面截图
 
-![](http://space.qiniudn.com/V2EX-latest.png-github)
-![](http://space.qiniudn.com/V2EX-detail.png-github)
-![](http://space.qiniudn.com/V2EX-node.png-github)
-![](http://space.qiniudn.com/V2EX-user.png-github)
+![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-latest.png)
+![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-node.png)
+![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-user.png)
+![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-detail.png)
