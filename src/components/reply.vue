@@ -7,7 +7,7 @@
 			<span>#{{$index+1}}</span>
 		</div>
 		<ul class="replys list-inline">
-			<li class="username">{{reply.member.username}}</li>
+			<li class="username" v-link="{ name: 'user',params: { username: reply.member.username}}">{{reply.member.username}}</li>
 			<li class="reply-time">Reply at {{reply.created | getLastTimeStr true}}</li>
 			<div class="reply-con">{{reply.content}}</div>
 		</ul>

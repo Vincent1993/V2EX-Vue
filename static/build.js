@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/static/";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -44,33 +44,52 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__(1);
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 	
-	var _keys = __webpack_require__(1);
+	var _keys = __webpack_require__(2);
 	
 	var _keys2 = _interopRequireDefault(_keys);
 	
-	var _vue = __webpack_require__(13);
+	var _vue = __webpack_require__(14);
 	
 	var _vue2 = _interopRequireDefault(_vue);
 	
-	var _vueRouter = __webpack_require__(15);
+	var _vueRouter = __webpack_require__(16);
 	
 	var _vueRouter2 = _interopRequireDefault(_vueRouter);
 	
-	var _App = __webpack_require__(16);
+	var _App = __webpack_require__(17);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _list = __webpack_require__(22);
+	var _list = __webpack_require__(29);
 	
 	var _list2 = _interopRequireDefault(_list);
 	
-	var _vueResource = __webpack_require__(42);
+	var _content = __webpack_require__(44);
+	
+	var _content2 = _interopRequireDefault(_content);
+	
+	var _user = __webpack_require__(64);
+	
+	var _user2 = _interopRequireDefault(_user);
+	
+	var _node = __webpack_require__(69);
+	
+	var _node2 = _interopRequireDefault(_node);
+	
+	var _vueResource = __webpack_require__(74);
 	
 	var _vueResource2 = _interopRequireDefault(_vueResource);
 	
-	var _filter = __webpack_require__(66);
+	var _filter = __webpack_require__(98);
 	
 	var _filter2 = _interopRequireDefault(_filter);
 	
@@ -79,6 +98,7 @@
 	// 挂载路由
 	_vue2.default.use(_vueRouter2.default);
 	_vue2.default.use(_vueResource2.default);
+	_vue2.default.config.debug = false;
 	// 初始化路由
 	var router = new _vueRouter2.default();
 	(0, _keys2.default)(_filter2.default).forEach(function (k) {
@@ -87,7 +107,23 @@
 	
 	router.map({
 	  '/list': {
+	    name: 'list',
 	    component: _list2.default
+	  },
+	  '/': {
+	    component: _list2.default
+	  },
+	  '/content/:id/': {
+	    name: 'content',
+	    component: _content2.default
+	  },
+	  '/user/:username/': {
+	    name: 'user',
+	    component: _user2.default
+	  },
+	  '/node': {
+	    name: 'node',
+	    component: _node2.default
 	  }
 	});
 	
@@ -98,43 +134,43 @@
 	router.start(_App2.default, '#app');
 
 /***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(2), __esModule: true };
-
-/***/ },
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(3);
-	module.exports = __webpack_require__(9).Object.keys;
+	module.exports = { "default": __webpack_require__(3), __esModule: true };
 
 /***/ },
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
+	__webpack_require__(4);
+	module.exports = __webpack_require__(10).Object.keys;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// 19.1.2.14 Object.keys(O)
-	var toObject = __webpack_require__(4);
+	var toObject = __webpack_require__(5);
 	
-	__webpack_require__(6)('keys', function($keys){
+	__webpack_require__(7)('keys', function($keys){
 	  return function keys(it){
 	    return $keys(toObject(it));
 	  };
 	});
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.13 ToObject(argument)
-	var defined = __webpack_require__(5);
+	var defined = __webpack_require__(6);
 	module.exports = function(it){
 	  return Object(defined(it));
 	};
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports) {
 
 	// 7.2.1 RequireObjectCoercible(argument)
@@ -144,13 +180,13 @@
 	};
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// most Object methods by ES6 should accept primitives
-	var $export = __webpack_require__(7)
-	  , core    = __webpack_require__(9)
-	  , fails   = __webpack_require__(12);
+	var $export = __webpack_require__(8)
+	  , core    = __webpack_require__(10)
+	  , fails   = __webpack_require__(13);
 	module.exports = function(KEY, exec){
 	  var fn  = (core.Object || {})[KEY] || Object[KEY]
 	    , exp = {};
@@ -159,12 +195,12 @@
 	};
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var global    = __webpack_require__(8)
-	  , core      = __webpack_require__(9)
-	  , ctx       = __webpack_require__(10)
+	var global    = __webpack_require__(9)
+	  , core      = __webpack_require__(10)
+	  , ctx       = __webpack_require__(11)
 	  , PROTOTYPE = 'prototype';
 	
 	var $export = function(type, name, source){
@@ -210,7 +246,7 @@
 	module.exports = $export;
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports) {
 
 	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
@@ -219,18 +255,18 @@
 	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports) {
 
 	var core = module.exports = {version: '1.2.6'};
 	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// optional / simple context binding
-	var aFunction = __webpack_require__(11);
+	var aFunction = __webpack_require__(12);
 	module.exports = function(fn, that, length){
 	  aFunction(fn);
 	  if(that === undefined)return fn;
@@ -251,7 +287,7 @@
 	};
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -260,7 +296,7 @@
 	};
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports) {
 
 	module.exports = function(exec){
@@ -272,7 +308,7 @@
 	};
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/*!
@@ -9703,10 +9739,10 @@
 	}
 	
 	module.exports = Vue;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -9803,7 +9839,7 @@
 
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -12342,12 +12378,13 @@
 	module.exports = Router;
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(17)
-	__vue_template__ = __webpack_require__(21)
+	__webpack_require__(18)
+	__vue_script__ = __webpack_require__(22)
+	__vue_template__ = __webpack_require__(28)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -12364,16 +12401,16 @@
 	})()}
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(18);
+	var content = __webpack_require__(19);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(20)(content, {});
+	var update = __webpack_require__(21)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -12390,21 +12427,21 @@
 	}
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(19)();
+	exports = module.exports = __webpack_require__(20)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "\nbody{\n\tfont-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif;\n\tfont-size: 14px;\n\tline-height: 1.5;\n\tcolor: #333;\n\tbackground-color: #fff;\n}\n", "", {"version":3,"sources":["/./src/components/App.vue?3fd80719"],"names":[],"mappings":";AAOA;CACA,wHAAA;CACA,gBAAA;CACA,iBAAA;CACA,YAAA;CACA,uBAAA;CACA","file":"App.vue","sourcesContent":["<template>\n    <router-view\n      keep-alive\n    </router-view>\n</template>\n\n<style>\n\tbody{\n\t\tfont-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif;\n\t\tfont-size: 14px;\n\t\tline-height: 1.5;\n\t\tcolor: #333;\n\t\tbackground-color: #fff;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\nbody{\n\tfont-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif;\n\tfont-size: 14px;\n\tline-height: 1.5;\n\tcolor: #333;\n\tbackground-color: #fff;\n}\n", "", {"version":3,"sources":["/./src/components/App.vue?8aceba5a"],"names":[],"mappings":";AAeA;CACA,wHAAA;CACA,gBAAA;CACA,iBAAA;CACA,YAAA;CACA,uBAAA;CACA","file":"App.vue","sourcesContent":["<template>\n\t<nav-con></nav-con>\n    <router-view\n      keep-alive>\n    </router-view>\n</template>\n<script>\n\timport navCon from '../components/Nav.vue'\n\texport default {\n\t\tcomponents:{\n\t\t\tnavCon\n\t\t}\n\t}\n</script>\n<style>\n\tbody{\n\t\tfont-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif;\n\t\tfont-size: 14px;\n\t\tline-height: 1.5;\n\t\tcolor: #333;\n\t\tbackground-color: #fff;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports) {
 
 	/*
@@ -12460,7 +12497,7 @@
 
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -12682,205 +12719,54 @@
 
 
 /***/ },
-/* 21 */
-/***/ function(module, exports) {
-
-	module.exports = "\n    <router-view\n      keep-alive\n    </router-view>\n</template>";
-
-/***/ },
 /* 22 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __vue_script__, __vue_template__
-	__webpack_require__(23)
-	__vue_script__ = __webpack_require__(25)
-	__vue_template__ = __webpack_require__(41)
-	module.exports = __vue_script__ || {}
-	if (module.exports.__esModule) module.exports = module.exports.default
-	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
-	  if (!hotAPI.compatible) return
-	  var id = "/Users/Veto/Documents/workspace/V2EX-Mobile/src/views/list.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, __vue_template__)
-	  }
-	})()}
-
-/***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(24);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(20)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-40d5e027&file=list.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./list.vue", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-40d5e027&file=list.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./list.vue");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 24 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(19)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "\n#wrap{\n\theight: auto;\n}\n.nav-tabs{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n}\n.nav>li{\n\t-webkit-box-flex:1;\n\t-webkit-flex-grow:1;\n\t    -ms-flex-positive:1;\n\t        flex-grow:1;\n\t-webkit-box-pack:center;\n\t-webkit-justify-content:center;\n\t    -ms-flex-pack:center;\n\t        justify-content:center;\n}\n.active{\n\tpadding-top: 0;\n\tpadding-bottom: 10px;\n\tbackground-color: #fff;\n\tborder: none;\n\tborder-bottom: 2px solid #333;\n}\n.nav>li>span{\n\tpadding: 5px;\n\tfont-size: 16px;\n}\n\n", "", {"version":3,"sources":["/./src/views/list.vue?3fcd0f77"],"names":[],"mappings":";AA4EA;CACA,aAAA;CACA;AACA;CACA,qBAAA;CAAA,sBAAA;CAAA,qBAAA;CAAA,cAAA;CACA;AACA;CACA,mBAAA;CAAA,oBAAA;KAAA,oBAAA;SAAA,YAAA;CACA,wBAAA;CAAA,+BAAA;KAAA,qBAAA;SAAA,uBAAA;CACA;AACA;CACA,eAAA;CACA,qBAAA;CACA,uBAAA;CACA,aAAA;CACA,8BAAA;CACA;AACA;CACA,aAAA;CACA,gBAAA;CACA","file":"list.vue","sourcesContent":["<template>\n    <div>\n    \t<!--公共导航栏-->\n        <nav-con></nav-con>\n        <div id=\"wrap\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12 col-md-9\">\n\t\t\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t                <item-con :show=\"!showLoad\" v-ref:listItem></item-con>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n        </div>\n    </div>\n</template>\n\n<script>\nimport navCon from '../components/Nav.vue'\nimport itemCon from '../components/Item.vue'\nimport loadCon from '../components/loading.vue'\n\nexport default {\n\n  name: 'List',\n\n  data(){\n  \treturn{\n  \t\tnavActive:true,\n  \t\tshowLoad:false\n  \t}\n  },\n\n  components:{\n    navCon,\n    itemCon,\n    loadCon\n  },\n\n  ready(){\n  \tthis.getLatest()\n  },\n\n\n  methods:{\n  \t//获取最新列表\n  \tgetLatest (){\n  \t\tvar _self = this\n  \t\t_self.showLoad = true\n  \t    _self.$http.get('https://www.v2ex.com/api/topics/latest.json?page=2&page_size=20',(data)=> {\n  \t        if(data){\n  \t            _self.$refs.listitem.items = data\n  \t            setTimeout(function(){\n  \t            \t_self.showLoad = false\n  \t            }, 1000)\n  \t        }\n  \t    })\n  \t},\n  \t//获取热门列表\n  \tgetHot(){\n  \t\tvar _self = this\n  \t\t_self.showLoad = true\n  \t\t_self.$http.get('https://www.v2ex.com/api/topics/hot.json',(data)=>{\n  \t\t\tif (data) {\n  \t\t\t\t_self.$refs.listitem.items = data\n  \t\t\t\tsetTimeout(function(){\n  \t            \t_self.showLoad = false\n  \t            }, 1000)\n  \t\t\t};\n  \t\t})\n  \t}\n  }\n\n}\n</script>\n<style>\n\t#wrap{\n\t\theight: auto;\n\t}\n\t.nav-tabs{\n\t\tdisplay: flex;\n\t}\n\t.nav>li{\n\t\tflex-grow:1;\n\t\tjustify-content:center;\n\t}\n\t.active{\n\t\tpadding-top: 0;\n\t\tpadding-bottom: 10px;\n\t\tbackground-color: #fff;\n\t\tborder: none;\n\t\tborder-bottom: 2px solid #333;\n\t}\n\t.nav>li>span{\n\t\tpadding: 5px;\n\t\tfont-size: 16px;\n\t}\n\n</style>\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-
-
-/***/ },
-/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 	
-	var _Nav = __webpack_require__(26);
+	var _Nav = __webpack_require__(23);
 	
 	var _Nav2 = _interopRequireDefault(_Nav);
-	
-	var _Item = __webpack_require__(31);
-	
-	var _Item2 = _interopRequireDefault(_Item);
-	
-	var _loading = __webpack_require__(36);
-	
-	var _loading2 = _interopRequireDefault(_loading);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	
-	  name: 'List',
-	
-	  data: function data() {
-	    return {
-	      navActive: true,
-	      showLoad: false
-	    };
-	  },
-	
-	  components: {
-	    navCon: _Nav2.default,
-	    itemCon: _Item2.default,
-	    loadCon: _loading2.default
-	  },
-	
-	  ready: function ready() {
-	    this.getLatest();
-	  },
-	
-	  methods: {
-	    //获取最新列表
-	
-	    getLatest: function getLatest() {
-	      var _self = this;
-	      _self.showLoad = true;
-	      _self.$http.get('https://www.v2ex.com/api/topics/latest.json?page=2&page_size=20', function (data) {
-	        if (data) {
-	          _self.$refs.listitem.items = data;
-	          setTimeout(function () {
-	            _self.showLoad = false;
-	          }, 1000);
-	        }
-	      });
-	    },
-	
-	    //获取热门列表
-	    getHot: function getHot() {
-	      var _self = this;
-	      _self.showLoad = true;
-	      _self.$http.get('https://www.v2ex.com/api/topics/hot.json', function (data) {
-	        if (data) {
-	          _self.$refs.listitem.items = data;
-	          setTimeout(function () {
-	            _self.showLoad = false;
-	          }, 1000);
-	        };
-	      });
-	    }
-	  }
-	
+		components: {
+			navCon: _Nav2.default
+		}
 	};
 	// </script>
 	// <style>
-	// 	#wrap{
-	// 		height: auto;
-	// 	}
-	// 	.nav-tabs{
-	// 		display: flex;
-	// 	}
-	// 	.nav>li{
-	// 		flex-grow:1;
-	// 		justify-content:center;
-	// 	}
-	// 	.active{
-	// 		padding-top: 0;
-	// 		padding-bottom: 10px;
+	// 	body{
+	// 		font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif;
+	// 		font-size: 14px;
+	// 		line-height: 1.5;
+	// 		color: #333;
 	// 		background-color: #fff;
-	// 		border: none;
-	// 		border-bottom: 2px solid #333;
 	// 	}
-	// 	.nav>li>span{
-	// 		padding: 5px;
-	// 		font-size: 16px;
-	// 	}
-
 	// </style>
 
 	/* generated by vue-loader */
 	// <template>
-	//     <div>
-	//     	<!--公共导航栏-->
-	//         <nav-con></nav-con>
-	//         <div id="wrap">
-	// 			<div class="container">
-	// 				<div class="row">
-	// 					<div class="col-xs-12 col-md-9">
-	// 						<load-con :show="showLoad"></load-con>
-	// 		                <item-con :show="!showLoad" v-ref:listItem></item-con>
-	// 					</div>
-	// 				</div>
-	// 			</div>
-	//         </div>
-	//     </div>
+	// 	<nav-con></nav-con>
+	//     <router-view
+	//       keep-alive>
+	//     </router-view>
 	// </template>
-
 	// <script>
 
 /***/ },
-/* 26 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(27)
-	__vue_script__ = __webpack_require__(29)
-	__vue_template__ = __webpack_require__(30)
+	__webpack_require__(24)
+	__vue_script__ = __webpack_require__(26)
+	__vue_template__ = __webpack_require__(27)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -12897,16 +12783,16 @@
 	})()}
 
 /***/ },
-/* 27 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(28);
+	var content = __webpack_require__(25);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(20)(content, {});
+	var update = __webpack_require__(21)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -12923,62 +12809,37 @@
 	}
 
 /***/ },
-/* 28 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(19)();
+	exports = module.exports = __webpack_require__(20)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "\n.gloable-nav{\n\twidth: 100%;\n\theight:auto;\n\ttop:0;\n}\n#bs-example-navbar-collapse-1>ul>li>a{\n\ttext-align: center;\n\tfont-size: 18px;\n}\n", "", {"version":3,"sources":["/./src/components/Nav.vue?c448689c"],"names":[],"mappings":";AAoDA;CACA,YAAA;CACA,YAAA;CACA,MAAA;CACA;AACA;CACA,mBAAA;CACA,gBAAA;CACA","file":"Nav.vue","sourcesContent":["<template>\n<div class=\"gloable-nav\">\n\t<nav class=\"navbar navbar-default\" role=\"banner\">\n        <div class=\"container\">\n            <div class=\"navbar-header page-scroll\">\n                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n                    <span class=\"sr-only\">Toggle navigation</span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand page-scroll\">V2EX</a>\n            </div>\n            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n                <ul class=\"nav navbar-nav navbar-right\">\n                    <li><a @click=\"toggleLatest\">最新</a></li>\n                    <li><a @click=\"toggleHot\">最热</a></li>\n                    <li><a>分类</a></li>\n                    <li><a>节点</a></li>\n                    <li><a>提醒</a></li>\n                    <li><a>个人</a></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n</div>\n</template>\n<script>\n\texport default {\n\t\tname:'nav',\n\n\t\tdata(){\n\t\t\treturn{\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\ttoggleCollapse(){\n\t\t\t\t$(\"#bs-example-navbar-collapse-1\").collapse('hide')\n\t\t\t},\n\t\t\ttoggleLatest(){\n\t\t\t\tthis.toggleCollapse()\n\t\t\t\tthis.$parent.getLatest()\n\t\t\t},\n\t\t\ttoggleHot(){\n\t\t\t\tthis.toggleCollapse()\n\t\t\t\tthis.$parent.getHot()\n\t\t\t}\n\t\t}\n\t}\n</script>\n<style>\n\t.gloable-nav{\n\t\twidth: 100%;\n\t\theight:auto;\n\t\ttop:0;\n\t}\n\t#bs-example-navbar-collapse-1>ul>li>a{\n\t\ttext-align: center;\n\t\tfont-size: 18px;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.gloable-nav{\n\twidth: 100%;\n\theight:auto;\n\ttop:0;\n}\n#bs-example-navbar-collapse-1>ul>li>a{\n\ttext-align: center;\n\tfont-size: 18px;\n}\n.back{\n\tline-height: 50px;\n\tmargin-left: 10px;\n}\n", "", {"version":3,"sources":["/./src/components/Nav.vue?0a7c2554"],"names":[],"mappings":";AA2DA;CACA,YAAA;CACA,YAAA;CACA,MAAA;CACA;AACA;CACA,mBAAA;CACA,gBAAA;CACA;AACA;CACA,kBAAA;CACA,kBAAA;CACA","file":"Nav.vue","sourcesContent":["<template>\n<div class=\"gloable-nav\">\n\t<nav class=\"navbar navbar-default\" role=\"banner\">\n        <div class=\"container\">\n            <div class=\"navbar-header page-scroll\">\n                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n                    <span class=\"sr-only\">Toggle navigation</span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand page-scroll\" v-show=\"isIndex\">V2EX</a>\n                <span class=\"glyphicon glyphicon glyphicon-arrow-left back\" @click=\"Back()\" v-show=\"!isIndex\"></span>\n            </div>\n            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n                <ul class=\"nav navbar-nav navbar-right\">\n                    <li class=\"active\"><a  v-link=\"'list'\" @click=\"toggleLatest\">最新</a></li>\n                    <li><a  v-link=\"'list'\" @click=\"toggleHot\">最热</a></li>\n                    <li><a  v-link=\"'node'\" @click=\"toggleNode\">节点</a></li>\n                    <li><a>个人</a></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n</div>\n</template>\n<script>\n\timport router from 'vue-router'\n\texport default {\n\t\tname:'nav',\n\n\t\tmethods:{\n\t\t\ttoggleCollapse(){\n\t\t\t\t$(\"#bs-example-navbar-collapse-1\").collapse('hide')\n\t\t\t},\n\t\t\ttoggleLatest(){\n\t\t\t\tthis.toggleCollapse()\n\t\t\t\t// this.$parent.getLatest()\n\t\t\t},\n\t\t\ttoggleHot(){\n\t\t\t\tthis.toggleCollapse()\n\t\t\t\t// this.$parent.getHot()\n\t\t\t},\n\t\t\ttoggleNode(){\n\t\t\t\tthis.toggleCollapse()\n\t\t\t},\n\t\t\tBack(){\n\t\t\t\thistory.back(-1)\n\t\t\t}\n\t\t},\n\n\t\tcomputed:{\n\t\t\tisIndex() {\n\t\t\t\treturn this.$route.name === 'list'?true:false\n\t\t\t}\n\t\t}\n\t}\n</script>\n<style>\n\t.gloable-nav{\n\t\twidth: 100%;\n\t\theight:auto;\n\t\ttop:0;\n\t}\n\t#bs-example-navbar-collapse-1>ul>li>a{\n\t\ttext-align: center;\n\t\tfont-size: 18px;\n\t}\n\t.back{\n\t\tline-height: 50px;\n\t\tmargin-left: 10px;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
 
 /***/ },
-/* 29 */
-/***/ function(module, exports) {
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	// <template>
-	// <div class="gloable-nav">
-	// 	<nav class="navbar navbar-default" role="banner">
-	//         <div class="container">
-	//             <div class="navbar-header page-scroll">
-	//                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	//                     <span class="sr-only">Toggle navigation</span>
-	//                     <span class="icon-bar"></span>
-	//                     <span class="icon-bar"></span>
-	//                     <span class="icon-bar"></span>
-	//                 </button>
-	//                 <a class="navbar-brand page-scroll">V2EX</a>
-	//             </div>
-	//             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	//                 <ul class="nav navbar-nav navbar-right">
-	//                     <li><a @click="toggleLatest">最新</a></li>
-	//                     <li><a @click="toggleHot">最热</a></li>
-	//                     <li><a>分类</a></li>
-	//                     <li><a>节点</a></li>
-	//                     <li><a>提醒</a></li>
-	//                     <li><a>个人</a></li>
-	//                 </ul>
-	//             </div>
-	//         </div>
-	//     </nav>
-	// </div>
-	// </template>
-	// <script>
+	
+	var _vueRouter = __webpack_require__(16);
+	
+	var _vueRouter2 = _interopRequireDefault(_vueRouter);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	exports.default = {
 		name: 'nav',
-	
-		data: function data() {
-			return {};
-		},
 	
 		methods: {
 			toggleCollapse: function toggleCollapse() {
@@ -12986,11 +12847,23 @@
 			},
 			toggleLatest: function toggleLatest() {
 				this.toggleCollapse();
-				this.$parent.getLatest();
+				// this.$parent.getLatest()
 			},
 			toggleHot: function toggleHot() {
 				this.toggleCollapse();
-				this.$parent.getHot();
+				// this.$parent.getHot()
+			},
+			toggleNode: function toggleNode() {
+				this.toggleCollapse();
+			},
+			Back: function Back() {
+				history.back(-1);
+			}
+		},
+	
+		computed: {
+			isIndex: function isIndex() {
+				return this.$route.name === 'list' ? true : false;
 			}
 		}
 	};
@@ -13005,24 +12878,252 @@
 	// 		text-align: center;
 	// 		font-size: 18px;
 	// 	}
+	// 	.back{
+	// 		line-height: 50px;
+	// 		margin-left: 10px;
+	// 	}
 	// </style>
 
 	/* generated by vue-loader */
+	// <template>
+	// <div class="gloable-nav">
+	// 	<nav class="navbar navbar-default" role="banner">
+	//         <div class="container">
+	//             <div class="navbar-header page-scroll">
+	//                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	//                     <span class="sr-only">Toggle navigation</span>
+	//                     <span class="icon-bar"></span>
+	//                     <span class="icon-bar"></span>
+	//                     <span class="icon-bar"></span>
+	//                 </button>
+	//                 <a class="navbar-brand page-scroll" v-show="isIndex">V2EX</a>
+	//                 <span class="glyphicon glyphicon glyphicon-arrow-left back" @click="Back()" v-show="!isIndex"></span>
+	//             </div>
+	//             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	//                 <ul class="nav navbar-nav navbar-right">
+	//                     <li class="active"><a  v-link="'list'" @click="toggleLatest">最新</a></li>
+	//                     <li><a  v-link="'list'" @click="toggleHot">最热</a></li>
+	//                     <li><a  v-link="'node'" @click="toggleNode">节点</a></li>
+	//                     <li><a>个人</a></li>
+	//                 </ul>
+	//             </div>
+	//         </div>
+	//     </nav>
+	// </div>
+	// </template>
+	// <script>
+
+/***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"gloable-nav\">\n\t<nav class=\"navbar navbar-default\" role=\"banner\">\n        <div class=\"container\">\n            <div class=\"navbar-header page-scroll\">\n                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n                    <span class=\"sr-only\">Toggle navigation</span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand page-scroll\" v-show=\"isIndex\">V2EX</a>\n                <span class=\"glyphicon glyphicon glyphicon-arrow-left back\" @click=\"Back()\" v-show=\"!isIndex\"></span>\n            </div>\n            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n                <ul class=\"nav navbar-nav navbar-right\">\n                    <li class=\"active\"><a  v-link=\"'list'\" @click=\"toggleLatest\">最新</a></li>\n                    <li><a  v-link=\"'list'\" @click=\"toggleHot\">最热</a></li>\n                    <li><a  v-link=\"'node'\" @click=\"toggleNode\">节点</a></li>\n                    <li><a>个人</a></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n</div>\n";
+
+/***/ },
+/* 28 */
+/***/ function(module, exports) {
+
+	module.exports = "\n\t<nav-con></nav-con>\n    <router-view\n      keep-alive>\n    </router-view>\n";
+
+/***/ },
+/* 29 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(30)
+	__vue_script__ = __webpack_require__(32)
+	__vue_template__ = __webpack_require__(43)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/Users/Veto/Documents/workspace/V2EX-Mobile/src/views/list.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
 
 /***/ },
 /* 30 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "\n<div class=\"gloable-nav\">\n\t<nav class=\"navbar navbar-default\" role=\"banner\">\n        <div class=\"container\">\n            <div class=\"navbar-header page-scroll\">\n                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n                    <span class=\"sr-only\">Toggle navigation</span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand page-scroll\">V2EX</a>\n            </div>\n            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n                <ul class=\"nav navbar-nav navbar-right\">\n                    <li><a @click=\"toggleLatest\">最新</a></li>\n                    <li><a @click=\"toggleHot\">最热</a></li>\n                    <li><a>分类</a></li>\n                    <li><a>节点</a></li>\n                    <li><a>提醒</a></li>\n                    <li><a>个人</a></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n</div>\n";
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(31);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(21)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-40d5e027&file=list.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./list.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-40d5e027&file=list.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./list.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
 /* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
+	exports = module.exports = __webpack_require__(20)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n.wrap{\n\theight: auto;\n}\n.nav-tabs{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n}\n.nav>li{\n\t-webkit-box-flex:1;\n\t-webkit-flex-grow:1;\n\t    -ms-flex-positive:1;\n\t        flex-grow:1;\n\t-webkit-box-pack:center;\n\t-webkit-justify-content:center;\n\t    -ms-flex-pack:center;\n\t        justify-content:center;\n}\n.nav>li>span{\n\tpadding: 5px;\n\tfont-size: 16px;\n}\n\n", "", {"version":3,"sources":["/./src/views/list.vue?114555e2"],"names":[],"mappings":";AA0FA;CACA,aAAA;CACA;AACA;CACA,qBAAA;CAAA,sBAAA;CAAA,qBAAA;CAAA,cAAA;CACA;AACA;CACA,mBAAA;CAAA,oBAAA;KAAA,oBAAA;SAAA,YAAA;CACA,wBAAA;CAAA,+BAAA;KAAA,qBAAA;SAAA,uBAAA;CACA;AACA;CACA,aAAA;CACA,gBAAA;CACA","file":"list.vue","sourcesContent":["<template>\n    \t<!--公共导航栏-->\n    <div class=\"wrap\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12 col-md-9\">\n\t\t\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t        <item-con :show=\"!showLoad\" v-ref:listItem></item-con>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n    </div>\n  </div>\n</template>\n\n<script>\nimport itemCon from '../components/Item.vue'\nimport loadCon from '../components/loading.vue'\n\nexport default {\n\n  name: 'List',\n\n  data(){\n  \treturn{\n  \t\tnavActive:true,\n  \t\tshowLoad:false,\n      node:sessionStorage.node_name\n  \t}\n  },\n\n  components:{\n    itemCon,\n    loadCon\n  },\n\n  ready(){\n  \tthis.getLatest()\n  },\n\n\n  methods:{\n  \t//获取最新列表\n  \tgetLatest (){\n  \t\tvar _self = this\n      sessionStorage.node_name = '最新'\n  \t\t_self.showLoad = true\n  \t  _self.$http.get('https://www.v2ex.com/api/topics/latest.json',(data)=> {\n  \t        if(data){\n  \t            _self.$refs.listitem.items = data\n  \t            setTimeout(function(){\n  \t            \t_self.showLoad = false\n  \t            }, 1000)\n  \t        }\n  \t    })\n  \t},\n  \t//获取热门列表\n  \tgetHot(){\n  \t\tvar _self = this\n      sessionStorage.node_name = '最热'\n  \t\t_self.showLoad = true\n  \t\t_self.$http.get('https://www.v2ex.com/api/topics/hot.json',(data)=>{\n  \t\t\tif (data) {\n  \t\t\t\t_self.$refs.listitem.items = data\n  \t\t\t\tsetTimeout(function(){\n  \t            \t_self.showLoad = false\n  \t            }, 1000)\n  \t\t\t};\n  \t\t})\n  \t},\n    //获取相关节点列表\n    getListByNode(nodeid,nodename){\n        var _self = this\n        sessionStorage.node_name = nodename\n        var params = $.param({node_id:nodeid})\n        _self.showLoad = true\n        _self.$http.get('https://www.v2ex.com/api/topics/show.json?'+params,(data)=> {\n              if(data){\n                  _self.$refs.listitem.items = data\n                  setTimeout(function(){\n                    _self.showLoad = false\n                  }, 1000)\n              }\n          })\n    }\n  }\n\n}\n</script>\n<style>\n\t.wrap{\n\t\theight: auto;\n\t}\n\t.nav-tabs{\n\t\tdisplay: flex;\n\t}\n\t.nav>li{\n\t\tflex-grow:1;\n\t\tjustify-content:center;\n\t}\n\t.nav>li>span{\n\t\tpadding: 5px;\n\t\tfont-size: 16px;\n\t}\n\n</style>\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _Item = __webpack_require__(33);
+	
+	var _Item2 = _interopRequireDefault(_Item);
+	
+	var _loading = __webpack_require__(38);
+	
+	var _loading2 = _interopRequireDefault(_loading);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// <template>
+	//     	<!--公共导航栏-->
+	//     <div class="wrap">
+	// 			<div class="container">
+	// 				<div class="row">
+	// 					<div class="col-xs-12 col-md-9">
+	// 						<load-con :show="showLoad"></load-con>
+	// 		        <item-con :show="!showLoad" v-ref:listItem></item-con>
+	// 					</div>
+	// 				</div>
+	// 			</div>
+	//     </div>
+	//   </div>
+	// </template>
+	
+	// <script>
+	exports.default = {
+	
+	    name: 'List',
+	
+	    data: function data() {
+	        return {
+	            navActive: true,
+	            showLoad: false,
+	            node: sessionStorage.node_name
+	        };
+	    },
+	
+	    components: {
+	        itemCon: _Item2.default,
+	        loadCon: _loading2.default
+	    },
+	
+	    ready: function ready() {
+	        this.getLatest();
+	    },
+	
+	    methods: {
+	        //获取最新列表
+	
+	        getLatest: function getLatest() {
+	            var _self = this;
+	            sessionStorage.node_name = '最新';
+	            _self.showLoad = true;
+	            _self.$http.get('https://www.v2ex.com/api/topics/latest.json', function (data) {
+	                if (data) {
+	                    _self.$refs.listitem.items = data;
+	                    setTimeout(function () {
+	                        _self.showLoad = false;
+	                    }, 1000);
+	                }
+	            });
+	        },
+	
+	        //获取热门列表
+	        getHot: function getHot() {
+	            var _self = this;
+	            sessionStorage.node_name = '最热';
+	            _self.showLoad = true;
+	            _self.$http.get('https://www.v2ex.com/api/topics/hot.json', function (data) {
+	                if (data) {
+	                    _self.$refs.listitem.items = data;
+	                    setTimeout(function () {
+	                        _self.showLoad = false;
+	                    }, 1000);
+	                };
+	            });
+	        },
+	
+	        //获取相关节点列表
+	        getListByNode: function getListByNode(nodeid, nodename) {
+	            var _self = this;
+	            sessionStorage.node_name = nodename;
+	            var params = $.param({ node_id: nodeid });
+	            _self.showLoad = true;
+	            _self.$http.get('https://www.v2ex.com/api/topics/show.json?' + params, function (data) {
+	                if (data) {
+	                    _self.$refs.listitem.items = data;
+	                    setTimeout(function () {
+	                        _self.showLoad = false;
+	                    }, 1000);
+	                }
+	            });
+	        }
+	    }
+	
+	};
+	// </script>
+	// <style>
+	// 	.wrap{
+	// 		height: auto;
+	// 	}
+	// 	.nav-tabs{
+	// 		display: flex;
+	// 	}
+	// 	.nav>li{
+	// 		flex-grow:1;
+	// 		justify-content:center;
+	// 	}
+	// 	.nav>li>span{
+	// 		padding: 5px;
+	// 		font-size: 16px;
+	// 	}
+
+	// </style>
+
+	/* generated by vue-loader */
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var __vue_script__, __vue_template__
-	__webpack_require__(32)
-	__vue_script__ = __webpack_require__(34)
-	__vue_template__ = __webpack_require__(35)
+	__webpack_require__(34)
+	__vue_script__ = __webpack_require__(36)
+	__vue_template__ = __webpack_require__(37)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -13039,16 +13140,16 @@
 	})()}
 
 /***/ },
-/* 32 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(33);
+	var content = __webpack_require__(35);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(20)(content, {});
+	var update = __webpack_require__(21)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -13065,21 +13166,21 @@
 	}
 
 /***/ },
-/* 33 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(19)();
+	exports = module.exports = __webpack_require__(20)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "\n.steam-list{\n\tmargin-top: 10px;\n}\n.man-picture{\n\tpadding: 5px;\n\tmargin-right: 10px;\n}\n.list-inline{\n\tmargin: 0;\n\tdisplay: inline-block;\n}\n.list-inline>li{\n\tpadding: 0;\n\tdisplay: inline-block;\n}\n.steam-list-item{\n\twidth: 100%;\n\tdisplay: -webkit-inline-box;\n\tdisplay: -webkit-inline-flex;\n\tdisplay: -ms-inline-flexbox;\n\tdisplay: inline-flex;\n\tborder-bottom: 1px solid #eee;\n\tpadding: 5px 0;\n}\nul.list-inline.author {\n    font-size: 13px;\n    color: #999;\n}\n\n", "", {"version":3,"sources":["/./src/components/Item.vue?4d5e900c"],"names":[],"mappings":";AAmCA;CACA,iBAAA;CACA;AACA;CACA,aAAA;CACA,mBAAA;CACA;AACA;CACA,UAAA;CACA,sBAAA;CACA;AACA;CACA,WAAA;CACA,sBAAA;CACA;AACA;CACA,YAAA;CACA,4BAAA;CAAA,6BAAA;CAAA,4BAAA;CAAA,qBAAA;CACA,8BAAA;CACA,eAAA;CACA;AACA;IACA,gBAAA;IACA,YAAA;CACA","file":"Item.vue","sourcesContent":["<template>\n<div class=\"steam-list\" v-for=\"item in items\" v-show=\"show\">\n\t<section class=\"steam-list-item\">\n\t\t<div class=\"man-picture\">\n\t\t\t<img :src=\"item.member.avatar_mini\">\n\t\t</div>\n\t\t<div class=\"summary\">\n\t\t\t<div class=\"title\">{{item.title}}</div>\n\t\t\t<ul class=\"list-inline tags\">\n\t\t\t\t<li class=\"tag\">{{item.node.title}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t</ul>\n\t\t\t<ul class=\"list-inline author\">\n\t\t\t\t<li class=\"author\">{{item.member.username}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t<li class=\"last-modify-time\">{{item.last_modified | getLastTimeStr true}}回复</li>\n\t\t\t</ul>\n\t\t</div>\n\t</section>\n</div>\n</template>\n<script>\n\texport default {\n\t\tname:\"Item\",\n\n\t\tprops:['show'],\n\n\t\tdata(){\n\t\t\treturn {\n\t\t\t\titems:{}\n\t\t\t}\n\t\t}\n\t}\n</script>\n<style>\n\t.steam-list{\n\t\tmargin-top: 10px;\n\t}\n\t.man-picture{\n\t\tpadding: 5px;\n\t\tmargin-right: 10px;\n\t}\n\t.list-inline{\n\t\tmargin: 0;\n\t\tdisplay: inline-block;\n\t}\n\t.list-inline>li{\n\t\tpadding: 0;\n\t\tdisplay: inline-block;\n\t}\n\t.steam-list-item{\n\t\twidth: 100%;\n\t\tdisplay: inline-flex;\n\t\tborder-bottom: 1px solid #eee;\n\t\tpadding: 5px 0;\n\t}\n\tul.list-inline.author {\n\t    font-size: 13px;\n\t    color: #999;\n\t}\n\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.steam-list{\n\tmargin-top: 10px;\n}\n.man-picture{\n\tpadding: 5px;\n\tmargin-right: 10px;\n}\n.list-inline{\n\tmargin: 0;\n\tdisplay: inline-block;\n}\n.list-inline>li{\n\tpadding: 0;\n\tdisplay: inline-block;\n}\n.steam-list-item{\n\twidth: 100%;\n\tdisplay: -webkit-inline-box;\n\tdisplay: -webkit-inline-flex;\n\tdisplay: -ms-inline-flexbox;\n\tdisplay: inline-flex;\n\tborder-bottom: 1px solid #eee;\n\tpadding: 5px 0;\n}\n.title{\n\tfont-size: 17px;\n}\nul.list-inline.author {\n    font-size: 13px;\n    color: #999;\n}\n\n", "", {"version":3,"sources":["/./src/components/Item.vue?08f50466"],"names":[],"mappings":";AAyCA;CACA,iBAAA;CACA;AACA;CACA,aAAA;CACA,mBAAA;CACA;AACA;CACA,UAAA;CACA,sBAAA;CACA;AACA;CACA,WAAA;CACA,sBAAA;CACA;AACA;CACA,YAAA;CACA,4BAAA;CAAA,6BAAA;CAAA,4BAAA;CAAA,qBAAA;CACA,8BAAA;CACA,eAAA;CACA;AACA;CACA,gBAAA;CACA;AACA;IACA,gBAAA;IACA,YAAA;CACA","file":"Item.vue","sourcesContent":["<template>\n<div class=\"steam-list\" v-for=\"item in items\" v-show=\"show\">\n\t<section class=\"steam-list-item\">\n\t\t<div class=\"man-picture\">\n\t\t\t<img :src=\"item.member.avatar_mini\">\n\t\t</div>\n\t\t<div class=\"summary\">\n\t\t\t<div class=\"title\" v-link=\"{ name: 'content',params: { id: item.id}}\">{{item.title}}</div>\n\t\t\t<ul class=\"list-inline tags\">\n\t\t\t\t<li class=\"tag\" @click=\"getListByNode(item.node.id,item.node.title)\">{{item.node.title}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t</ul>\n\t\t\t<ul class=\"list-inline author\">\n\t\t\t\t<li class=\"author\" v-link=\"{ name: 'user',params: { username: item.member.username}}\">{{item.member.username}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t<li class=\"last-modify-time\">{{item.last_modified | getLastTimeStr true}}回复</li>\n\t\t\t</ul>\n\t\t</div>\n\t</section>\n</div>\n</template>\n<script>\n\texport default {\n\t\tname:\"Item\",\n\n\t\tprops:['show'],\n\n\t\tdata(){\n\t\t\treturn {\n\t\t\t\titems:Object\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\tgetListByNode(node_id,node_name){\n\t\t\t\tthis.$parent.getListByNode(node_id,node_name)\n\t\t\t}\n\t\t}\n\t}\n</script>\n<style>\n\t.steam-list{\n\t\tmargin-top: 10px;\n\t}\n\t.man-picture{\n\t\tpadding: 5px;\n\t\tmargin-right: 10px;\n\t}\n\t.list-inline{\n\t\tmargin: 0;\n\t\tdisplay: inline-block;\n\t}\n\t.list-inline>li{\n\t\tpadding: 0;\n\t\tdisplay: inline-block;\n\t}\n\t.steam-list-item{\n\t\twidth: 100%;\n\t\tdisplay: inline-flex;\n\t\tborder-bottom: 1px solid #eee;\n\t\tpadding: 5px 0;\n\t}\n\t.title{\n\t\tfont-size: 17px;\n\t}\n\tul.list-inline.author {\n\t    font-size: 13px;\n\t    color: #999;\n\t}\n\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
 
 /***/ },
-/* 34 */
+/* 36 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -13094,13 +13195,13 @@
 	// 			<img :src="item.member.avatar_mini">
 	// 		</div>
 	// 		<div class="summary">
-	// 			<div class="title">{{item.title}}</div>
+	// 			<div class="title" v-link="{ name: 'content',params: { id: item.id}}">{{item.title}}</div>
 	// 			<ul class="list-inline tags">
-	// 				<li class="tag">{{item.node.title}}</li>
+	// 				<li class="tag" @click="getListByNode(item.node.id,item.node.title)">{{item.node.title}}</li>
 	// 				<span class="split">·</span>
 	// 			</ul>
 	// 			<ul class="list-inline author">
-	// 				<li class="author">{{item.member.username}}</li>
+	// 				<li class="author" v-link="{ name: 'user',params: { username: item.member.username}}">{{item.member.username}}</li>
 	// 				<span class="split">·</span>
 	// 				<li class="last-modify-time">{{item.last_modified | getLastTimeStr true}}回复</li>
 	// 			</ul>
@@ -13116,8 +13217,14 @@
 	
 		data: function data() {
 			return {
-				items: {}
+				items: Object
 			};
+		},
+	
+		methods: {
+			getListByNode: function getListByNode(node_id, node_name) {
+				this.$parent.getListByNode(node_id, node_name);
+			}
 		}
 	};
 	// </script>
@@ -13143,6 +13250,9 @@
 	// 		border-bottom: 1px solid #eee;
 	// 		padding: 5px 0;
 	// 	}
+	// 	.title{
+	// 		font-size: 17px;
+	// 	}
 	// 	ul.list-inline.author {
 	// 	    font-size: 13px;
 	// 	    color: #999;
@@ -13153,19 +13263,19 @@
 	/* generated by vue-loader */
 
 /***/ },
-/* 35 */
+/* 37 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"steam-list\" v-for=\"item in items\" v-show=\"show\">\n\t<section class=\"steam-list-item\">\n\t\t<div class=\"man-picture\">\n\t\t\t<img :src=\"item.member.avatar_mini\">\n\t\t</div>\n\t\t<div class=\"summary\">\n\t\t\t<div class=\"title\">{{item.title}}</div>\n\t\t\t<ul class=\"list-inline tags\">\n\t\t\t\t<li class=\"tag\">{{item.node.title}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t</ul>\n\t\t\t<ul class=\"list-inline author\">\n\t\t\t\t<li class=\"author\">{{item.member.username}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t<li class=\"last-modify-time\">{{item.last_modified | getLastTimeStr true}}回复</li>\n\t\t\t</ul>\n\t\t</div>\n\t</section>\n</div>\n";
+	module.exports = "\n<div class=\"steam-list\" v-for=\"item in items\" v-show=\"show\">\n\t<section class=\"steam-list-item\">\n\t\t<div class=\"man-picture\">\n\t\t\t<img :src=\"item.member.avatar_mini\">\n\t\t</div>\n\t\t<div class=\"summary\">\n\t\t\t<div class=\"title\" v-link=\"{ name: 'content',params: { id: item.id}}\">{{item.title}}</div>\n\t\t\t<ul class=\"list-inline tags\">\n\t\t\t\t<li class=\"tag\" @click=\"getListByNode(item.node.id,item.node.title)\">{{item.node.title}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t</ul>\n\t\t\t<ul class=\"list-inline author\">\n\t\t\t\t<li class=\"author\" v-link=\"{ name: 'user',params: { username: item.member.username}}\">{{item.member.username}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t<li class=\"last-modify-time\">{{item.last_modified | getLastTimeStr true}}回复</li>\n\t\t\t</ul>\n\t\t</div>\n\t</section>\n</div>\n";
 
 /***/ },
-/* 36 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(37)
-	__vue_script__ = __webpack_require__(39)
-	__vue_template__ = __webpack_require__(40)
+	__webpack_require__(39)
+	__vue_script__ = __webpack_require__(41)
+	__vue_template__ = __webpack_require__(42)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -13182,16 +13292,16 @@
 	})()}
 
 /***/ },
-/* 37 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(38);
+	var content = __webpack_require__(40);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(20)(content, {});
+	var update = __webpack_require__(21)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -13208,10 +13318,10 @@
 	}
 
 /***/ },
-/* 38 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(19)();
+	exports = module.exports = __webpack_require__(20)();
 	// imports
 	
 	
@@ -13222,7 +13332,7 @@
 
 
 /***/ },
-/* 39 */
+/* 41 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -13306,19 +13416,3167 @@
 	/* generated by vue-loader */
 
 /***/ },
-/* 40 */
+/* 42 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"load\" v-show=\"show\">\n\t<div class=\"spinner\">\n\t  <div class=\"rect1\"></div>\n\t  <div class=\"rect2\"></div>\n\t  <div class=\"rect3\"></div>\n\t  <div class=\"rect4\"></div>\n\t  <div class=\"rect5\"></div>\n\t</div>\n</div>\n\n";
 
 /***/ },
-/* 41 */
+/* 43 */
 /***/ function(module, exports) {
 
-	module.exports = "\n    <div>\n    \t<!--公共导航栏-->\n        <nav-con></nav-con>\n        <div id=\"wrap\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12 col-md-9\">\n\t\t\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t                <item-con :show=\"!showLoad\" v-ref:listItem></item-con>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n        </div>\n    </div>\n";
+	module.exports = "\n    \t<!--公共导航栏-->\n    <div class=\"wrap\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12 col-md-9\">\n\t\t\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t        <item-con :show=\"!showLoad\" v-ref:listItem></item-con>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n    </div>\n  </div>\n";
 
 /***/ },
-/* 42 */
+/* 44 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(45)
+	__vue_script__ = __webpack_require__(47)
+	__vue_template__ = __webpack_require__(63)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/Users/Veto/Documents/workspace/V2EX-Mobile/src/views/content.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 45 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(46);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(21)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3e1a9600&file=content.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./content.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3e1a9600&file=content.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./content.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(20)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n.content-wrap{\n\tmargin-top: -20px;\n\tpadding: 5px;\n}\n", "", {"version":3,"sources":["/./src/views/content.vue?cb91c2d4"],"names":[],"mappings":";AAgDA;CACA,kBAAA;CACA,aAAA;CACA","file":"content.vue","sourcesContent":["<template>\n\t<div class=\"content-wrap\">\n\t<div class=\"contaier\" >\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-6\">\n\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t<con-head v-ref:ConHead :show=\"!showLoad\"></con-head>\n\t\t<con-reply v-ref:conReply :show=\"!showLoad\"></con-reply>\n\t\t</div>\n\t</div>\n</div>\n\t</div>\n</template>\n<script>\n\timport conHead from '../components/conHead.vue'\n\timport conReply from '../components/reply.vue'\n\timport loadCon from '../components/loading.vue'\n\texport default{\n\t\tname:'Content',\n\n\t\tdata(){\n\t\t\treturn{\n\t\t\t\tcontent:Object,\n\t\t\t\tshowLoad:true,\n\t\t\t\tnode:sessionStorage.node_name\n\t\t\t}\n\t\t},\n\t\troute:{\n\t\t\tdata(){\n\t\t\t\tthis.$refs.conhead.getConById()\n\t\t\t\tthis.$refs.conreply.getReplyById()\n\t\t\t}\n\t\t},\n\n\t\tcomponents:{\n\t\t\tconHead,\n\t\t\tloadCon,\n\t\t\tconReply\n\t\t},\n\n\t\tevents:{\n\t\t\t'showLoad':function(boolean){\n\t\t\t\tthis.showLoad = boolean\n\t\t\t}\n\t\t}\n\t}\n</script>\n<style>\n\t.content-wrap{\n\t\tmargin-top: -20px;\n\t\tpadding: 5px;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 47 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _conHead = __webpack_require__(48);
+	
+	var _conHead2 = _interopRequireDefault(_conHead);
+	
+	var _reply = __webpack_require__(58);
+	
+	var _reply2 = _interopRequireDefault(_reply);
+	
+	var _loading = __webpack_require__(38);
+	
+	var _loading2 = _interopRequireDefault(_loading);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+		name: 'Content',
+	
+		data: function data() {
+			return {
+				content: Object,
+				showLoad: true,
+				node: sessionStorage.node_name
+			};
+		},
+	
+		route: {
+			data: function data() {
+				this.$refs.conhead.getConById();
+				this.$refs.conreply.getReplyById();
+			}
+		},
+	
+		components: {
+			conHead: _conHead2.default,
+			loadCon: _loading2.default,
+			conReply: _reply2.default
+		},
+	
+		events: {
+			'showLoad': function showLoad(boolean) {
+				this.showLoad = boolean;
+			}
+		}
+	};
+	// </script>
+	// <style>
+	// 	.content-wrap{
+	// 		margin-top: -20px;
+	// 		padding: 5px;
+	// 	}
+	// </style>
+
+	/* generated by vue-loader */
+	// <template>
+	// 	<div class="content-wrap">
+	// 	<div class="contaier" >
+	// 		<div class="row">
+	// 			<div class="col-md-6">
+	// 		<load-con :show="showLoad"></load-con>
+	// 		<con-head v-ref:ConHead :show="!showLoad"></con-head>
+	// 		<con-reply v-ref:conReply :show="!showLoad"></con-reply>
+	// 		</div>
+	// 	</div>
+	// </div>
+	// 	</div>
+	// </template>
+	// <script>
+
+/***/ },
+/* 48 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(49)
+	__vue_script__ = __webpack_require__(51)
+	__vue_template__ = __webpack_require__(57)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/Users/Veto/Documents/workspace/V2EX-Mobile/src/components/conHead.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 49 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(50);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(21)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-eb63a7de&file=conHead.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./conHead.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-eb63a7de&file=conHead.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./conHead.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 50 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(20)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n.con-article{\n\ttext-indent: 1rem;\n\tword-break: break-all;\n\tpadding: 10px 0;\n}\n.con-title{\n\tdisplay: inline-block;\n\tmax-width: 85%;\n}\n.author-img {\n    display: inline-block;\n    float: right;\n    margin: 5px;\n}\n", "", {"version":3,"sources":["/./src/components/conHead.vue?36933913"],"names":[],"mappings":";AAqDA;CACA,kBAAA;CACA,sBAAA;CACA,gBAAA;CACA;AACA;CACA,sBAAA;CACA,eAAA;CACA;AACA;IACA,sBAAA;IACA,aAAA;IACA,YAAA;CACA","file":"conHead.vue","sourcesContent":["<template>\n\t<div class=\"conHead\" v-show=\"show\">\n\t\t<h3 class=\"con-title\">{{conHeadCon.title}}</h3>\n\t\t<div class=\"author-img\">\n\t\t\t<img :src=\"conHeadCon.member.avatar_normal\">\n\t\t</div>\n\t\t<div class=\"con-author\">\n\t\t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"author\" v-link=\"{ name: 'user',params: { username: conHeadCon.member.username}}\">By {{conHeadCon.member.username}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t<li class=\"create-time\">At {{conHeadCon.created | getLastTimeStr true}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t<li class=\"create-time\">{{conHeadCon.replies}} 个回复</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t<div class=\"con-article\">{{conHeadCon.content }}</div>\n\t</div>\n</template>\n<script>\nimport MD from 'markdown'\n\texport default {\n\t\tname:'conHead',\n\t\tprops:['show'],\n\t\tdata(){\n\t\t\treturn{\n\t\t\t\tconHeadCon:{}\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\tgetConById(){\n\t\t\t\tconst _self = this\n\t\t\t\t_self.$dispatch('showLoad',true)\n\t\t\t\tlet params = $.param({id:_self.$parent.$route.params.id})\n\t\t\t\t_self.$http.get('https://www.v2ex.com/api/topics/show.json?'+ params,(data) =>{\n\t\t\t\t\tif (data) {\n\t\t\t\t\t\t_self.conHeadCon = data[0]\n\t\t\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t_self.$dispatch('showLoad',false)\n\t\t\t\t\t\t}, 1000)\n\t\t\t\t\t};\n\t\t\t\t})\n\t\t\t}\n\t\t},\n\n\t\tfilters:{\n\t\t\tmarkdown(content){\n\t\t\t\treturn content || MD.toHTML(content)\n\t\t\t}\n\t\t}\n\t}\n</script>\n<style>\n\t.con-article{\n\t\ttext-indent: 1rem;\n\t\tword-break: break-all;\n\t\tpadding: 10px 0;\n\t}\n\t.con-title{\n\t\tdisplay: inline-block;\n\t\tmax-width: 85%;\n\t}\n\t.author-img {\n\t    display: inline-block;\n\t    float: right;\n\t    margin: 5px;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 51 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _markdown = __webpack_require__(52);
+	
+	var _markdown2 = _interopRequireDefault(_markdown);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+		name: 'conHead',
+		props: ['show'],
+		data: function data() {
+			return {
+				conHeadCon: {}
+			};
+		},
+	
+		methods: {
+			getConById: function getConById() {
+				var _self = this;
+				_self.$dispatch('showLoad', true);
+				var params = $.param({ id: _self.$parent.$route.params.id });
+				_self.$http.get('https://www.v2ex.com/api/topics/show.json?' + params, function (data) {
+					if (data) {
+						_self.conHeadCon = data[0];
+						setTimeout(function () {
+							_self.$dispatch('showLoad', false);
+						}, 1000);
+					};
+				});
+			}
+		},
+	
+		filters: {
+			markdown: function markdown(content) {
+				return content || _markdown2.default.toHTML(content);
+			}
+		}
+	};
+	// </script>
+	// <style>
+	// 	.con-article{
+	// 		text-indent: 1rem;
+	// 		word-break: break-all;
+	// 		padding: 10px 0;
+	// 	}
+	// 	.con-title{
+	// 		display: inline-block;
+	// 		max-width: 85%;
+	// 	}
+	// 	.author-img {
+	// 	    display: inline-block;
+	// 	    float: right;
+	// 	    margin: 5px;
+	// 	}
+	// </style>
+
+	/* generated by vue-loader */
+	// <template>
+	// 	<div class="conHead" v-show="show">
+	// 		<h3 class="con-title">{{conHeadCon.title}}</h3>
+	// 		<div class="author-img">
+	// 			<img :src="conHeadCon.member.avatar_normal">
+	// 		</div>
+	// 		<div class="con-author">
+	// 			<ul class="list-inline">
+	// 				<li class="author" v-link="{ name: 'user',params: { username: conHeadCon.member.username}}">By {{conHeadCon.member.username}}</li>
+	// 				<span class="split">·</span>
+	// 				<li class="create-time">At {{conHeadCon.created | getLastTimeStr true}}</li>
+	// 				<span class="split">·</span>
+	// 				<li class="create-time">{{conHeadCon.replies}} 个回复</li>
+	// 			</ul>
+	// 		</div>
+	// 		<div class="con-article">{{conHeadCon.content }}</div>
+	// 	</div>
+	// </template>
+	// <script>
+
+/***/ },
+/* 52 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// super simple module for the most common nodejs use case.
+	exports.markdown = __webpack_require__(53);
+	exports.parse = exports.markdown.toHTML;
+
+
+/***/ },
+/* 53 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Released under MIT license
+	// Copyright (c) 2009-2010 Dominic Baggott
+	// Copyright (c) 2009-2010 Ash Berlin
+	// Copyright (c) 2011 Christoph Dorn <christoph@christophdorn.com> (http://www.christophdorn.com)
+	
+	/*jshint browser:true, devel:true */
+	
+	(function( expose ) {
+	
+	/**
+	 *  class Markdown
+	 *
+	 *  Markdown processing in Javascript done right. We have very particular views
+	 *  on what constitutes 'right' which include:
+	 *
+	 *  - produces well-formed HTML (this means that em and strong nesting is
+	 *    important)
+	 *
+	 *  - has an intermediate representation to allow processing of parsed data (We
+	 *    in fact have two, both as [JsonML]: a markdown tree and an HTML tree).
+	 *
+	 *  - is easily extensible to add new dialects without having to rewrite the
+	 *    entire parsing mechanics
+	 *
+	 *  - has a good test suite
+	 *
+	 *  This implementation fulfills all of these (except that the test suite could
+	 *  do with expanding to automatically run all the fixtures from other Markdown
+	 *  implementations.)
+	 *
+	 *  ##### Intermediate Representation
+	 *
+	 *  *TODO* Talk about this :) Its JsonML, but document the node names we use.
+	 *
+	 *  [JsonML]: http://jsonml.org/ "JSON Markup Language"
+	 **/
+	var Markdown = expose.Markdown = function(dialect) {
+	  switch (typeof dialect) {
+	    case "undefined":
+	      this.dialect = Markdown.dialects.Gruber;
+	      break;
+	    case "object":
+	      this.dialect = dialect;
+	      break;
+	    default:
+	      if ( dialect in Markdown.dialects ) {
+	        this.dialect = Markdown.dialects[dialect];
+	      }
+	      else {
+	        throw new Error("Unknown Markdown dialect '" + String(dialect) + "'");
+	      }
+	      break;
+	  }
+	  this.em_state = [];
+	  this.strong_state = [];
+	  this.debug_indent = "";
+	};
+	
+	/**
+	 *  parse( markdown, [dialect] ) -> JsonML
+	 *  - markdown (String): markdown string to parse
+	 *  - dialect (String | Dialect): the dialect to use, defaults to gruber
+	 *
+	 *  Parse `markdown` and return a markdown document as a Markdown.JsonML tree.
+	 **/
+	expose.parse = function( source, dialect ) {
+	  // dialect will default if undefined
+	  var md = new Markdown( dialect );
+	  return md.toTree( source );
+	};
+	
+	/**
+	 *  toHTML( markdown, [dialect]  ) -> String
+	 *  toHTML( md_tree ) -> String
+	 *  - markdown (String): markdown string to parse
+	 *  - md_tree (Markdown.JsonML): parsed markdown tree
+	 *
+	 *  Take markdown (either as a string or as a JsonML tree) and run it through
+	 *  [[toHTMLTree]] then turn it into a well-formated HTML fragment.
+	 **/
+	expose.toHTML = function toHTML( source , dialect , options ) {
+	  var input = expose.toHTMLTree( source , dialect , options );
+	
+	  return expose.renderJsonML( input );
+	};
+	
+	/**
+	 *  toHTMLTree( markdown, [dialect] ) -> JsonML
+	 *  toHTMLTree( md_tree ) -> JsonML
+	 *  - markdown (String): markdown string to parse
+	 *  - dialect (String | Dialect): the dialect to use, defaults to gruber
+	 *  - md_tree (Markdown.JsonML): parsed markdown tree
+	 *
+	 *  Turn markdown into HTML, represented as a JsonML tree. If a string is given
+	 *  to this function, it is first parsed into a markdown tree by calling
+	 *  [[parse]].
+	 **/
+	expose.toHTMLTree = function toHTMLTree( input, dialect , options ) {
+	  // convert string input to an MD tree
+	  if ( typeof input ==="string" ) input = this.parse( input, dialect );
+	
+	  // Now convert the MD tree to an HTML tree
+	
+	  // remove references from the tree
+	  var attrs = extract_attr( input ),
+	      refs = {};
+	
+	  if ( attrs && attrs.references ) {
+	    refs = attrs.references;
+	  }
+	
+	  var html = convert_tree_to_html( input, refs , options );
+	  merge_text_nodes( html );
+	  return html;
+	};
+	
+	// For Spidermonkey based engines
+	function mk_block_toSource() {
+	  return "Markdown.mk_block( " +
+	          uneval(this.toString()) +
+	          ", " +
+	          uneval(this.trailing) +
+	          ", " +
+	          uneval(this.lineNumber) +
+	          " )";
+	}
+	
+	// node
+	function mk_block_inspect() {
+	  var util = __webpack_require__(54);
+	  return "Markdown.mk_block( " +
+	          util.inspect(this.toString()) +
+	          ", " +
+	          util.inspect(this.trailing) +
+	          ", " +
+	          util.inspect(this.lineNumber) +
+	          " )";
+	
+	}
+	
+	var mk_block = Markdown.mk_block = function(block, trail, line) {
+	  // Be helpful for default case in tests.
+	  if ( arguments.length == 1 ) trail = "\n\n";
+	
+	  var s = new String(block);
+	  s.trailing = trail;
+	  // To make it clear its not just a string
+	  s.inspect = mk_block_inspect;
+	  s.toSource = mk_block_toSource;
+	
+	  if ( line != undefined )
+	    s.lineNumber = line;
+	
+	  return s;
+	};
+	
+	function count_lines( str ) {
+	  var n = 0, i = -1;
+	  while ( ( i = str.indexOf("\n", i + 1) ) !== -1 ) n++;
+	  return n;
+	}
+	
+	// Internal - split source into rough blocks
+	Markdown.prototype.split_blocks = function splitBlocks( input, startLine ) {
+	  input = input.replace(/(\r\n|\n|\r)/g, "\n");
+	  // [\s\S] matches _anything_ (newline or space)
+	  // [^] is equivalent but doesn't work in IEs.
+	  var re = /([\s\S]+?)($|\n#|\n(?:\s*\n|$)+)/g,
+	      blocks = [],
+	      m;
+	
+	  var line_no = 1;
+	
+	  if ( ( m = /^(\s*\n)/.exec(input) ) != null ) {
+	    // skip (but count) leading blank lines
+	    line_no += count_lines( m[0] );
+	    re.lastIndex = m[0].length;
+	  }
+	
+	  while ( ( m = re.exec(input) ) !== null ) {
+	    if (m[2] == "\n#") {
+	      m[2] = "\n";
+	      re.lastIndex--;
+	    }
+	    blocks.push( mk_block( m[1], m[2], line_no ) );
+	    line_no += count_lines( m[0] );
+	  }
+	
+	  return blocks;
+	};
+	
+	/**
+	 *  Markdown#processBlock( block, next ) -> undefined | [ JsonML, ... ]
+	 *  - block (String): the block to process
+	 *  - next (Array): the following blocks
+	 *
+	 * Process `block` and return an array of JsonML nodes representing `block`.
+	 *
+	 * It does this by asking each block level function in the dialect to process
+	 * the block until one can. Succesful handling is indicated by returning an
+	 * array (with zero or more JsonML nodes), failure by a false value.
+	 *
+	 * Blocks handlers are responsible for calling [[Markdown#processInline]]
+	 * themselves as appropriate.
+	 *
+	 * If the blocks were split incorrectly or adjacent blocks need collapsing you
+	 * can adjust `next` in place using shift/splice etc.
+	 *
+	 * If any of this default behaviour is not right for the dialect, you can
+	 * define a `__call__` method on the dialect that will get invoked to handle
+	 * the block processing.
+	 */
+	Markdown.prototype.processBlock = function processBlock( block, next ) {
+	  var cbs = this.dialect.block,
+	      ord = cbs.__order__;
+	
+	  if ( "__call__" in cbs ) {
+	    return cbs.__call__.call(this, block, next);
+	  }
+	
+	  for ( var i = 0; i < ord.length; i++ ) {
+	    //D:this.debug( "Testing", ord[i] );
+	    var res = cbs[ ord[i] ].call( this, block, next );
+	    if ( res ) {
+	      //D:this.debug("  matched");
+	      if ( !isArray(res) || ( res.length > 0 && !( isArray(res[0]) ) ) )
+	        this.debug(ord[i], "didn't return a proper array");
+	      //D:this.debug( "" );
+	      return res;
+	    }
+	  }
+	
+	  // Uhoh! no match! Should we throw an error?
+	  return [];
+	};
+	
+	Markdown.prototype.processInline = function processInline( block ) {
+	  return this.dialect.inline.__call__.call( this, String( block ) );
+	};
+	
+	/**
+	 *  Markdown#toTree( source ) -> JsonML
+	 *  - source (String): markdown source to parse
+	 *
+	 *  Parse `source` into a JsonML tree representing the markdown document.
+	 **/
+	// custom_tree means set this.tree to `custom_tree` and restore old value on return
+	Markdown.prototype.toTree = function toTree( source, custom_root ) {
+	  var blocks = source instanceof Array ? source : this.split_blocks( source );
+	
+	  // Make tree a member variable so its easier to mess with in extensions
+	  var old_tree = this.tree;
+	  try {
+	    this.tree = custom_root || this.tree || [ "markdown" ];
+	
+	    blocks:
+	    while ( blocks.length ) {
+	      var b = this.processBlock( blocks.shift(), blocks );
+	
+	      // Reference blocks and the like won't return any content
+	      if ( !b.length ) continue blocks;
+	
+	      this.tree.push.apply( this.tree, b );
+	    }
+	    return this.tree;
+	  }
+	  finally {
+	    if ( custom_root ) {
+	      this.tree = old_tree;
+	    }
+	  }
+	};
+	
+	// Noop by default
+	Markdown.prototype.debug = function () {
+	  var args = Array.prototype.slice.call( arguments);
+	  args.unshift(this.debug_indent);
+	  if ( typeof print !== "undefined" )
+	      print.apply( print, args );
+	  if ( typeof console !== "undefined" && typeof console.log !== "undefined" )
+	      console.log.apply( null, args );
+	}
+	
+	Markdown.prototype.loop_re_over_block = function( re, block, cb ) {
+	  // Dont use /g regexps with this
+	  var m,
+	      b = block.valueOf();
+	
+	  while ( b.length && (m = re.exec(b) ) != null ) {
+	    b = b.substr( m[0].length );
+	    cb.call(this, m);
+	  }
+	  return b;
+	};
+	
+	/**
+	 * Markdown.dialects
+	 *
+	 * Namespace of built-in dialects.
+	 **/
+	Markdown.dialects = {};
+	
+	/**
+	 * Markdown.dialects.Gruber
+	 *
+	 * The default dialect that follows the rules set out by John Gruber's
+	 * markdown.pl as closely as possible. Well actually we follow the behaviour of
+	 * that script which in some places is not exactly what the syntax web page
+	 * says.
+	 **/
+	Markdown.dialects.Gruber = {
+	  block: {
+	    atxHeader: function atxHeader( block, next ) {
+	      var m = block.match( /^(#{1,6})\s*(.*?)\s*#*\s*(?:\n|$)/ );
+	
+	      if ( !m ) return undefined;
+	
+	      var header = [ "header", { level: m[ 1 ].length } ];
+	      Array.prototype.push.apply(header, this.processInline(m[ 2 ]));
+	
+	      if ( m[0].length < block.length )
+	        next.unshift( mk_block( block.substr( m[0].length ), block.trailing, block.lineNumber + 2 ) );
+	
+	      return [ header ];
+	    },
+	
+	    setextHeader: function setextHeader( block, next ) {
+	      var m = block.match( /^(.*)\n([-=])\2\2+(?:\n|$)/ );
+	
+	      if ( !m ) return undefined;
+	
+	      var level = ( m[ 2 ] === "=" ) ? 1 : 2;
+	      var header = [ "header", { level : level }, m[ 1 ] ];
+	
+	      if ( m[0].length < block.length )
+	        next.unshift( mk_block( block.substr( m[0].length ), block.trailing, block.lineNumber + 2 ) );
+	
+	      return [ header ];
+	    },
+	
+	    code: function code( block, next ) {
+	      // |    Foo
+	      // |bar
+	      // should be a code block followed by a paragraph. Fun
+	      //
+	      // There might also be adjacent code block to merge.
+	
+	      var ret = [],
+	          re = /^(?: {0,3}\t| {4})(.*)\n?/,
+	          lines;
+	
+	      // 4 spaces + content
+	      if ( !block.match( re ) ) return undefined;
+	
+	      block_search:
+	      do {
+	        // Now pull out the rest of the lines
+	        var b = this.loop_re_over_block(
+	                  re, block.valueOf(), function( m ) { ret.push( m[1] ); } );
+	
+	        if ( b.length ) {
+	          // Case alluded to in first comment. push it back on as a new block
+	          next.unshift( mk_block(b, block.trailing) );
+	          break block_search;
+	        }
+	        else if ( next.length ) {
+	          // Check the next block - it might be code too
+	          if ( !next[0].match( re ) ) break block_search;
+	
+	          // Pull how how many blanks lines follow - minus two to account for .join
+	          ret.push ( block.trailing.replace(/[^\n]/g, "").substring(2) );
+	
+	          block = next.shift();
+	        }
+	        else {
+	          break block_search;
+	        }
+	      } while ( true );
+	
+	      return [ [ "code_block", ret.join("\n") ] ];
+	    },
+	
+	    horizRule: function horizRule( block, next ) {
+	      // this needs to find any hr in the block to handle abutting blocks
+	      var m = block.match( /^(?:([\s\S]*?)\n)?[ \t]*([-_*])(?:[ \t]*\2){2,}[ \t]*(?:\n([\s\S]*))?$/ );
+	
+	      if ( !m ) {
+	        return undefined;
+	      }
+	
+	      var jsonml = [ [ "hr" ] ];
+	
+	      // if there's a leading abutting block, process it
+	      if ( m[ 1 ] ) {
+	        jsonml.unshift.apply( jsonml, this.processBlock( m[ 1 ], [] ) );
+	      }
+	
+	      // if there's a trailing abutting block, stick it into next
+	      if ( m[ 3 ] ) {
+	        next.unshift( mk_block( m[ 3 ] ) );
+	      }
+	
+	      return jsonml;
+	    },
+	
+	    // There are two types of lists. Tight and loose. Tight lists have no whitespace
+	    // between the items (and result in text just in the <li>) and loose lists,
+	    // which have an empty line between list items, resulting in (one or more)
+	    // paragraphs inside the <li>.
+	    //
+	    // There are all sorts weird edge cases about the original markdown.pl's
+	    // handling of lists:
+	    //
+	    // * Nested lists are supposed to be indented by four chars per level. But
+	    //   if they aren't, you can get a nested list by indenting by less than
+	    //   four so long as the indent doesn't match an indent of an existing list
+	    //   item in the 'nest stack'.
+	    //
+	    // * The type of the list (bullet or number) is controlled just by the
+	    //    first item at the indent. Subsequent changes are ignored unless they
+	    //    are for nested lists
+	    //
+	    lists: (function( ) {
+	      // Use a closure to hide a few variables.
+	      var any_list = "[*+-]|\\d+\\.",
+	          bullet_list = /[*+-]/,
+	          number_list = /\d+\./,
+	          // Capture leading indent as it matters for determining nested lists.
+	          is_list_re = new RegExp( "^( {0,3})(" + any_list + ")[ \t]+" ),
+	          indent_re = "(?: {0,3}\\t| {4})";
+	
+	      // TODO: Cache this regexp for certain depths.
+	      // Create a regexp suitable for matching an li for a given stack depth
+	      function regex_for_depth( depth ) {
+	
+	        return new RegExp(
+	          // m[1] = indent, m[2] = list_type
+	          "(?:^(" + indent_re + "{0," + depth + "} {0,3})(" + any_list + ")\\s+)|" +
+	          // m[3] = cont
+	          "(^" + indent_re + "{0," + (depth-1) + "}[ ]{0,4})"
+	        );
+	      }
+	      function expand_tab( input ) {
+	        return input.replace( / {0,3}\t/g, "    " );
+	      }
+	
+	      // Add inline content `inline` to `li`. inline comes from processInline
+	      // so is an array of content
+	      function add(li, loose, inline, nl) {
+	        if ( loose ) {
+	          li.push( [ "para" ].concat(inline) );
+	          return;
+	        }
+	        // Hmmm, should this be any block level element or just paras?
+	        var add_to = li[li.length -1] instanceof Array && li[li.length - 1][0] == "para"
+	                   ? li[li.length -1]
+	                   : li;
+	
+	        // If there is already some content in this list, add the new line in
+	        if ( nl && li.length > 1 ) inline.unshift(nl);
+	
+	        for ( var i = 0; i < inline.length; i++ ) {
+	          var what = inline[i],
+	              is_str = typeof what == "string";
+	          if ( is_str && add_to.length > 1 && typeof add_to[add_to.length-1] == "string" ) {
+	            add_to[ add_to.length-1 ] += what;
+	          }
+	          else {
+	            add_to.push( what );
+	          }
+	        }
+	      }
+	
+	      // contained means have an indent greater than the current one. On
+	      // *every* line in the block
+	      function get_contained_blocks( depth, blocks ) {
+	
+	        var re = new RegExp( "^(" + indent_re + "{" + depth + "}.*?\\n?)*$" ),
+	            replace = new RegExp("^" + indent_re + "{" + depth + "}", "gm"),
+	            ret = [];
+	
+	        while ( blocks.length > 0 ) {
+	          if ( re.exec( blocks[0] ) ) {
+	            var b = blocks.shift(),
+	                // Now remove that indent
+	                x = b.replace( replace, "");
+	
+	            ret.push( mk_block( x, b.trailing, b.lineNumber ) );
+	          }
+	          else {
+	            break;
+	          }
+	        }
+	        return ret;
+	      }
+	
+	      // passed to stack.forEach to turn list items up the stack into paras
+	      function paragraphify(s, i, stack) {
+	        var list = s.list;
+	        var last_li = list[list.length-1];
+	
+	        if ( last_li[1] instanceof Array && last_li[1][0] == "para" ) {
+	          return;
+	        }
+	        if ( i + 1 == stack.length ) {
+	          // Last stack frame
+	          // Keep the same array, but replace the contents
+	          last_li.push( ["para"].concat( last_li.splice(1, last_li.length - 1) ) );
+	        }
+	        else {
+	          var sublist = last_li.pop();
+	          last_li.push( ["para"].concat( last_li.splice(1, last_li.length - 1) ), sublist );
+	        }
+	      }
+	
+	      // The matcher function
+	      return function( block, next ) {
+	        var m = block.match( is_list_re );
+	        if ( !m ) return undefined;
+	
+	        function make_list( m ) {
+	          var list = bullet_list.exec( m[2] )
+	                   ? ["bulletlist"]
+	                   : ["numberlist"];
+	
+	          stack.push( { list: list, indent: m[1] } );
+	          return list;
+	        }
+	
+	
+	        var stack = [], // Stack of lists for nesting.
+	            list = make_list( m ),
+	            last_li,
+	            loose = false,
+	            ret = [ stack[0].list ],
+	            i;
+	
+	        // Loop to search over block looking for inner block elements and loose lists
+	        loose_search:
+	        while ( true ) {
+	          // Split into lines preserving new lines at end of line
+	          var lines = block.split( /(?=\n)/ );
+	
+	          // We have to grab all lines for a li and call processInline on them
+	          // once as there are some inline things that can span lines.
+	          var li_accumulate = "";
+	
+	          // Loop over the lines in this block looking for tight lists.
+	          tight_search:
+	          for ( var line_no = 0; line_no < lines.length; line_no++ ) {
+	            var nl = "",
+	                l = lines[line_no].replace(/^\n/, function(n) { nl = n; return ""; });
+	
+	            // TODO: really should cache this
+	            var line_re = regex_for_depth( stack.length );
+	
+	            m = l.match( line_re );
+	            //print( "line:", uneval(l), "\nline match:", uneval(m) );
+	
+	            // We have a list item
+	            if ( m[1] !== undefined ) {
+	              // Process the previous list item, if any
+	              if ( li_accumulate.length ) {
+	                add( last_li, loose, this.processInline( li_accumulate ), nl );
+	                // Loose mode will have been dealt with. Reset it
+	                loose = false;
+	                li_accumulate = "";
+	              }
+	
+	              m[1] = expand_tab( m[1] );
+	              var wanted_depth = Math.floor(m[1].length/4)+1;
+	              //print( "want:", wanted_depth, "stack:", stack.length);
+	              if ( wanted_depth > stack.length ) {
+	                // Deep enough for a nested list outright
+	                //print ( "new nested list" );
+	                list = make_list( m );
+	                last_li.push( list );
+	                last_li = list[1] = [ "listitem" ];
+	              }
+	              else {
+	                // We aren't deep enough to be strictly a new level. This is
+	                // where Md.pl goes nuts. If the indent matches a level in the
+	                // stack, put it there, else put it one deeper then the
+	                // wanted_depth deserves.
+	                var found = false;
+	                for ( i = 0; i < stack.length; i++ ) {
+	                  if ( stack[ i ].indent != m[1] ) continue;
+	                  list = stack[ i ].list;
+	                  stack.splice( i+1, stack.length - (i+1) );
+	                  found = true;
+	                  break;
+	                }
+	
+	                if (!found) {
+	                  //print("not found. l:", uneval(l));
+	                  wanted_depth++;
+	                  if ( wanted_depth <= stack.length ) {
+	                    stack.splice(wanted_depth, stack.length - wanted_depth);
+	                    //print("Desired depth now", wanted_depth, "stack:", stack.length);
+	                    list = stack[wanted_depth-1].list;
+	                    //print("list:", uneval(list) );
+	                  }
+	                  else {
+	                    //print ("made new stack for messy indent");
+	                    list = make_list(m);
+	                    last_li.push(list);
+	                  }
+	                }
+	
+	                //print( uneval(list), "last", list === stack[stack.length-1].list );
+	                last_li = [ "listitem" ];
+	                list.push(last_li);
+	              } // end depth of shenegains
+	              nl = "";
+	            }
+	
+	            // Add content
+	            if ( l.length > m[0].length ) {
+	              li_accumulate += nl + l.substr( m[0].length );
+	            }
+	          } // tight_search
+	
+	          if ( li_accumulate.length ) {
+	            add( last_li, loose, this.processInline( li_accumulate ), nl );
+	            // Loose mode will have been dealt with. Reset it
+	            loose = false;
+	            li_accumulate = "";
+	          }
+	
+	          // Look at the next block - we might have a loose list. Or an extra
+	          // paragraph for the current li
+	          var contained = get_contained_blocks( stack.length, next );
+	
+	          // Deal with code blocks or properly nested lists
+	          if ( contained.length > 0 ) {
+	            // Make sure all listitems up the stack are paragraphs
+	            forEach( stack, paragraphify, this);
+	
+	            last_li.push.apply( last_li, this.toTree( contained, [] ) );
+	          }
+	
+	          var next_block = next[0] && next[0].valueOf() || "";
+	
+	          if ( next_block.match(is_list_re) || next_block.match( /^ / ) ) {
+	            block = next.shift();
+	
+	            // Check for an HR following a list: features/lists/hr_abutting
+	            var hr = this.dialect.block.horizRule( block, next );
+	
+	            if ( hr ) {
+	              ret.push.apply(ret, hr);
+	              break;
+	            }
+	
+	            // Make sure all listitems up the stack are paragraphs
+	            forEach( stack, paragraphify, this);
+	
+	            loose = true;
+	            continue loose_search;
+	          }
+	          break;
+	        } // loose_search
+	
+	        return ret;
+	      };
+	    })(),
+	
+	    blockquote: function blockquote( block, next ) {
+	      if ( !block.match( /^>/m ) )
+	        return undefined;
+	
+	      var jsonml = [];
+	
+	      // separate out the leading abutting block, if any. I.e. in this case:
+	      //
+	      //  a
+	      //  > b
+	      //
+	      if ( block[ 0 ] != ">" ) {
+	        var lines = block.split( /\n/ ),
+	            prev = [],
+	            line_no = block.lineNumber;
+	
+	        // keep shifting lines until you find a crotchet
+	        while ( lines.length && lines[ 0 ][ 0 ] != ">" ) {
+	            prev.push( lines.shift() );
+	            line_no++;
+	        }
+	
+	        var abutting = mk_block( prev.join( "\n" ), "\n", block.lineNumber );
+	        jsonml.push.apply( jsonml, this.processBlock( abutting, [] ) );
+	        // reassemble new block of just block quotes!
+	        block = mk_block( lines.join( "\n" ), block.trailing, line_no );
+	      }
+	
+	
+	      // if the next block is also a blockquote merge it in
+	      while ( next.length && next[ 0 ][ 0 ] == ">" ) {
+	        var b = next.shift();
+	        block = mk_block( block + block.trailing + b, b.trailing, block.lineNumber );
+	      }
+	
+	      // Strip off the leading "> " and re-process as a block.
+	      var input = block.replace( /^> ?/gm, "" ),
+	          old_tree = this.tree,
+	          processedBlock = this.toTree( input, [ "blockquote" ] ),
+	          attr = extract_attr( processedBlock );
+	
+	      // If any link references were found get rid of them
+	      if ( attr && attr.references ) {
+	        delete attr.references;
+	        // And then remove the attribute object if it's empty
+	        if ( isEmpty( attr ) ) {
+	          processedBlock.splice( 1, 1 );
+	        }
+	      }
+	
+	      jsonml.push( processedBlock );
+	      return jsonml;
+	    },
+	
+	    referenceDefn: function referenceDefn( block, next) {
+	      var re = /^\s*\[(.*?)\]:\s*(\S+)(?:\s+(?:(['"])(.*?)\3|\((.*?)\)))?\n?/;
+	      // interesting matches are [ , ref_id, url, , title, title ]
+	
+	      if ( !block.match(re) )
+	        return undefined;
+	
+	      // make an attribute node if it doesn't exist
+	      if ( !extract_attr( this.tree ) ) {
+	        this.tree.splice( 1, 0, {} );
+	      }
+	
+	      var attrs = extract_attr( this.tree );
+	
+	      // make a references hash if it doesn't exist
+	      if ( attrs.references === undefined ) {
+	        attrs.references = {};
+	      }
+	
+	      var b = this.loop_re_over_block(re, block, function( m ) {
+	
+	        if ( m[2] && m[2][0] == "<" && m[2][m[2].length-1] == ">" )
+	          m[2] = m[2].substring( 1, m[2].length - 1 );
+	
+	        var ref = attrs.references[ m[1].toLowerCase() ] = {
+	          href: m[2]
+	        };
+	
+	        if ( m[4] !== undefined )
+	          ref.title = m[4];
+	        else if ( m[5] !== undefined )
+	          ref.title = m[5];
+	
+	      } );
+	
+	      if ( b.length )
+	        next.unshift( mk_block( b, block.trailing ) );
+	
+	      return [];
+	    },
+	
+	    para: function para( block, next ) {
+	      // everything's a para!
+	      return [ ["para"].concat( this.processInline( block ) ) ];
+	    }
+	  }
+	};
+	
+	Markdown.dialects.Gruber.inline = {
+	
+	    __oneElement__: function oneElement( text, patterns_or_re, previous_nodes ) {
+	      var m,
+	          res,
+	          lastIndex = 0;
+	
+	      patterns_or_re = patterns_or_re || this.dialect.inline.__patterns__;
+	      var re = new RegExp( "([\\s\\S]*?)(" + (patterns_or_re.source || patterns_or_re) + ")" );
+	
+	      m = re.exec( text );
+	      if (!m) {
+	        // Just boring text
+	        return [ text.length, text ];
+	      }
+	      else if ( m[1] ) {
+	        // Some un-interesting text matched. Return that first
+	        return [ m[1].length, m[1] ];
+	      }
+	
+	      var res;
+	      if ( m[2] in this.dialect.inline ) {
+	        res = this.dialect.inline[ m[2] ].call(
+	                  this,
+	                  text.substr( m.index ), m, previous_nodes || [] );
+	      }
+	      // Default for now to make dev easier. just slurp special and output it.
+	      res = res || [ m[2].length, m[2] ];
+	      return res;
+	    },
+	
+	    __call__: function inline( text, patterns ) {
+	
+	      var out = [],
+	          res;
+	
+	      function add(x) {
+	        //D:self.debug("  adding output", uneval(x));
+	        if ( typeof x == "string" && typeof out[out.length-1] == "string" )
+	          out[ out.length-1 ] += x;
+	        else
+	          out.push(x);
+	      }
+	
+	      while ( text.length > 0 ) {
+	        res = this.dialect.inline.__oneElement__.call(this, text, patterns, out );
+	        text = text.substr( res.shift() );
+	        forEach(res, add )
+	      }
+	
+	      return out;
+	    },
+	
+	    // These characters are intersting elsewhere, so have rules for them so that
+	    // chunks of plain text blocks don't include them
+	    "]": function () {},
+	    "}": function () {},
+	
+	    __escape__ : /^\\[\\`\*_{}\[\]()#\+.!\-]/,
+	
+	    "\\": function escaped( text ) {
+	      // [ length of input processed, node/children to add... ]
+	      // Only esacape: \ ` * _ { } [ ] ( ) # * + - . !
+	      if ( this.dialect.inline.__escape__.exec( text ) )
+	        return [ 2, text.charAt( 1 ) ];
+	      else
+	        // Not an esacpe
+	        return [ 1, "\\" ];
+	    },
+	
+	    "![": function image( text ) {
+	
+	      // Unlike images, alt text is plain text only. no other elements are
+	      // allowed in there
+	
+	      // ![Alt text](/path/to/img.jpg "Optional title")
+	      //      1          2            3       4         <--- captures
+	      var m = text.match( /^!\[(.*?)\][ \t]*\([ \t]*([^")]*?)(?:[ \t]+(["'])(.*?)\3)?[ \t]*\)/ );
+	
+	      if ( m ) {
+	        if ( m[2] && m[2][0] == "<" && m[2][m[2].length-1] == ">" )
+	          m[2] = m[2].substring( 1, m[2].length - 1 );
+	
+	        m[2] = this.dialect.inline.__call__.call( this, m[2], /\\/ )[0];
+	
+	        var attrs = { alt: m[1], href: m[2] || "" };
+	        if ( m[4] !== undefined)
+	          attrs.title = m[4];
+	
+	        return [ m[0].length, [ "img", attrs ] ];
+	      }
+	
+	      // ![Alt text][id]
+	      m = text.match( /^!\[(.*?)\][ \t]*\[(.*?)\]/ );
+	
+	      if ( m ) {
+	        // We can't check if the reference is known here as it likely wont be
+	        // found till after. Check it in md tree->hmtl tree conversion
+	        return [ m[0].length, [ "img_ref", { alt: m[1], ref: m[2].toLowerCase(), original: m[0] } ] ];
+	      }
+	
+	      // Just consume the '!['
+	      return [ 2, "![" ];
+	    },
+	
+	    "[": function link( text ) {
+	
+	      var orig = String(text);
+	      // Inline content is possible inside `link text`
+	      var res = Markdown.DialectHelpers.inline_until_char.call( this, text.substr(1), "]" );
+	
+	      // No closing ']' found. Just consume the [
+	      if ( !res ) return [ 1, "[" ];
+	
+	      var consumed = 1 + res[ 0 ],
+	          children = res[ 1 ],
+	          link,
+	          attrs;
+	
+	      // At this point the first [...] has been parsed. See what follows to find
+	      // out which kind of link we are (reference or direct url)
+	      text = text.substr( consumed );
+	
+	      // [link text](/path/to/img.jpg "Optional title")
+	      //                 1            2       3         <--- captures
+	      // This will capture up to the last paren in the block. We then pull
+	      // back based on if there a matching ones in the url
+	      //    ([here](/url/(test))
+	      // The parens have to be balanced
+	      var m = text.match( /^\s*\([ \t]*([^"']*)(?:[ \t]+(["'])(.*?)\2)?[ \t]*\)/ );
+	      if ( m ) {
+	        var url = m[1];
+	        consumed += m[0].length;
+	
+	        if ( url && url[0] == "<" && url[url.length-1] == ">" )
+	          url = url.substring( 1, url.length - 1 );
+	
+	        // If there is a title we don't have to worry about parens in the url
+	        if ( !m[3] ) {
+	          var open_parens = 1; // One open that isn't in the capture
+	          for ( var len = 0; len < url.length; len++ ) {
+	            switch ( url[len] ) {
+	            case "(":
+	              open_parens++;
+	              break;
+	            case ")":
+	              if ( --open_parens == 0) {
+	                consumed -= url.length - len;
+	                url = url.substring(0, len);
+	              }
+	              break;
+	            }
+	          }
+	        }
+	
+	        // Process escapes only
+	        url = this.dialect.inline.__call__.call( this, url, /\\/ )[0];
+	
+	        attrs = { href: url || "" };
+	        if ( m[3] !== undefined)
+	          attrs.title = m[3];
+	
+	        link = [ "link", attrs ].concat( children );
+	        return [ consumed, link ];
+	      }
+	
+	      // [Alt text][id]
+	      // [Alt text] [id]
+	      m = text.match( /^\s*\[(.*?)\]/ );
+	
+	      if ( m ) {
+	
+	        consumed += m[ 0 ].length;
+	
+	        // [links][] uses links as its reference
+	        attrs = { ref: ( m[ 1 ] || String(children) ).toLowerCase(),  original: orig.substr( 0, consumed ) };
+	
+	        link = [ "link_ref", attrs ].concat( children );
+	
+	        // We can't check if the reference is known here as it likely wont be
+	        // found till after. Check it in md tree->hmtl tree conversion.
+	        // Store the original so that conversion can revert if the ref isn't found.
+	        return [ consumed, link ];
+	      }
+	
+	      // [id]
+	      // Only if id is plain (no formatting.)
+	      if ( children.length == 1 && typeof children[0] == "string" ) {
+	
+	        attrs = { ref: children[0].toLowerCase(),  original: orig.substr( 0, consumed ) };
+	        link = [ "link_ref", attrs, children[0] ];
+	        return [ consumed, link ];
+	      }
+	
+	      // Just consume the "["
+	      return [ 1, "[" ];
+	    },
+	
+	
+	    "<": function autoLink( text ) {
+	      var m;
+	
+	      if ( ( m = text.match( /^<(?:((https?|ftp|mailto):[^>]+)|(.*?@.*?\.[a-zA-Z]+))>/ ) ) != null ) {
+	        if ( m[3] ) {
+	          return [ m[0].length, [ "link", { href: "mailto:" + m[3] }, m[3] ] ];
+	
+	        }
+	        else if ( m[2] == "mailto" ) {
+	          return [ m[0].length, [ "link", { href: m[1] }, m[1].substr("mailto:".length ) ] ];
+	        }
+	        else
+	          return [ m[0].length, [ "link", { href: m[1] }, m[1] ] ];
+	      }
+	
+	      return [ 1, "<" ];
+	    },
+	
+	    "`": function inlineCode( text ) {
+	      // Inline code block. as many backticks as you like to start it
+	      // Always skip over the opening ticks.
+	      var m = text.match( /(`+)(([\s\S]*?)\1)/ );
+	
+	      if ( m && m[2] )
+	        return [ m[1].length + m[2].length, [ "inlinecode", m[3] ] ];
+	      else {
+	        // TODO: No matching end code found - warn!
+	        return [ 1, "`" ];
+	      }
+	    },
+	
+	    "  \n": function lineBreak( text ) {
+	      return [ 3, [ "linebreak" ] ];
+	    }
+	
+	};
+	
+	// Meta Helper/generator method for em and strong handling
+	function strong_em( tag, md ) {
+	
+	  var state_slot = tag + "_state",
+	      other_slot = tag == "strong" ? "em_state" : "strong_state";
+	
+	  function CloseTag(len) {
+	    this.len_after = len;
+	    this.name = "close_" + md;
+	  }
+	
+	  return function ( text, orig_match ) {
+	
+	    if ( this[state_slot][0] == md ) {
+	      // Most recent em is of this type
+	      //D:this.debug("closing", md);
+	      this[state_slot].shift();
+	
+	      // "Consume" everything to go back to the recrusion in the else-block below
+	      return[ text.length, new CloseTag(text.length-md.length) ];
+	    }
+	    else {
+	      // Store a clone of the em/strong states
+	      var other = this[other_slot].slice(),
+	          state = this[state_slot].slice();
+	
+	      this[state_slot].unshift(md);
+	
+	      //D:this.debug_indent += "  ";
+	
+	      // Recurse
+	      var res = this.processInline( text.substr( md.length ) );
+	      //D:this.debug_indent = this.debug_indent.substr(2);
+	
+	      var last = res[res.length - 1];
+	
+	      //D:this.debug("processInline from", tag + ": ", uneval( res ) );
+	
+	      var check = this[state_slot].shift();
+	      if ( last instanceof CloseTag ) {
+	        res.pop();
+	        // We matched! Huzzah.
+	        var consumed = text.length - last.len_after;
+	        return [ consumed, [ tag ].concat(res) ];
+	      }
+	      else {
+	        // Restore the state of the other kind. We might have mistakenly closed it.
+	        this[other_slot] = other;
+	        this[state_slot] = state;
+	
+	        // We can't reuse the processed result as it could have wrong parsing contexts in it.
+	        return [ md.length, md ];
+	      }
+	    }
+	  }; // End returned function
+	}
+	
+	Markdown.dialects.Gruber.inline["**"] = strong_em("strong", "**");
+	Markdown.dialects.Gruber.inline["__"] = strong_em("strong", "__");
+	Markdown.dialects.Gruber.inline["*"]  = strong_em("em", "*");
+	Markdown.dialects.Gruber.inline["_"]  = strong_em("em", "_");
+	
+	
+	// Build default order from insertion order.
+	Markdown.buildBlockOrder = function(d) {
+	  var ord = [];
+	  for ( var i in d ) {
+	    if ( i == "__order__" || i == "__call__" ) continue;
+	    ord.push( i );
+	  }
+	  d.__order__ = ord;
+	};
+	
+	// Build patterns for inline matcher
+	Markdown.buildInlinePatterns = function(d) {
+	  var patterns = [];
+	
+	  for ( var i in d ) {
+	    // __foo__ is reserved and not a pattern
+	    if ( i.match( /^__.*__$/) ) continue;
+	    var l = i.replace( /([\\.*+?|()\[\]{}])/g, "\\$1" )
+	             .replace( /\n/, "\\n" );
+	    patterns.push( i.length == 1 ? l : "(?:" + l + ")" );
+	  }
+	
+	  patterns = patterns.join("|");
+	  d.__patterns__ = patterns;
+	  //print("patterns:", uneval( patterns ) );
+	
+	  var fn = d.__call__;
+	  d.__call__ = function(text, pattern) {
+	    if ( pattern != undefined ) {
+	      return fn.call(this, text, pattern);
+	    }
+	    else
+	    {
+	      return fn.call(this, text, patterns);
+	    }
+	  };
+	};
+	
+	Markdown.DialectHelpers = {};
+	Markdown.DialectHelpers.inline_until_char = function( text, want ) {
+	  var consumed = 0,
+	      nodes = [];
+	
+	  while ( true ) {
+	    if ( text.charAt( consumed ) == want ) {
+	      // Found the character we were looking for
+	      consumed++;
+	      return [ consumed, nodes ];
+	    }
+	
+	    if ( consumed >= text.length ) {
+	      // No closing char found. Abort.
+	      return null;
+	    }
+	
+	    var res = this.dialect.inline.__oneElement__.call(this, text.substr( consumed ) );
+	    consumed += res[ 0 ];
+	    // Add any returned nodes.
+	    nodes.push.apply( nodes, res.slice( 1 ) );
+	  }
+	}
+	
+	// Helper function to make sub-classing a dialect easier
+	Markdown.subclassDialect = function( d ) {
+	  function Block() {}
+	  Block.prototype = d.block;
+	  function Inline() {}
+	  Inline.prototype = d.inline;
+	
+	  return { block: new Block(), inline: new Inline() };
+	};
+	
+	Markdown.buildBlockOrder ( Markdown.dialects.Gruber.block );
+	Markdown.buildInlinePatterns( Markdown.dialects.Gruber.inline );
+	
+	Markdown.dialects.Maruku = Markdown.subclassDialect( Markdown.dialects.Gruber );
+	
+	Markdown.dialects.Maruku.processMetaHash = function processMetaHash( meta_string ) {
+	  var meta = split_meta_hash( meta_string ),
+	      attr = {};
+	
+	  for ( var i = 0; i < meta.length; ++i ) {
+	    // id: #foo
+	    if ( /^#/.test( meta[ i ] ) ) {
+	      attr.id = meta[ i ].substring( 1 );
+	    }
+	    // class: .foo
+	    else if ( /^\./.test( meta[ i ] ) ) {
+	      // if class already exists, append the new one
+	      if ( attr["class"] ) {
+	        attr["class"] = attr["class"] + meta[ i ].replace( /./, " " );
+	      }
+	      else {
+	        attr["class"] = meta[ i ].substring( 1 );
+	      }
+	    }
+	    // attribute: foo=bar
+	    else if ( /\=/.test( meta[ i ] ) ) {
+	      var s = meta[ i ].split( /\=/ );
+	      attr[ s[ 0 ] ] = s[ 1 ];
+	    }
+	  }
+	
+	  return attr;
+	}
+	
+	function split_meta_hash( meta_string ) {
+	  var meta = meta_string.split( "" ),
+	      parts = [ "" ],
+	      in_quotes = false;
+	
+	  while ( meta.length ) {
+	    var letter = meta.shift();
+	    switch ( letter ) {
+	      case " " :
+	        // if we're in a quoted section, keep it
+	        if ( in_quotes ) {
+	          parts[ parts.length - 1 ] += letter;
+	        }
+	        // otherwise make a new part
+	        else {
+	          parts.push( "" );
+	        }
+	        break;
+	      case "'" :
+	      case '"' :
+	        // reverse the quotes and move straight on
+	        in_quotes = !in_quotes;
+	        break;
+	      case "\\" :
+	        // shift off the next letter to be used straight away.
+	        // it was escaped so we'll keep it whatever it is
+	        letter = meta.shift();
+	      default :
+	        parts[ parts.length - 1 ] += letter;
+	        break;
+	    }
+	  }
+	
+	  return parts;
+	}
+	
+	Markdown.dialects.Maruku.block.document_meta = function document_meta( block, next ) {
+	  // we're only interested in the first block
+	  if ( block.lineNumber > 1 ) return undefined;
+	
+	  // document_meta blocks consist of one or more lines of `Key: Value\n`
+	  if ( ! block.match( /^(?:\w+:.*\n)*\w+:.*$/ ) ) return undefined;
+	
+	  // make an attribute node if it doesn't exist
+	  if ( !extract_attr( this.tree ) ) {
+	    this.tree.splice( 1, 0, {} );
+	  }
+	
+	  var pairs = block.split( /\n/ );
+	  for ( p in pairs ) {
+	    var m = pairs[ p ].match( /(\w+):\s*(.*)$/ ),
+	        key = m[ 1 ].toLowerCase(),
+	        value = m[ 2 ];
+	
+	    this.tree[ 1 ][ key ] = value;
+	  }
+	
+	  // document_meta produces no content!
+	  return [];
+	};
+	
+	Markdown.dialects.Maruku.block.block_meta = function block_meta( block, next ) {
+	  // check if the last line of the block is an meta hash
+	  var m = block.match( /(^|\n) {0,3}\{:\s*((?:\\\}|[^\}])*)\s*\}$/ );
+	  if ( !m ) return undefined;
+	
+	  // process the meta hash
+	  var attr = this.dialect.processMetaHash( m[ 2 ] );
+	
+	  var hash;
+	
+	  // if we matched ^ then we need to apply meta to the previous block
+	  if ( m[ 1 ] === "" ) {
+	    var node = this.tree[ this.tree.length - 1 ];
+	    hash = extract_attr( node );
+	
+	    // if the node is a string (rather than JsonML), bail
+	    if ( typeof node === "string" ) return undefined;
+	
+	    // create the attribute hash if it doesn't exist
+	    if ( !hash ) {
+	      hash = {};
+	      node.splice( 1, 0, hash );
+	    }
+	
+	    // add the attributes in
+	    for ( a in attr ) {
+	      hash[ a ] = attr[ a ];
+	    }
+	
+	    // return nothing so the meta hash is removed
+	    return [];
+	  }
+	
+	  // pull the meta hash off the block and process what's left
+	  var b = block.replace( /\n.*$/, "" ),
+	      result = this.processBlock( b, [] );
+	
+	  // get or make the attributes hash
+	  hash = extract_attr( result[ 0 ] );
+	  if ( !hash ) {
+	    hash = {};
+	    result[ 0 ].splice( 1, 0, hash );
+	  }
+	
+	  // attach the attributes to the block
+	  for ( a in attr ) {
+	    hash[ a ] = attr[ a ];
+	  }
+	
+	  return result;
+	};
+	
+	Markdown.dialects.Maruku.block.definition_list = function definition_list( block, next ) {
+	  // one or more terms followed by one or more definitions, in a single block
+	  var tight = /^((?:[^\s:].*\n)+):\s+([\s\S]+)$/,
+	      list = [ "dl" ],
+	      i, m;
+	
+	  // see if we're dealing with a tight or loose block
+	  if ( ( m = block.match( tight ) ) ) {
+	    // pull subsequent tight DL blocks out of `next`
+	    var blocks = [ block ];
+	    while ( next.length && tight.exec( next[ 0 ] ) ) {
+	      blocks.push( next.shift() );
+	    }
+	
+	    for ( var b = 0; b < blocks.length; ++b ) {
+	      var m = blocks[ b ].match( tight ),
+	          terms = m[ 1 ].replace( /\n$/, "" ).split( /\n/ ),
+	          defns = m[ 2 ].split( /\n:\s+/ );
+	
+	      // print( uneval( m ) );
+	
+	      for ( i = 0; i < terms.length; ++i ) {
+	        list.push( [ "dt", terms[ i ] ] );
+	      }
+	
+	      for ( i = 0; i < defns.length; ++i ) {
+	        // run inline processing over the definition
+	        list.push( [ "dd" ].concat( this.processInline( defns[ i ].replace( /(\n)\s+/, "$1" ) ) ) );
+	      }
+	    }
+	  }
+	  else {
+	    return undefined;
+	  }
+	
+	  return [ list ];
+	};
+	
+	// splits on unescaped instances of @ch. If @ch is not a character the result
+	// can be unpredictable
+	
+	Markdown.dialects.Maruku.block.table = function table (block, next) {
+	
+	    var _split_on_unescaped = function(s, ch) {
+	        ch = ch || '\\s';
+	        if (ch.match(/^[\\|\[\]{}?*.+^$]$/)) { ch = '\\' + ch; }
+	        var res = [ ],
+	            r = new RegExp('^((?:\\\\.|[^\\\\' + ch + '])*)' + ch + '(.*)'),
+	            m;
+	        while(m = s.match(r)) {
+	            res.push(m[1]);
+	            s = m[2];
+	        }
+	        res.push(s);
+	        return res;
+	    }
+	
+	    var leading_pipe = /^ {0,3}\|(.+)\n {0,3}\|\s*([\-:]+[\-| :]*)\n((?:\s*\|.*(?:\n|$))*)(?=\n|$)/,
+	        // find at least an unescaped pipe in each line
+	        no_leading_pipe = /^ {0,3}(\S(?:\\.|[^\\|])*\|.*)\n {0,3}([\-:]+\s*\|[\-| :]*)\n((?:(?:\\.|[^\\|])*\|.*(?:\n|$))*)(?=\n|$)/,
+	        i, m;
+	    if (m = block.match(leading_pipe)) {
+	        // remove leading pipes in contents
+	        // (header and horizontal rule already have the leading pipe left out)
+	        m[3] = m[3].replace(/^\s*\|/gm, '');
+	    } else if (! ( m = block.match(no_leading_pipe))) {
+	        return undefined;
+	    }
+	
+	    var table = [ "table", [ "thead", [ "tr" ] ], [ "tbody" ] ];
+	
+	    // remove trailing pipes, then split on pipes
+	    // (no escaped pipes are allowed in horizontal rule)
+	    m[2] = m[2].replace(/\|\s*$/, '').split('|');
+	
+	    // process alignment
+	    var html_attrs = [ ];
+	    forEach (m[2], function (s) {
+	        if (s.match(/^\s*-+:\s*$/))       html_attrs.push({align: "right"});
+	        else if (s.match(/^\s*:-+\s*$/))  html_attrs.push({align: "left"});
+	        else if (s.match(/^\s*:-+:\s*$/)) html_attrs.push({align: "center"});
+	        else                              html_attrs.push({});
+	    });
+	
+	    // now for the header, avoid escaped pipes
+	    m[1] = _split_on_unescaped(m[1].replace(/\|\s*$/, ''), '|');
+	    for (i = 0; i < m[1].length; i++) {
+	        table[1][1].push(['th', html_attrs[i] || {}].concat(
+	            this.processInline(m[1][i].trim())));
+	    }
+	
+	    // now for body contents
+	    forEach (m[3].replace(/\|\s*$/mg, '').split('\n'), function (row) {
+	        var html_row = ['tr'];
+	        row = _split_on_unescaped(row, '|');
+	        for (i = 0; i < row.length; i++) {
+	            html_row.push(['td', html_attrs[i] || {}].concat(this.processInline(row[i].trim())));
+	        }
+	        table[2].push(html_row);
+	    }, this);
+	
+	    return [table];
+	}
+	
+	Markdown.dialects.Maruku.inline[ "{:" ] = function inline_meta( text, matches, out ) {
+	  if ( !out.length ) {
+	    return [ 2, "{:" ];
+	  }
+	
+	  // get the preceeding element
+	  var before = out[ out.length - 1 ];
+	
+	  if ( typeof before === "string" ) {
+	    return [ 2, "{:" ];
+	  }
+	
+	  // match a meta hash
+	  var m = text.match( /^\{:\s*((?:\\\}|[^\}])*)\s*\}/ );
+	
+	  // no match, false alarm
+	  if ( !m ) {
+	    return [ 2, "{:" ];
+	  }
+	
+	  // attach the attributes to the preceeding element
+	  var meta = this.dialect.processMetaHash( m[ 1 ] ),
+	      attr = extract_attr( before );
+	
+	  if ( !attr ) {
+	    attr = {};
+	    before.splice( 1, 0, attr );
+	  }
+	
+	  for ( var k in meta ) {
+	    attr[ k ] = meta[ k ];
+	  }
+	
+	  // cut out the string and replace it with nothing
+	  return [ m[ 0 ].length, "" ];
+	};
+	
+	Markdown.dialects.Maruku.inline.__escape__ = /^\\[\\`\*_{}\[\]()#\+.!\-|:]/;
+	
+	Markdown.buildBlockOrder ( Markdown.dialects.Maruku.block );
+	Markdown.buildInlinePatterns( Markdown.dialects.Maruku.inline );
+	
+	var isArray = Array.isArray || function(obj) {
+	  return Object.prototype.toString.call(obj) == "[object Array]";
+	};
+	
+	var forEach;
+	// Don't mess with Array.prototype. Its not friendly
+	if ( Array.prototype.forEach ) {
+	  forEach = function( arr, cb, thisp ) {
+	    return arr.forEach( cb, thisp );
+	  };
+	}
+	else {
+	  forEach = function(arr, cb, thisp) {
+	    for (var i = 0; i < arr.length; i++) {
+	      cb.call(thisp || arr, arr[i], i, arr);
+	    }
+	  }
+	}
+	
+	var isEmpty = function( obj ) {
+	  for ( var key in obj ) {
+	    if ( hasOwnProperty.call( obj, key ) ) {
+	      return false;
+	    }
+	  }
+	
+	  return true;
+	}
+	
+	function extract_attr( jsonml ) {
+	  return isArray(jsonml)
+	      && jsonml.length > 1
+	      && typeof jsonml[ 1 ] === "object"
+	      && !( isArray(jsonml[ 1 ]) )
+	      ? jsonml[ 1 ]
+	      : undefined;
+	}
+	
+	
+	
+	/**
+	 *  renderJsonML( jsonml[, options] ) -> String
+	 *  - jsonml (Array): JsonML array to render to XML
+	 *  - options (Object): options
+	 *
+	 *  Converts the given JsonML into well-formed XML.
+	 *
+	 *  The options currently understood are:
+	 *
+	 *  - root (Boolean): wether or not the root node should be included in the
+	 *    output, or just its children. The default `false` is to not include the
+	 *    root itself.
+	 */
+	expose.renderJsonML = function( jsonml, options ) {
+	  options = options || {};
+	  // include the root element in the rendered output?
+	  options.root = options.root || false;
+	
+	  var content = [];
+	
+	  if ( options.root ) {
+	    content.push( render_tree( jsonml ) );
+	  }
+	  else {
+	    jsonml.shift(); // get rid of the tag
+	    if ( jsonml.length && typeof jsonml[ 0 ] === "object" && !( jsonml[ 0 ] instanceof Array ) ) {
+	      jsonml.shift(); // get rid of the attributes
+	    }
+	
+	    while ( jsonml.length ) {
+	      content.push( render_tree( jsonml.shift() ) );
+	    }
+	  }
+	
+	  return content.join( "\n\n" );
+	};
+	
+	function escapeHTML( text ) {
+	  return text.replace( /&/g, "&amp;" )
+	             .replace( /</g, "&lt;" )
+	             .replace( />/g, "&gt;" )
+	             .replace( /"/g, "&quot;" )
+	             .replace( /'/g, "&#39;" );
+	}
+	
+	function render_tree( jsonml ) {
+	  // basic case
+	  if ( typeof jsonml === "string" ) {
+	    return escapeHTML( jsonml );
+	  }
+	
+	  var tag = jsonml.shift(),
+	      attributes = {},
+	      content = [];
+	
+	  if ( jsonml.length && typeof jsonml[ 0 ] === "object" && !( jsonml[ 0 ] instanceof Array ) ) {
+	    attributes = jsonml.shift();
+	  }
+	
+	  while ( jsonml.length ) {
+	    content.push( render_tree( jsonml.shift() ) );
+	  }
+	
+	  var tag_attrs = "";
+	  for ( var a in attributes ) {
+	    tag_attrs += " " + a + '="' + escapeHTML( attributes[ a ] ) + '"';
+	  }
+	
+	  // be careful about adding whitespace here for inline elements
+	  if ( tag == "img" || tag == "br" || tag == "hr" ) {
+	    return "<"+ tag + tag_attrs + "/>";
+	  }
+	  else {
+	    return "<"+ tag + tag_attrs + ">" + content.join( "" ) + "</" + tag + ">";
+	  }
+	}
+	
+	function convert_tree_to_html( tree, references, options ) {
+	  var i;
+	  options = options || {};
+	
+	  // shallow clone
+	  var jsonml = tree.slice( 0 );
+	
+	  if ( typeof options.preprocessTreeNode === "function" ) {
+	      jsonml = options.preprocessTreeNode(jsonml, references);
+	  }
+	
+	  // Clone attributes if they exist
+	  var attrs = extract_attr( jsonml );
+	  if ( attrs ) {
+	    jsonml[ 1 ] = {};
+	    for ( i in attrs ) {
+	      jsonml[ 1 ][ i ] = attrs[ i ];
+	    }
+	    attrs = jsonml[ 1 ];
+	  }
+	
+	  // basic case
+	  if ( typeof jsonml === "string" ) {
+	    return jsonml;
+	  }
+	
+	  // convert this node
+	  switch ( jsonml[ 0 ] ) {
+	    case "header":
+	      jsonml[ 0 ] = "h" + jsonml[ 1 ].level;
+	      delete jsonml[ 1 ].level;
+	      break;
+	    case "bulletlist":
+	      jsonml[ 0 ] = "ul";
+	      break;
+	    case "numberlist":
+	      jsonml[ 0 ] = "ol";
+	      break;
+	    case "listitem":
+	      jsonml[ 0 ] = "li";
+	      break;
+	    case "para":
+	      jsonml[ 0 ] = "p";
+	      break;
+	    case "markdown":
+	      jsonml[ 0 ] = "html";
+	      if ( attrs ) delete attrs.references;
+	      break;
+	    case "code_block":
+	      jsonml[ 0 ] = "pre";
+	      i = attrs ? 2 : 1;
+	      var code = [ "code" ];
+	      code.push.apply( code, jsonml.splice( i, jsonml.length - i ) );
+	      jsonml[ i ] = code;
+	      break;
+	    case "inlinecode":
+	      jsonml[ 0 ] = "code";
+	      break;
+	    case "img":
+	      jsonml[ 1 ].src = jsonml[ 1 ].href;
+	      delete jsonml[ 1 ].href;
+	      break;
+	    case "linebreak":
+	      jsonml[ 0 ] = "br";
+	    break;
+	    case "link":
+	      jsonml[ 0 ] = "a";
+	      break;
+	    case "link_ref":
+	      jsonml[ 0 ] = "a";
+	
+	      // grab this ref and clean up the attribute node
+	      var ref = references[ attrs.ref ];
+	
+	      // if the reference exists, make the link
+	      if ( ref ) {
+	        delete attrs.ref;
+	
+	        // add in the href and title, if present
+	        attrs.href = ref.href;
+	        if ( ref.title ) {
+	          attrs.title = ref.title;
+	        }
+	
+	        // get rid of the unneeded original text
+	        delete attrs.original;
+	      }
+	      // the reference doesn't exist, so revert to plain text
+	      else {
+	        return attrs.original;
+	      }
+	      break;
+	    case "img_ref":
+	      jsonml[ 0 ] = "img";
+	
+	      // grab this ref and clean up the attribute node
+	      var ref = references[ attrs.ref ];
+	
+	      // if the reference exists, make the link
+	      if ( ref ) {
+	        delete attrs.ref;
+	
+	        // add in the href and title, if present
+	        attrs.src = ref.href;
+	        if ( ref.title ) {
+	          attrs.title = ref.title;
+	        }
+	
+	        // get rid of the unneeded original text
+	        delete attrs.original;
+	      }
+	      // the reference doesn't exist, so revert to plain text
+	      else {
+	        return attrs.original;
+	      }
+	      break;
+	  }
+	
+	  // convert all the children
+	  i = 1;
+	
+	  // deal with the attribute node, if it exists
+	  if ( attrs ) {
+	    // if there are keys, skip over it
+	    for ( var key in jsonml[ 1 ] ) {
+	        i = 2;
+	        break;
+	    }
+	    // if there aren't, remove it
+	    if ( i === 1 ) {
+	      jsonml.splice( i, 1 );
+	    }
+	  }
+	
+	  for ( ; i < jsonml.length; ++i ) {
+	    jsonml[ i ] = convert_tree_to_html( jsonml[ i ], references, options );
+	  }
+	
+	  return jsonml;
+	}
+	
+	
+	// merges adjacent text nodes into a single node
+	function merge_text_nodes( jsonml ) {
+	  // skip the tag name and attribute hash
+	  var i = extract_attr( jsonml ) ? 2 : 1;
+	
+	  while ( i < jsonml.length ) {
+	    // if it's a string check the next item too
+	    if ( typeof jsonml[ i ] === "string" ) {
+	      if ( i + 1 < jsonml.length && typeof jsonml[ i + 1 ] === "string" ) {
+	        // merge the second string into the first and remove it
+	        jsonml[ i ] += jsonml.splice( i + 1, 1 )[ 0 ];
+	      }
+	      else {
+	        ++i;
+	      }
+	    }
+	    // if it's not a string recurse
+	    else {
+	      merge_text_nodes( jsonml[ i ] );
+	      ++i;
+	    }
+	  }
+	}
+	
+	} )( (function() {
+	  if ( false ) {
+	    window.markdown = {};
+	    return window.markdown;
+	  }
+	  else {
+	    return exports;
+	  }
+	} )() );
+
+
+/***/ },
+/* 54 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+	
+	var formatRegExp = /%[sdj%]/g;
+	exports.format = function(f) {
+	  if (!isString(f)) {
+	    var objects = [];
+	    for (var i = 0; i < arguments.length; i++) {
+	      objects.push(inspect(arguments[i]));
+	    }
+	    return objects.join(' ');
+	  }
+	
+	  var i = 1;
+	  var args = arguments;
+	  var len = args.length;
+	  var str = String(f).replace(formatRegExp, function(x) {
+	    if (x === '%%') return '%';
+	    if (i >= len) return x;
+	    switch (x) {
+	      case '%s': return String(args[i++]);
+	      case '%d': return Number(args[i++]);
+	      case '%j':
+	        try {
+	          return JSON.stringify(args[i++]);
+	        } catch (_) {
+	          return '[Circular]';
+	        }
+	      default:
+	        return x;
+	    }
+	  });
+	  for (var x = args[i]; i < len; x = args[++i]) {
+	    if (isNull(x) || !isObject(x)) {
+	      str += ' ' + x;
+	    } else {
+	      str += ' ' + inspect(x);
+	    }
+	  }
+	  return str;
+	};
+	
+	
+	// Mark that a method should not be used.
+	// Returns a modified function which warns once by default.
+	// If --no-deprecation is set, then it is a no-op.
+	exports.deprecate = function(fn, msg) {
+	  // Allow for deprecating things in the process of starting up.
+	  if (isUndefined(global.process)) {
+	    return function() {
+	      return exports.deprecate(fn, msg).apply(this, arguments);
+	    };
+	  }
+	
+	  if (process.noDeprecation === true) {
+	    return fn;
+	  }
+	
+	  var warned = false;
+	  function deprecated() {
+	    if (!warned) {
+	      if (process.throwDeprecation) {
+	        throw new Error(msg);
+	      } else if (process.traceDeprecation) {
+	        console.trace(msg);
+	      } else {
+	        console.error(msg);
+	      }
+	      warned = true;
+	    }
+	    return fn.apply(this, arguments);
+	  }
+	
+	  return deprecated;
+	};
+	
+	
+	var debugs = {};
+	var debugEnviron;
+	exports.debuglog = function(set) {
+	  if (isUndefined(debugEnviron))
+	    debugEnviron = process.env.NODE_DEBUG || '';
+	  set = set.toUpperCase();
+	  if (!debugs[set]) {
+	    if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
+	      var pid = process.pid;
+	      debugs[set] = function() {
+	        var msg = exports.format.apply(exports, arguments);
+	        console.error('%s %d: %s', set, pid, msg);
+	      };
+	    } else {
+	      debugs[set] = function() {};
+	    }
+	  }
+	  return debugs[set];
+	};
+	
+	
+	/**
+	 * Echos the value of a value. Trys to print the value out
+	 * in the best way possible given the different types.
+	 *
+	 * @param {Object} obj The object to print out.
+	 * @param {Object} opts Optional options object that alters the output.
+	 */
+	/* legacy: obj, showHidden, depth, colors*/
+	function inspect(obj, opts) {
+	  // default options
+	  var ctx = {
+	    seen: [],
+	    stylize: stylizeNoColor
+	  };
+	  // legacy...
+	  if (arguments.length >= 3) ctx.depth = arguments[2];
+	  if (arguments.length >= 4) ctx.colors = arguments[3];
+	  if (isBoolean(opts)) {
+	    // legacy...
+	    ctx.showHidden = opts;
+	  } else if (opts) {
+	    // got an "options" object
+	    exports._extend(ctx, opts);
+	  }
+	  // set default options
+	  if (isUndefined(ctx.showHidden)) ctx.showHidden = false;
+	  if (isUndefined(ctx.depth)) ctx.depth = 2;
+	  if (isUndefined(ctx.colors)) ctx.colors = false;
+	  if (isUndefined(ctx.customInspect)) ctx.customInspect = true;
+	  if (ctx.colors) ctx.stylize = stylizeWithColor;
+	  return formatValue(ctx, obj, ctx.depth);
+	}
+	exports.inspect = inspect;
+	
+	
+	// http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
+	inspect.colors = {
+	  'bold' : [1, 22],
+	  'italic' : [3, 23],
+	  'underline' : [4, 24],
+	  'inverse' : [7, 27],
+	  'white' : [37, 39],
+	  'grey' : [90, 39],
+	  'black' : [30, 39],
+	  'blue' : [34, 39],
+	  'cyan' : [36, 39],
+	  'green' : [32, 39],
+	  'magenta' : [35, 39],
+	  'red' : [31, 39],
+	  'yellow' : [33, 39]
+	};
+	
+	// Don't use 'blue' not visible on cmd.exe
+	inspect.styles = {
+	  'special': 'cyan',
+	  'number': 'yellow',
+	  'boolean': 'yellow',
+	  'undefined': 'grey',
+	  'null': 'bold',
+	  'string': 'green',
+	  'date': 'magenta',
+	  // "name": intentionally not styling
+	  'regexp': 'red'
+	};
+	
+	
+	function stylizeWithColor(str, styleType) {
+	  var style = inspect.styles[styleType];
+	
+	  if (style) {
+	    return '\u001b[' + inspect.colors[style][0] + 'm' + str +
+	           '\u001b[' + inspect.colors[style][1] + 'm';
+	  } else {
+	    return str;
+	  }
+	}
+	
+	
+	function stylizeNoColor(str, styleType) {
+	  return str;
+	}
+	
+	
+	function arrayToHash(array) {
+	  var hash = {};
+	
+	  array.forEach(function(val, idx) {
+	    hash[val] = true;
+	  });
+	
+	  return hash;
+	}
+	
+	
+	function formatValue(ctx, value, recurseTimes) {
+	  // Provide a hook for user-specified inspect functions.
+	  // Check that value is an object with an inspect function on it
+	  if (ctx.customInspect &&
+	      value &&
+	      isFunction(value.inspect) &&
+	      // Filter out the util module, it's inspect function is special
+	      value.inspect !== exports.inspect &&
+	      // Also filter out any prototype objects using the circular check.
+	      !(value.constructor && value.constructor.prototype === value)) {
+	    var ret = value.inspect(recurseTimes, ctx);
+	    if (!isString(ret)) {
+	      ret = formatValue(ctx, ret, recurseTimes);
+	    }
+	    return ret;
+	  }
+	
+	  // Primitive types cannot have properties
+	  var primitive = formatPrimitive(ctx, value);
+	  if (primitive) {
+	    return primitive;
+	  }
+	
+	  // Look up the keys of the object.
+	  var keys = Object.keys(value);
+	  var visibleKeys = arrayToHash(keys);
+	
+	  if (ctx.showHidden) {
+	    keys = Object.getOwnPropertyNames(value);
+	  }
+	
+	  // IE doesn't make error fields non-enumerable
+	  // http://msdn.microsoft.com/en-us/library/ie/dww52sbt(v=vs.94).aspx
+	  if (isError(value)
+	      && (keys.indexOf('message') >= 0 || keys.indexOf('description') >= 0)) {
+	    return formatError(value);
+	  }
+	
+	  // Some type of object without properties can be shortcutted.
+	  if (keys.length === 0) {
+	    if (isFunction(value)) {
+	      var name = value.name ? ': ' + value.name : '';
+	      return ctx.stylize('[Function' + name + ']', 'special');
+	    }
+	    if (isRegExp(value)) {
+	      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+	    }
+	    if (isDate(value)) {
+	      return ctx.stylize(Date.prototype.toString.call(value), 'date');
+	    }
+	    if (isError(value)) {
+	      return formatError(value);
+	    }
+	  }
+	
+	  var base = '', array = false, braces = ['{', '}'];
+	
+	  // Make Array say that they are Array
+	  if (isArray(value)) {
+	    array = true;
+	    braces = ['[', ']'];
+	  }
+	
+	  // Make functions say that they are functions
+	  if (isFunction(value)) {
+	    var n = value.name ? ': ' + value.name : '';
+	    base = ' [Function' + n + ']';
+	  }
+	
+	  // Make RegExps say that they are RegExps
+	  if (isRegExp(value)) {
+	    base = ' ' + RegExp.prototype.toString.call(value);
+	  }
+	
+	  // Make dates with properties first say the date
+	  if (isDate(value)) {
+	    base = ' ' + Date.prototype.toUTCString.call(value);
+	  }
+	
+	  // Make error with message first say the error
+	  if (isError(value)) {
+	    base = ' ' + formatError(value);
+	  }
+	
+	  if (keys.length === 0 && (!array || value.length == 0)) {
+	    return braces[0] + base + braces[1];
+	  }
+	
+	  if (recurseTimes < 0) {
+	    if (isRegExp(value)) {
+	      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+	    } else {
+	      return ctx.stylize('[Object]', 'special');
+	    }
+	  }
+	
+	  ctx.seen.push(value);
+	
+	  var output;
+	  if (array) {
+	    output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
+	  } else {
+	    output = keys.map(function(key) {
+	      return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);
+	    });
+	  }
+	
+	  ctx.seen.pop();
+	
+	  return reduceToSingleString(output, base, braces);
+	}
+	
+	
+	function formatPrimitive(ctx, value) {
+	  if (isUndefined(value))
+	    return ctx.stylize('undefined', 'undefined');
+	  if (isString(value)) {
+	    var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
+	                                             .replace(/'/g, "\\'")
+	                                             .replace(/\\"/g, '"') + '\'';
+	    return ctx.stylize(simple, 'string');
+	  }
+	  if (isNumber(value))
+	    return ctx.stylize('' + value, 'number');
+	  if (isBoolean(value))
+	    return ctx.stylize('' + value, 'boolean');
+	  // For some reason typeof null is "object", so special case here.
+	  if (isNull(value))
+	    return ctx.stylize('null', 'null');
+	}
+	
+	
+	function formatError(value) {
+	  return '[' + Error.prototype.toString.call(value) + ']';
+	}
+	
+	
+	function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
+	  var output = [];
+	  for (var i = 0, l = value.length; i < l; ++i) {
+	    if (hasOwnProperty(value, String(i))) {
+	      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+	          String(i), true));
+	    } else {
+	      output.push('');
+	    }
+	  }
+	  keys.forEach(function(key) {
+	    if (!key.match(/^\d+$/)) {
+	      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+	          key, true));
+	    }
+	  });
+	  return output;
+	}
+	
+	
+	function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
+	  var name, str, desc;
+	  desc = Object.getOwnPropertyDescriptor(value, key) || { value: value[key] };
+	  if (desc.get) {
+	    if (desc.set) {
+	      str = ctx.stylize('[Getter/Setter]', 'special');
+	    } else {
+	      str = ctx.stylize('[Getter]', 'special');
+	    }
+	  } else {
+	    if (desc.set) {
+	      str = ctx.stylize('[Setter]', 'special');
+	    }
+	  }
+	  if (!hasOwnProperty(visibleKeys, key)) {
+	    name = '[' + key + ']';
+	  }
+	  if (!str) {
+	    if (ctx.seen.indexOf(desc.value) < 0) {
+	      if (isNull(recurseTimes)) {
+	        str = formatValue(ctx, desc.value, null);
+	      } else {
+	        str = formatValue(ctx, desc.value, recurseTimes - 1);
+	      }
+	      if (str.indexOf('\n') > -1) {
+	        if (array) {
+	          str = str.split('\n').map(function(line) {
+	            return '  ' + line;
+	          }).join('\n').substr(2);
+	        } else {
+	          str = '\n' + str.split('\n').map(function(line) {
+	            return '   ' + line;
+	          }).join('\n');
+	        }
+	      }
+	    } else {
+	      str = ctx.stylize('[Circular]', 'special');
+	    }
+	  }
+	  if (isUndefined(name)) {
+	    if (array && key.match(/^\d+$/)) {
+	      return str;
+	    }
+	    name = JSON.stringify('' + key);
+	    if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
+	      name = name.substr(1, name.length - 2);
+	      name = ctx.stylize(name, 'name');
+	    } else {
+	      name = name.replace(/'/g, "\\'")
+	                 .replace(/\\"/g, '"')
+	                 .replace(/(^"|"$)/g, "'");
+	      name = ctx.stylize(name, 'string');
+	    }
+	  }
+	
+	  return name + ': ' + str;
+	}
+	
+	
+	function reduceToSingleString(output, base, braces) {
+	  var numLinesEst = 0;
+	  var length = output.reduce(function(prev, cur) {
+	    numLinesEst++;
+	    if (cur.indexOf('\n') >= 0) numLinesEst++;
+	    return prev + cur.replace(/\u001b\[\d\d?m/g, '').length + 1;
+	  }, 0);
+	
+	  if (length > 60) {
+	    return braces[0] +
+	           (base === '' ? '' : base + '\n ') +
+	           ' ' +
+	           output.join(',\n  ') +
+	           ' ' +
+	           braces[1];
+	  }
+	
+	  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
+	}
+	
+	
+	// NOTE: These type checking functions intentionally don't use `instanceof`
+	// because it is fragile and can be easily faked with `Object.create()`.
+	function isArray(ar) {
+	  return Array.isArray(ar);
+	}
+	exports.isArray = isArray;
+	
+	function isBoolean(arg) {
+	  return typeof arg === 'boolean';
+	}
+	exports.isBoolean = isBoolean;
+	
+	function isNull(arg) {
+	  return arg === null;
+	}
+	exports.isNull = isNull;
+	
+	function isNullOrUndefined(arg) {
+	  return arg == null;
+	}
+	exports.isNullOrUndefined = isNullOrUndefined;
+	
+	function isNumber(arg) {
+	  return typeof arg === 'number';
+	}
+	exports.isNumber = isNumber;
+	
+	function isString(arg) {
+	  return typeof arg === 'string';
+	}
+	exports.isString = isString;
+	
+	function isSymbol(arg) {
+	  return typeof arg === 'symbol';
+	}
+	exports.isSymbol = isSymbol;
+	
+	function isUndefined(arg) {
+	  return arg === void 0;
+	}
+	exports.isUndefined = isUndefined;
+	
+	function isRegExp(re) {
+	  return isObject(re) && objectToString(re) === '[object RegExp]';
+	}
+	exports.isRegExp = isRegExp;
+	
+	function isObject(arg) {
+	  return typeof arg === 'object' && arg !== null;
+	}
+	exports.isObject = isObject;
+	
+	function isDate(d) {
+	  return isObject(d) && objectToString(d) === '[object Date]';
+	}
+	exports.isDate = isDate;
+	
+	function isError(e) {
+	  return isObject(e) &&
+	      (objectToString(e) === '[object Error]' || e instanceof Error);
+	}
+	exports.isError = isError;
+	
+	function isFunction(arg) {
+	  return typeof arg === 'function';
+	}
+	exports.isFunction = isFunction;
+	
+	function isPrimitive(arg) {
+	  return arg === null ||
+	         typeof arg === 'boolean' ||
+	         typeof arg === 'number' ||
+	         typeof arg === 'string' ||
+	         typeof arg === 'symbol' ||  // ES6 symbol
+	         typeof arg === 'undefined';
+	}
+	exports.isPrimitive = isPrimitive;
+	
+	exports.isBuffer = __webpack_require__(55);
+	
+	function objectToString(o) {
+	  return Object.prototype.toString.call(o);
+	}
+	
+	
+	function pad(n) {
+	  return n < 10 ? '0' + n.toString(10) : n.toString(10);
+	}
+	
+	
+	var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+	              'Oct', 'Nov', 'Dec'];
+	
+	// 26 Feb 16:19:34
+	function timestamp() {
+	  var d = new Date();
+	  var time = [pad(d.getHours()),
+	              pad(d.getMinutes()),
+	              pad(d.getSeconds())].join(':');
+	  return [d.getDate(), months[d.getMonth()], time].join(' ');
+	}
+	
+	
+	// log is just a thin wrapper to console.log that prepends a timestamp
+	exports.log = function() {
+	  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
+	};
+	
+	
+	/**
+	 * Inherit the prototype methods from one constructor into another.
+	 *
+	 * The Function.prototype.inherits from lang.js rewritten as a standalone
+	 * function (not on Function.prototype). NOTE: If this file is to be loaded
+	 * during bootstrapping this function needs to be rewritten using some native
+	 * functions as prototype setup using normal JavaScript does not work as
+	 * expected during bootstrapping (see mirror.js in r114903).
+	 *
+	 * @param {function} ctor Constructor function which needs to inherit the
+	 *     prototype.
+	 * @param {function} superCtor Constructor function to inherit prototype from.
+	 */
+	exports.inherits = __webpack_require__(56);
+	
+	exports._extend = function(origin, add) {
+	  // Don't do anything if add isn't an object
+	  if (!add || !isObject(add)) return origin;
+	
+	  var keys = Object.keys(add);
+	  var i = keys.length;
+	  while (i--) {
+	    origin[keys[i]] = add[keys[i]];
+	  }
+	  return origin;
+	};
+	
+	function hasOwnProperty(obj, prop) {
+	  return Object.prototype.hasOwnProperty.call(obj, prop);
+	}
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(15)))
+
+/***/ },
+/* 55 */
+/***/ function(module, exports) {
+
+	module.exports = function isBuffer(arg) {
+	  return arg && typeof arg === 'object'
+	    && typeof arg.copy === 'function'
+	    && typeof arg.fill === 'function'
+	    && typeof arg.readUInt8 === 'function';
+	}
+
+/***/ },
+/* 56 */
+/***/ function(module, exports) {
+
+	if (typeof Object.create === 'function') {
+	  // implementation from standard node.js 'util' module
+	  module.exports = function inherits(ctor, superCtor) {
+	    ctor.super_ = superCtor
+	    ctor.prototype = Object.create(superCtor.prototype, {
+	      constructor: {
+	        value: ctor,
+	        enumerable: false,
+	        writable: true,
+	        configurable: true
+	      }
+	    });
+	  };
+	} else {
+	  // old school shim for old browsers
+	  module.exports = function inherits(ctor, superCtor) {
+	    ctor.super_ = superCtor
+	    var TempCtor = function () {}
+	    TempCtor.prototype = superCtor.prototype
+	    ctor.prototype = new TempCtor()
+	    ctor.prototype.constructor = ctor
+	  }
+	}
+
+
+/***/ },
+/* 57 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"conHead\" v-show=\"show\">\n\t<h3 class=\"con-title\">{{conHeadCon.title}}</h3>\n\t<div class=\"author-img\">\n\t\t<img :src=\"conHeadCon.member.avatar_normal\">\n\t</div>\n\t<div class=\"con-author\">\n\t\t<ul class=\"list-inline\">\n\t\t\t<li class=\"author\" v-link=\"{ name: 'user',params: { username: conHeadCon.member.username}}\">By {{conHeadCon.member.username}}</li>\n\t\t\t<span class=\"split\">·</span>\n\t\t\t<li class=\"create-time\">At {{conHeadCon.created | getLastTimeStr true}}</li>\n\t\t\t<span class=\"split\">·</span>\n\t\t\t<li class=\"create-time\">{{conHeadCon.replies}} 个回复</li>\n\t\t</ul>\n\t</div>\n\t<div class=\"con-article\">{{conHeadCon.content }}</div>\n</div>\n";
+
+/***/ },
+/* 58 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(59)
+	__vue_script__ = __webpack_require__(61)
+	__vue_template__ = __webpack_require__(62)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/Users/Veto/Documents/workspace/V2EX-Mobile/src/components/reply.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(60);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(21)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4ffe2a39&file=reply.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./reply.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-4ffe2a39&file=reply.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./reply.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(20)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n.man-avater{\n\tpadding: 0 5px;\n}\n.floor{\n\tfloat: right;\n\n}\n.conReply{\n\tpadding: 10px;\n}\n.replys{\n\tmax-width: 85%;\n}\n", "", {"version":3,"sources":["/./src/components/reply.vue?31296536"],"names":[],"mappings":";AAwCA;CACA,eAAA;CACA;AACA;CACA,aAAA;;CAEA;AACA;CACA,cAAA;CACA;AACA;CACA,eAAA;CACA","file":"reply.vue","sourcesContent":["<template>\n\t<div class=\"conReply\" v-show=\"show\" v-for=\"reply in replyDatas\">\n\t\t<div class=\"man-avater list-inline\">\n\t\t\t<img :src=\"reply.member.avatar_mini\">\n\t\t</div>\n\t\t<div class=\"floor list-inline\">\n\t\t\t<span>#{{$index+1}}</span>\n\t\t</div>\n\t\t<ul class=\"replys list-inline\">\n\t\t\t<li class=\"username\" v-link=\"{ name: 'user',params: { username: reply.member.username}}\">{{reply.member.username}}</li>\n\t\t\t<li class=\"reply-time\">Reply at {{reply.created | getLastTimeStr true}}</li>\n\t\t\t<div class=\"reply-con\">{{reply.content}}</div>\n\t\t</ul>\n\t</div>\n</template>\n<script>\n\texport default {\n\t\tname:'Reply',\n\t\tprops:['show'],\n\n\t\tdata(){\n\t\t\treturn {\n\t\t\t\treplyDatas:{}\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\tgetReplyById(){\n\t\t\t\tvar _self = this\n\t\t\t\tconst params = $.param({topic_id:_self.$route.params.id})\n\t\t\t\t_self.$http.get('https://www.v2ex.com/api/replies/show.json?'+ params,(data) => {\n\t\t\t\t\tif (data) {\n\t\t\t\t\t\t_self.replyDatas = data\n\t\t\t\t\t};\n\t\t\t\t})\n\t\t\t}\n\t\t}\n\t}\n</script>\n<style>\n\t.man-avater{\n\t\tpadding: 0 5px;\n\t}\n\t.floor{\n\t\tfloat: right;\n\n\t}\n\t.conReply{\n\t\tpadding: 10px;\n\t}\n\t.replys{\n\t\tmax-width: 85%;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 61 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	// <template>
+	// 	<div class="conReply" v-show="show" v-for="reply in replyDatas">
+	// 		<div class="man-avater list-inline">
+	// 			<img :src="reply.member.avatar_mini">
+	// 		</div>
+	// 		<div class="floor list-inline">
+	// 			<span>#{{$index+1}}</span>
+	// 		</div>
+	// 		<ul class="replys list-inline">
+	// 			<li class="username" v-link="{ name: 'user',params: { username: reply.member.username}}">{{reply.member.username}}</li>
+	// 			<li class="reply-time">Reply at {{reply.created | getLastTimeStr true}}</li>
+	// 			<div class="reply-con">{{reply.content}}</div>
+	// 		</ul>
+	// 	</div>
+	// </template>
+	// <script>
+	exports.default = {
+		name: 'Reply',
+		props: ['show'],
+	
+		data: function data() {
+			return {
+				replyDatas: {}
+			};
+		},
+	
+		methods: {
+			getReplyById: function getReplyById() {
+				var _self = this;
+				var params = $.param({ topic_id: _self.$route.params.id });
+				_self.$http.get('https://www.v2ex.com/api/replies/show.json?' + params, function (data) {
+					if (data) {
+						_self.replyDatas = data;
+					};
+				});
+			}
+		}
+	};
+	// </script>
+	// <style>
+	// 	.man-avater{
+	// 		padding: 0 5px;
+	// 	}
+	// 	.floor{
+	// 		float: right;
+
+	// 	}
+	// 	.conReply{
+	// 		padding: 10px;
+	// 	}
+	// 	.replys{
+	// 		max-width: 85%;
+	// 	}
+	// </style>
+
+	/* generated by vue-loader */
+
+/***/ },
+/* 62 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"conReply\" v-show=\"show\" v-for=\"reply in replyDatas\">\n\t<div class=\"man-avater list-inline\">\n\t\t<img :src=\"reply.member.avatar_mini\">\n\t</div>\n\t<div class=\"floor list-inline\">\n\t\t<span>#{{$index+1}}</span>\n\t</div>\n\t<ul class=\"replys list-inline\">\n\t\t<li class=\"username\" v-link=\"{ name: 'user',params: { username: reply.member.username}}\">{{reply.member.username}}</li>\n\t\t<li class=\"reply-time\">Reply at {{reply.created | getLastTimeStr true}}</li>\n\t\t<div class=\"reply-con\">{{reply.content}}</div>\n\t</ul>\n</div>\n";
+
+/***/ },
+/* 63 */
+/***/ function(module, exports) {
+
+	module.exports = "\n\t<div class=\"content-wrap\">\n\t<div class=\"contaier\" >\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-6\">\n\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t<con-head v-ref:ConHead :show=\"!showLoad\"></con-head>\n\t\t<con-reply v-ref:conReply :show=\"!showLoad\"></con-reply>\n\t\t</div>\n\t</div>\n</div>\n\t</div>\n";
+
+/***/ },
+/* 64 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(65)
+	__vue_script__ = __webpack_require__(67)
+	__vue_template__ = __webpack_require__(68)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/Users/Veto/Documents/workspace/V2EX-Mobile/src/views/user.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 65 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(66);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(21)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3e828658&file=user.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./user.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-3e828658&file=user.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./user.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(20)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n.member-reply{\n\tmargin-top: 20px;\n}\n.reply-item{\n\tmargin: 5px;\n\tborder-bottom: 1px solid #eee;\n\tmin-width: 100%;\n}\n.reply{\n\twidth: 100%;\n\tword-break: break-all;\n\toverflow-x:hidden;\n}\n\n", "", {"version":3,"sources":["/./src/views/user.vue?1d0611ae"],"names":[],"mappings":";AAsFA;CACA,iBAAA;CACA;AACA;CACA,YAAA;CACA,8BAAA;CACA,gBAAA;CACA;AACA;CACA,YAAA;CACA,sBAAA;CACA,kBAAA;CACA","file":"user.vue","sourcesContent":["<template>\n\t<div class=\"member\">\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t\t\t\t<div class=\"member-stauts\" v-show=\"!showLoad\">\n\t\t\t\t\t\t<ul class=\"list-inline\">\n\t\t\t\t\t\t\t<li class=\"avatar-big\"><img :src=\"userInfo.avatar_large\"></li>\n\t\t\t\t\t\t\t<li class=\"username\">{{userInfo.username}}</li>\n\t\t\t\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t\t\t\t<li class=\"create_time\">加入于 {{userInfo.created | getLastTimeStr false}}</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"panel panel-default member-reply\" v-show=\"!showLoad\">\n\t\t\t\t\t   <div class=\"panel-heading\">{{userInfo.username}}的主题</div>\n\t\t\t\t\t   <div class=\"panel-body\">\n\t\t\t\t\t    \t\t<ul class=\"list-inline\">\n\t\t\t\t\t    \t\t\t<li v-for=\"userReply in userReplys\" class=\"reply-item\">\n\t\t\t\t\t    \t\t\t\t<div class=\"reply\" v-link=\"{ name: 'content',params: { id: userReply.id}}\">{{userReply.title}}</div>\n\t\t\t\t\t    \t\t\t\t<div class=\"floor\">#{{$index+1}}</div>\n\t\t\t\t\t    \t\t\t\t<div>{{userReply.created | getLastTimeStr true}}</div>\n\t\t\t\t\t    \t\t\t</li>\n\t\t\t\t\t    \t\t</ul>\n\t\t\t\t\t   </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</template>\n<script>\n\timport loadCon from '../components/loading.vue'\n\texport default{\n\t\tname:'Member',\n\n\t\tdata(){\n\t\t\treturn{\n\t\t\t\tuserInfo:{},\n\t\t\t\tuserReplys:{},\n\t\t\t\tshowLoad:false\n\t\t\t}\n\t\t},\n\n\t\troute:{\n\t\t\tdata(){\n\t\t\t\tthis.getUserInfo()\n\t\t\t\tthis.getUserReply()\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\tgetUserInfo(){\n\t\t\t\tvar _self = this\n\t\t\t\t_self.showLoad = true\n\t\t\t\tvar params = $.param({username:_self.$route.params.username})\n\t\t\t\t_self.$http.get('https://www.v2ex.com/api/members/show.json?'+ params,(data) => {\n\t\t\t\t\tif (data) {\n\t\t\t\t\t\t_self.userInfo = data\n\t\t\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t_self.showLoad = false\n\t\t\t\t\t\t}, 1000)\n\t\t\t\t\t};\n\t\t\t\t})\n\t\t\t},\n\t\t\tgetUserReply(){\n\t\t\t\tvar _self = this\n\t\t\t\t_self.showLoad = true\n\t\t\t\tvar params = $.param({username:_self.$route.params.username})\n\t\t\t\t_self.$http.get('https://www.v2ex.com/api/topics/show.json?'+ params,(data) => {\n\t\t\t\t\tif (data) {\n\t\t\t\t\t\t_self.userReplys = data\n\t\t\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t_self.showLoad = false\n\t\t\t\t\t\t}, 1000)\n\t\t\t\t\t};\n\t\t\t\t})\n\t\t\t}\n\t\t},\n\n\t\tcomponents:{\n\t\t\tloadCon\n\t\t}\n\t}\n</script>\n<style>\n\t.member-reply{\n\t\tmargin-top: 20px;\n\t}\n\t.reply-item{\n\t\tmargin: 5px;\n\t\tborder-bottom: 1px solid #eee;\n\t\tmin-width: 100%;\n\t}\n\t.reply{\n\t\twidth: 100%;\n\t\tword-break: break-all;\n\t\toverflow-x:hidden;\n\t}\n\n</style>\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _loading = __webpack_require__(38);
+	
+	var _loading2 = _interopRequireDefault(_loading);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+		name: 'Member',
+	
+		data: function data() {
+			return {
+				userInfo: {},
+				userReplys: {},
+				showLoad: false
+			};
+		},
+	
+		route: {
+			data: function data() {
+				this.getUserInfo();
+				this.getUserReply();
+			}
+		},
+	
+		methods: {
+			getUserInfo: function getUserInfo() {
+				var _self = this;
+				_self.showLoad = true;
+				var params = $.param({ username: _self.$route.params.username });
+				_self.$http.get('https://www.v2ex.com/api/members/show.json?' + params, function (data) {
+					if (data) {
+						_self.userInfo = data;
+						setTimeout(function () {
+							_self.showLoad = false;
+						}, 1000);
+					};
+				});
+			},
+			getUserReply: function getUserReply() {
+				var _self = this;
+				_self.showLoad = true;
+				var params = $.param({ username: _self.$route.params.username });
+				_self.$http.get('https://www.v2ex.com/api/topics/show.json?' + params, function (data) {
+					if (data) {
+						_self.userReplys = data;
+						setTimeout(function () {
+							_self.showLoad = false;
+						}, 1000);
+					};
+				});
+			}
+		},
+	
+		components: {
+			loadCon: _loading2.default
+		}
+	};
+	// </script>
+	// <style>
+	// 	.member-reply{
+	// 		margin-top: 20px;
+	// 	}
+	// 	.reply-item{
+	// 		margin: 5px;
+	// 		border-bottom: 1px solid #eee;
+	// 		min-width: 100%;
+	// 	}
+	// 	.reply{
+	// 		width: 100%;
+	// 		word-break: break-all;
+	// 		overflow-x:hidden;
+	// 	}
+
+	// </style>
+
+	/* generated by vue-loader */
+	// <template>
+	// 	<div class="member">
+	// 		<div class="container">
+	// 			<div class="row">
+	// 				<div class="col-md-6">
+	// 					<load-con :show="showLoad"></load-con>
+	// 					<div class="member-stauts" v-show="!showLoad">
+	// 						<ul class="list-inline">
+	// 							<li class="avatar-big"><img :src="userInfo.avatar_large"></li>
+	// 							<li class="username">{{userInfo.username}}</li>
+	// 							<span class="split">·</span>
+	// 							<li class="create_time">加入于 {{userInfo.created | getLastTimeStr false}}</li>
+	// 						</ul>
+	// 					</div>
+	// 					<div class="panel panel-default member-reply" v-show="!showLoad">
+	// 					   <div class="panel-heading">{{userInfo.username}}的主题</div>
+	// 					   <div class="panel-body">
+	// 					    		<ul class="list-inline">
+	// 					    			<li v-for="userReply in userReplys" class="reply-item">
+	// 					    				<div class="reply" v-link="{ name: 'content',params: { id: userReply.id}}">{{userReply.title}}</div>
+	// 					    				<div class="floor">#{{$index+1}}</div>
+	// 					    				<div>{{userReply.created | getLastTimeStr true}}</div>
+	// 					    			</li>
+	// 					    		</ul>
+	// 					   </div>
+	// 					</div>
+	// 				</div>
+	// 			</div>
+	// 		</div>
+	// 	</div>
+	// </template>
+	// <script>
+
+/***/ },
+/* 68 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"member\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-6\">\n\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t\t\t<div class=\"member-stauts\" v-show=\"!showLoad\">\n\t\t\t\t\t<ul class=\"list-inline\">\n\t\t\t\t\t\t<li class=\"avatar-big\"><img :src=\"userInfo.avatar_large\"></li>\n\t\t\t\t\t\t<li class=\"username\">{{userInfo.username}}</li>\n\t\t\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t\t\t<li class=\"create_time\">加入于 {{userInfo.created | getLastTimeStr false}}</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"panel panel-default member-reply\" v-show=\"!showLoad\">\n\t\t\t\t   <div class=\"panel-heading\">{{userInfo.username}}的主题</div>\n\t\t\t\t   <div class=\"panel-body\">\n\t\t\t\t    \t\t<ul class=\"list-inline\">\n\t\t\t\t    \t\t\t<li v-for=\"userReply in userReplys\" class=\"reply-item\">\n\t\t\t\t    \t\t\t\t<div class=\"reply\" v-link=\"{ name: 'content',params: { id: userReply.id}}\">{{userReply.title}}</div>\n\t\t\t\t    \t\t\t\t<div class=\"floor\">#{{$index+1}}</div>\n\t\t\t\t    \t\t\t\t<div>{{userReply.created | getLastTimeStr true}}</div>\n\t\t\t\t    \t\t\t</li>\n\t\t\t\t    \t\t</ul>\n\t\t\t\t   </div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n";
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(70)
+	__vue_script__ = __webpack_require__(72)
+	__vue_template__ = __webpack_require__(73)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/Users/Veto/Documents/workspace/V2EX-Mobile/src/views/node.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 70 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(71);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(21)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-33918b8b&file=node.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./node.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-33918b8b&file=node.vue!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./node.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(20)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n.node-item{\n\tfont-size: 12px;\n    line-height: 12px;\n    padding: 4px 10px 4px 10px;\n    margin: 5px;\n    display: inline-block;\n    border: 1px solid #e5e5e5;\n}\n.topics-num{\n\tmargin-left: 2px;\n}\n", "", {"version":3,"sources":["/./src/views/node.vue?1fa9894f"],"names":[],"mappings":";AAkDA;CACA,gBAAA;IACA,kBAAA;IACA,2BAAA;IACA,YAAA;IACA,sBAAA;IACA,0BAAA;CACA;AACA;CACA,iBAAA;CACA","file":"node.vue","sourcesContent":["<template>\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-6\">\n\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t\t\t<div class=\"node-list\" v-show=\"!showLoad\">\n\t\t\t\t\t<a class=\"node-item\" v-link=\"{ name: 'list',params: { node: node.id}}\" v-for=\"node in nodeList\">{{node.title}}<span class=\"badge topics-num\">{{node.topics}}</span></a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</template>\n<script>\nimport loadCon from '../components/loading.vue'\n\texport default {\n\t\tname:'Node',\n\n\t\tdata(){\n\t\t\treturn {\n\t\t\t\tnodeList:{},\n\t\t\t\tshowLoad:false\n\t\t\t}\n\t\t},\n\t\troute:{\n\t\t\tdata(){\n\t\t\t\tthis.getAllNode()\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\tgetAllNode(){\n\t\t\t\tvar _self = this\n\t\t\t\t_self.showLoad = true\n\t\t\t\t_self.$http.get('https://www.v2ex.com/api/nodes/all.json',(data) => {\n\t\t\t\t\tif(data){\n\t\t\t\t\t    _self.nodeList = data\n\t\t\t\t\t    setTimeout(function(){\n\t\t\t\t\t    \t_self.showLoad = false\n\t\t\t\t\t    }, 1000)\n\t\t\t\t\t}\n\t\t\t\t})\n\t\t\t}\n\t\t},\n\n\t\tcomponents:{\n\t\t\tloadCon\n\t\t}\n\t}\n</script>\n<style>\n\t.node-item{\n\t\tfont-size: 12px;\n\t    line-height: 12px;\n\t    padding: 4px 10px 4px 10px;\n\t    margin: 5px;\n\t    display: inline-block;\n\t    border: 1px solid #e5e5e5;\n\t}\n\t.topics-num{\n\t\tmargin-left: 2px;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _loading = __webpack_require__(38);
+	
+	var _loading2 = _interopRequireDefault(_loading);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+		name: 'Node',
+	
+		data: function data() {
+			return {
+				nodeList: {},
+				showLoad: false
+			};
+		},
+	
+		route: {
+			data: function data() {
+				this.getAllNode();
+			}
+		},
+	
+		methods: {
+			getAllNode: function getAllNode() {
+				var _self = this;
+				_self.showLoad = true;
+				_self.$http.get('https://www.v2ex.com/api/nodes/all.json', function (data) {
+					if (data) {
+						_self.nodeList = data;
+						setTimeout(function () {
+							_self.showLoad = false;
+						}, 1000);
+					}
+				});
+			}
+		},
+	
+		components: {
+			loadCon: _loading2.default
+		}
+	};
+	// </script>
+	// <style>
+	// 	.node-item{
+	// 		font-size: 12px;
+	// 	    line-height: 12px;
+	// 	    padding: 4px 10px 4px 10px;
+	// 	    margin: 5px;
+	// 	    display: inline-block;
+	// 	    border: 1px solid #e5e5e5;
+	// 	}
+	// 	.topics-num{
+	// 		margin-left: 2px;
+	// 	}
+	// </style>
+
+	/* generated by vue-loader */
+	// <template>
+	// 	<div class="container">
+	// 		<div class="row">
+	// 			<div class="col-md-6">
+	// 				<load-con :show="showLoad"></load-con>
+	// 				<div class="node-list" v-show="!showLoad">
+	// 					<a class="node-item" v-link="{ name: 'list',params: { node: node.id}}" v-for="node in nodeList">{{node.title}}<span class="badge topics-num">{{node.topics}}</span></a>
+	// 				</div>
+	// 			</div>
+	// 		</div>
+	// 	</div>
+	// </template>
+	// <script>
+
+/***/ },
+/* 73 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t\t<div class=\"node-list\" v-show=\"!showLoad\">\n\t\t\t\t<a class=\"node-item\" v-link=\"{ name: 'list',params: { node: node.id}}\" v-for=\"node in nodeList\">{{node.title}}<span class=\"badge topics-num\">{{node.topics}}</span></a>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n";
+
+/***/ },
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13327,16 +16585,16 @@
 	
 	function install(Vue) {
 	
-	    var _ = __webpack_require__(43);
+	    var _ = __webpack_require__(75);
 	
 	    _.config = Vue.config;
 	    _.warning = Vue.util.warn;
 	    _.nextTick = Vue.util.nextTick;
 	
-	    Vue.url = __webpack_require__(44);
-	    Vue.http = __webpack_require__(50);
-	    Vue.resource = __webpack_require__(65);
-	    Vue.Promise = __webpack_require__(51);
+	    Vue.url = __webpack_require__(76);
+	    Vue.http = __webpack_require__(82);
+	    Vue.resource = __webpack_require__(97);
+	    Vue.Promise = __webpack_require__(83);
 	
 	    Object.defineProperties(Vue.prototype, {
 	
@@ -13377,7 +16635,7 @@
 
 
 /***/ },
-/* 43 */
+/* 75 */
 /***/ function(module, exports) {
 
 	/**
@@ -13505,14 +16763,14 @@
 
 
 /***/ },
-/* 44 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Service for URL templating.
 	 */
 	
-	var _ = __webpack_require__(43);
+	var _ = __webpack_require__(75);
 	var ie = document.documentMode;
 	var el = document.createElement('a');
 	
@@ -13548,10 +16806,10 @@
 	 */
 	
 	Url.transforms = [
-	    __webpack_require__(45),
-	    __webpack_require__(47),
-	    __webpack_require__(48),
-	    __webpack_require__(49)
+	    __webpack_require__(77),
+	    __webpack_require__(79),
+	    __webpack_require__(80),
+	    __webpack_require__(81)
 	];
 	
 	/**
@@ -13641,14 +16899,14 @@
 
 
 /***/ },
-/* 45 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * URL Template (RFC 6570) Transform.
 	 */
 	
-	var UrlTemplate = __webpack_require__(46);
+	var UrlTemplate = __webpack_require__(78);
 	
 	module.exports = function (options) {
 	
@@ -13663,7 +16921,7 @@
 
 
 /***/ },
-/* 46 */
+/* 78 */
 /***/ function(module, exports) {
 
 	/**
@@ -13819,14 +17077,14 @@
 
 
 /***/ },
-/* 47 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Legacy Transform.
 	 */
 	
-	var _ = __webpack_require__(43);
+	var _ = __webpack_require__(75);
 	
 	module.exports = function (options, next) {
 	
@@ -13871,14 +17129,14 @@
 
 
 /***/ },
-/* 48 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Query Parameter Transform.
 	 */
 	
-	var _ = __webpack_require__(43);
+	var _ = __webpack_require__(75);
 	
 	module.exports = function (options, next) {
 	
@@ -13901,14 +17159,14 @@
 
 
 /***/ },
-/* 49 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Root Prefix Transform.
 	 */
 	
-	var _ = __webpack_require__(43);
+	var _ = __webpack_require__(75);
 	
 	module.exports = function (options, next) {
 	
@@ -13923,17 +17181,17 @@
 
 
 /***/ },
-/* 50 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Service for sending network requests.
 	 */
 	
-	var _ = __webpack_require__(43);
-	var Promise = __webpack_require__(51);
-	var interceptor = __webpack_require__(53);
-	var defaultClient = __webpack_require__(54);
+	var _ = __webpack_require__(75);
+	var Promise = __webpack_require__(83);
+	var interceptor = __webpack_require__(85);
+	var defaultClient = __webpack_require__(86);
 	var jsonType = {'Content-Type': 'application/json'};
 	
 	function Http(url, options) {
@@ -13986,13 +17244,13 @@
 	};
 	
 	Http.interceptors = [
-	    __webpack_require__(56),
-	    __webpack_require__(57),
-	    __webpack_require__(58),
-	    __webpack_require__(60),
-	    __webpack_require__(61),
-	    __webpack_require__(62),
-	    __webpack_require__(63)
+	    __webpack_require__(88),
+	    __webpack_require__(89),
+	    __webpack_require__(90),
+	    __webpack_require__(92),
+	    __webpack_require__(93),
+	    __webpack_require__(94),
+	    __webpack_require__(95)
 	];
 	
 	Http.headers = {
@@ -14027,15 +17285,15 @@
 
 
 /***/ },
-/* 51 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Promise adapter.
 	 */
 	
-	var _ = __webpack_require__(43);
-	var PromiseObj = window.Promise || __webpack_require__(52);
+	var _ = __webpack_require__(75);
+	var PromiseObj = window.Promise || __webpack_require__(84);
 	
 	function Promise(executor, context) {
 	
@@ -14142,14 +17400,14 @@
 
 
 /***/ },
-/* 52 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Promises/A+ polyfill v1.1.4 (https://github.com/bramstein/promis)
 	 */
 	
-	var _ = __webpack_require__(43);
+	var _ = __webpack_require__(75);
 	
 	var RESOLVED = 0;
 	var REJECTED = 1;
@@ -14327,15 +17585,15 @@
 
 
 /***/ },
-/* 53 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Interceptor factory.
 	 */
 	
-	var _ = __webpack_require__(43);
-	var Promise = __webpack_require__(51);
+	var _ = __webpack_require__(75);
+	var Promise = __webpack_require__(83);
 	
 	module.exports = function (handler, vm) {
 	
@@ -14378,14 +17636,14 @@
 
 
 /***/ },
-/* 54 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Default client.
 	 */
 	
-	var xhrClient = __webpack_require__(55);
+	var xhrClient = __webpack_require__(87);
 	
 	module.exports = function (request) {
 	    return (request.client || xhrClient)(request);
@@ -14393,15 +17651,15 @@
 
 
 /***/ },
-/* 55 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * XMLHttp client.
 	 */
 	
-	var _ = __webpack_require__(43);
-	var Promise = __webpack_require__(51);
+	var _ = __webpack_require__(75);
+	var Promise = __webpack_require__(83);
 	
 	module.exports = function (request) {
 	    return new Promise(function (resolve) {
@@ -14490,14 +17748,14 @@
 
 
 /***/ },
-/* 56 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Before Interceptor.
 	 */
 	
-	var _ = __webpack_require__(43);
+	var _ = __webpack_require__(75);
 	
 	module.exports = {
 	
@@ -14514,7 +17772,7 @@
 
 
 /***/ },
-/* 57 */
+/* 89 */
 /***/ function(module, exports) {
 
 	/**
@@ -14550,14 +17808,14 @@
 
 
 /***/ },
-/* 58 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * JSONP Interceptor.
 	 */
 	
-	var jsonpClient = __webpack_require__(59);
+	var jsonpClient = __webpack_require__(91);
 	
 	module.exports = {
 	
@@ -14574,15 +17832,15 @@
 
 
 /***/ },
-/* 59 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * JSONP client.
 	 */
 	
-	var _ = __webpack_require__(43);
-	var Promise = __webpack_require__(51);
+	var _ = __webpack_require__(75);
+	var Promise = __webpack_require__(83);
 	
 	module.exports = function (request) {
 	    return new Promise(function (resolve) {
@@ -14628,7 +17886,7 @@
 
 
 /***/ },
-/* 60 */
+/* 92 */
 /***/ function(module, exports) {
 
 	/**
@@ -14651,14 +17909,14 @@
 
 
 /***/ },
-/* 61 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Mime Interceptor.
 	 */
 	
-	var _ = __webpack_require__(43);
+	var _ = __webpack_require__(75);
 	
 	module.exports = {
 	
@@ -14693,14 +17951,14 @@
 
 
 /***/ },
-/* 62 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Header Interceptor.
 	 */
 	
-	var _ = __webpack_require__(43);
+	var _ = __webpack_require__(75);
 	
 	module.exports = {
 	
@@ -14725,15 +17983,15 @@
 
 
 /***/ },
-/* 63 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * CORS Interceptor.
 	 */
 	
-	var _ = __webpack_require__(43);
-	var xdrClient = __webpack_require__(64);
+	var _ = __webpack_require__(75);
+	var xdrClient = __webpack_require__(96);
 	var xhrCors = 'withCredentials' in new XMLHttpRequest();
 	var originUrl = _.url.parse(location.href);
 	
@@ -14768,15 +18026,15 @@
 
 
 /***/ },
-/* 64 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * XDomain client (Internet Explorer).
 	 */
 	
-	var _ = __webpack_require__(43);
-	var Promise = __webpack_require__(51);
+	var _ = __webpack_require__(75);
+	var Promise = __webpack_require__(83);
 	
 	module.exports = function (request) {
 	    return new Promise(function (resolve) {
@@ -14811,14 +18069,14 @@
 
 
 /***/ },
-/* 65 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Service for interacting with RESTful services.
 	 */
 	
-	var _ = __webpack_require__(43);
+	var _ = __webpack_require__(75);
 	
 	function Resource(url, params, actions, options) {
 	
@@ -14927,12 +18185,12 @@
 
 
 /***/ },
-/* 66 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _utils = __webpack_require__(67);
+	var _utils = __webpack_require__(99);
 	
 	var _utils2 = _interopRequireDefault(_utils);
 	
@@ -14952,7 +18210,7 @@
 	};
 
 /***/ },
-/* 67 */
+/* 99 */
 /***/ function(module, exports) {
 
 	"use strict";

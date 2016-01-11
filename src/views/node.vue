@@ -1,9 +1,9 @@
 <template>
-	<nav-con></nav-con>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<div class="node-list">
+				<load-con :show="showLoad"></load-con>
+				<div class="node-list" v-show="!showLoad">
 					<a class="node-item" v-link="{ name: 'list',params: { node: node.id}}" v-for="node in nodeList">{{node.title}}<span class="badge topics-num">{{node.topics}}</span></a>
 				</div>
 			</div>
@@ -11,13 +11,14 @@
 	</div>
 </template>
 <script>
-	import navCon from '../components/Nav.vue'
+import loadCon from '../components/loading.vue'
 	export default {
 		name:'Node',
 
 		data(){
 			return {
-				nodeList:{}
+				nodeList:{},
+				showLoad:false
 			}
 		},
 		route:{
@@ -29,14 +30,20 @@
 		methods:{
 			getAllNode(){
 				var _self = this
+				_self.showLoad = true
 				_self.$http.get('https://www.v2ex.com/api/nodes/all.json',(data) => {
-					_self.nodeList = data
+					if(data){
+					    _self.nodeList = data
+					    setTimeout(function(){
+					    	_self.showLoad = false
+					    }, 1000)
+					}
 				})
 			}
 		},
 
 		components:{
-			navCon
+			loadCon
 		}
 	}
 </script>

@@ -10,6 +10,7 @@ import filters from './filters/filter'
 // 挂载路由
 Vue.use(Router)
 Vue.use(Resource)
+Vue.config.debug = false
 // 初始化路由
 var router = new Router()
 Object.keys(filters).forEach(k => Vue.filter(k, filters[k]))

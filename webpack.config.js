@@ -1,12 +1,13 @@
 var webpack = require('webpack')
-
+var path = require('path');
+var entry = ['./src/main'],
+buildPath = "/static/"
+var plugins = [];
 module.exports = {
-    entry: {
-      app:'./src/main.js',
-    },
+    entry: entry,
     output: {
-         path: './static',
-         publicPath: '/static/',
+         path: __dirname + buildPath,
+         // publicPath: '/static/',
          filename: 'build.js'
             },
     module: {
@@ -20,7 +21,9 @@ module.exports = {
         plugins: ['transform-runtime']
     },
     resolve: {
-    }
+    },
+    devtool: '#source-map',
+    plugins:plugins
 }
 
 

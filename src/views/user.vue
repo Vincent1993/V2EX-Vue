@@ -1,5 +1,4 @@
 <template>
-	<nav-con></nav-con>
 	<div class="member">
 		<div class="container">
 			<div class="row">
@@ -18,7 +17,7 @@
 					   <div class="panel-body">
 					    		<ul class="list-inline">
 					    			<li v-for="userReply in userReplys" class="reply-item">
-					    				<div class="reply">{{userReply.content}}</div>
+					    				<div class="reply" v-link="{ name: 'content',params: { id: userReply.id}}">{{userReply.title}}</div>
 					    				<div class="floor">#{{$index+1}}</div>
 					    				<div>{{userReply.created | getLastTimeStr true}}</div>
 					    			</li>
@@ -31,7 +30,6 @@
 	</div>
 </template>
 <script>
-	import navCon from '../components/Nav.vue'
 	import loadCon from '../components/loading.vue'
 	export default{
 		name:'Member',
@@ -81,7 +79,6 @@
 		},
 
 		components:{
-			navCon,
 			loadCon
 		}
 	}
@@ -93,6 +90,7 @@
 	.reply-item{
 		margin: 5px;
 		border-bottom: 1px solid #eee;
+		min-width: 100%;
 	}
 	.reply{
 		width: 100%;

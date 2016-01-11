@@ -1,5 +1,4 @@
 <template>
-	<nav-con></nav-con>
 	<div class="content-wrap">
 	<div class="contaier" >
 		<div class="row">
@@ -15,7 +14,6 @@
 <script>
 	import conHead from '../components/conHead.vue'
 	import conReply from '../components/reply.vue'
-	import navCon from '../components/Nav.vue'
 	import loadCon from '../components/loading.vue'
 	export default{
 		name:'Content',
@@ -23,7 +21,8 @@
 		data(){
 			return{
 				content:Object,
-				showLoad:true
+				showLoad:true,
+				node:sessionStorage.node_name
 			}
 		},
 		route:{
@@ -35,7 +34,6 @@
 
 		components:{
 			conHead,
-			navCon,
 			loadCon,
 			conReply
 		},

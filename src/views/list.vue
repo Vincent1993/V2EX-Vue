@@ -1,7 +1,6 @@
 <template>
     	<!--公共导航栏-->
-    <nav-con></nav-con>
-    <div id="wrap">
+    <div class="wrap">
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 col-md-9">
@@ -15,7 +14,6 @@
 </template>
 
 <script>
-import navCon from '../components/Nav.vue'
 import itemCon from '../components/Item.vue'
 import loadCon from '../components/loading.vue'
 
@@ -26,12 +24,12 @@ export default {
   data(){
   	return{
   		navActive:true,
-  		showLoad:false
+  		showLoad:false,
+      node:sessionStorage.node_name
   	}
   },
 
   components:{
-    navCon,
     itemCon,
     loadCon
   },
@@ -90,7 +88,7 @@ export default {
 }
 </script>
 <style>
-	#wrap{
+	.wrap{
 		height: auto;
 	}
 	.nav-tabs{
@@ -99,13 +97,6 @@ export default {
 	.nav>li{
 		flex-grow:1;
 		justify-content:center;
-	}
-	.active{
-		padding-top: 0;
-		padding-bottom: 10px;
-		background-color: #fff;
-		border: none;
-		border-bottom: 2px solid #333;
 	}
 	.nav>li>span{
 		padding: 5px;
