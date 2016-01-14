@@ -54,7 +54,7 @@
 				var _self = this
 				_self.showLoad = true
 				var params = $.param({username:_self.$route.params.username})
-				_self.$http.get('http://localhost:8090/api/members/show.json?'+ params,(data) => {
+				_self.$http.get('http://localhost:8890/api/members/show.json?'+ params,(data) => {
 					if (data) {
 						_self.userInfo = data
 						setTimeout(function(){
@@ -67,7 +67,7 @@
 				var _self = this
 				_self.showLoad = true
 				var params = $.param({username:_self.$route.params.username})
-				_self.$http.get('http://localhost:8090/api/topics/show.json?'+ params,(data) => {
+				_self.$http.get('http://localhost:8890/api/topics/show.json?'+ params,(data) => {
 					if (data) {
 						_self.userReplys = data
 						setTimeout(function(){

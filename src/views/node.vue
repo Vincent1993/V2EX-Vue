@@ -31,7 +31,7 @@ import loadCon from '../components/loading.vue'
 			getAllNode(){
 				var _self = this
 				_self.showLoad = true
-				_self.$http.get('http://localhost:8090/api/nodes/all.json',(data) => {
+				_self.$http.get('http://localhost:8890/api/nodes/all.json',(data) => {
 					if(data){
 					    _self.nodeList = data
 					    setTimeout(function(){

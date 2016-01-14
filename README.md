@@ -12,7 +12,7 @@
 
 >run
 
-'npm run start'
+`npm run start`
 
 ##界面截图
 

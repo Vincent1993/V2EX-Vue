@@ -5,6 +5,7 @@ var entry = ['./src/main'],
     cdnPrefix = "",
     buildPath = "/static/",
     publishPath = cdnPrefix + buildPath;
+var plugins = []
 module.exports = {
     entry: entry,
     output: {
@@ -25,8 +26,6 @@ module.exports = {
     resolve: {
     },
     devtool: '#source-map',
-    plugins:[new webpack.ProvidePlugin({
-    'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-  })]
+    plugins:plugins
 }
 

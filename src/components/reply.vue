@@ -28,7 +28,7 @@
 			getReplyById(){
 				var _self = this
 				const params = $.param({topic_id:_self.$route.params.id})
-				_self.$http.get('http://localhost:8090/api/replies/show.json?'+ params,(data) => {
+				_self.$http.get('http://localhost:8890/api/replies/show.json?'+ params,(data) => {
 					if (data) {
 						_self.replyDatas = data
 					};

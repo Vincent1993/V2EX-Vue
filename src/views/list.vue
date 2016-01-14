@@ -16,7 +16,6 @@
 <script>
 import itemCon from '../components/Item.vue'
 import loadCon from '../components/loading.vue'
-import store from '../store'
 
 export default {
 
@@ -45,7 +44,7 @@ export default {
   	getLatest (){
   		var _self = this
       _self.showLoad = true
-      _self.$http.get('http://localhost:8090/api/topics/latest.json').then(data =>{
+      _self.$http.get('http://localhost:8890/api/topics/latest.json').then(data =>{
         if (data) {
           _self.$refs.listitem.items = data.data
           setTimeout(function(){
@@ -59,7 +58,7 @@ export default {
   		var _self = this
       sessionStorage.node_name = '最热'
   		_self.showLoad = true
-  		_self.$http.get('http://localhost:8090/api/topics/hot.json').then(data =>{
+  		_self.$http.get('http://localhost:8890/api/topics/hot.json').then(data =>{
   			if (data) {
   				_self.$refs.listitem.items = data.data
   				setTimeout(function(){
@@ -74,7 +73,7 @@ export default {
         sessionStorage.node_name = nodename
         var params = $.param({node_id:nodeid})
         _self.showLoad = true
-        _self.$http.get('http://localhost:8090/api/topics/show.json?'+params,(data)=> {
+        _self.$http.get('http://localhost:8890/api/topics/show.json?'+params,(data)=> {
               if(data){
                   _self.$refs.listitem.items = data
                   setTimeout(function(){
