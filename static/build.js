@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/static/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -73,23 +73,23 @@
 	
 	var _list2 = _interopRequireDefault(_list);
 	
-	var _content = __webpack_require__(44);
+	var _content = __webpack_require__(95);
 	
 	var _content2 = _interopRequireDefault(_content);
 	
-	var _user = __webpack_require__(64);
+	var _user = __webpack_require__(115);
 	
 	var _user2 = _interopRequireDefault(_user);
 	
-	var _node = __webpack_require__(69);
+	var _node = __webpack_require__(120);
 	
 	var _node2 = _interopRequireDefault(_node);
 	
-	var _vueResource = __webpack_require__(74);
+	var _vueResource = __webpack_require__(125);
 	
 	var _vueResource2 = _interopRequireDefault(_vueResource);
 	
-	var _filter = __webpack_require__(98);
+	var _filter = __webpack_require__(149);
 	
 	var _filter2 = _interopRequireDefault(_filter);
 	
@@ -12435,7 +12435,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\nbody{\n\tfont-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif;\n\tfont-size: 14px;\n\tline-height: 1.5;\n\tcolor: #333;\n\tbackground-color: #fff;\n}\n", "", {"version":3,"sources":["/./src/components/App.vue?8aceba5a"],"names":[],"mappings":";AAeA;CACA,wHAAA;CACA,gBAAA;CACA,iBAAA;CACA,YAAA;CACA,uBAAA;CACA","file":"App.vue","sourcesContent":["<template>\n\t<nav-con></nav-con>\n    <router-view\n      keep-alive>\n    </router-view>\n</template>\n<script>\n\timport navCon from '../components/Nav.vue'\n\texport default {\n\t\tcomponents:{\n\t\t\tnavCon\n\t\t}\n\t}\n</script>\n<style>\n\tbody{\n\t\tfont-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif;\n\t\tfont-size: 14px;\n\t\tline-height: 1.5;\n\t\tcolor: #333;\n\t\tbackground-color: #fff;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\nbody{\n\tfont-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif;\n\tfont-size: 14px;\n\tline-height: 1.5;\n\tcolor: #333;\n\tbackground-color: #fff;\n}\n", "", {"version":3,"sources":["/./src/components/App.vue?5d9ccda2"],"names":[],"mappings":";AAgBA;CACA,wHAAA;CACA,gBAAA;CACA,iBAAA;CACA,YAAA;CACA,uBAAA;CACA","file":"App.vue","sourcesContent":["<template>\n\t<nav-con></nav-con>\n    <router-view\n\t v-ref:list\n      keep-alive>\n    </router-view>\n</template>\n<script>\n\timport navCon from '../components/Nav.vue'\n\texport default {\n\t\tcomponents:{\n\t\t\tnavCon\n\t\t}\n\t}\n</script>\n<style>\n\tbody{\n\t\tfont-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif;\n\t\tfont-size: 14px;\n\t\tline-height: 1.5;\n\t\tcolor: #333;\n\t\tbackground-color: #fff;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -12754,6 +12754,7 @@
 	// <template>
 	// 	<nav-con></nav-con>
 	//     <router-view
+	// 	 v-ref:list
 	//       keep-alive>
 	//     </router-view>
 	// </template>
@@ -12817,7 +12818,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.gloable-nav{\n\twidth: 100%;\n\theight:auto;\n\ttop:0;\n}\n#bs-example-navbar-collapse-1>ul>li>a{\n\ttext-align: center;\n\tfont-size: 18px;\n}\n.back{\n\tline-height: 50px;\n\tmargin-left: 10px;\n}\n", "", {"version":3,"sources":["/./src/components/Nav.vue?0a7c2554"],"names":[],"mappings":";AA2DA;CACA,YAAA;CACA,YAAA;CACA,MAAA;CACA;AACA;CACA,mBAAA;CACA,gBAAA;CACA;AACA;CACA,kBAAA;CACA,kBAAA;CACA","file":"Nav.vue","sourcesContent":["<template>\n<div class=\"gloable-nav\">\n\t<nav class=\"navbar navbar-default\" role=\"banner\">\n        <div class=\"container\">\n            <div class=\"navbar-header page-scroll\">\n                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n                    <span class=\"sr-only\">Toggle navigation</span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand page-scroll\" v-show=\"isIndex\">V2EX</a>\n                <span class=\"glyphicon glyphicon glyphicon-arrow-left back\" @click=\"Back()\" v-show=\"!isIndex\"></span>\n            </div>\n            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n                <ul class=\"nav navbar-nav navbar-right\">\n                    <li class=\"active\"><a  v-link=\"'list'\" @click=\"toggleLatest\">最新</a></li>\n                    <li><a  v-link=\"'list'\" @click=\"toggleHot\">最热</a></li>\n                    <li><a  v-link=\"'node'\" @click=\"toggleNode\">节点</a></li>\n                    <li><a>个人</a></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n</div>\n</template>\n<script>\n\timport router from 'vue-router'\n\texport default {\n\t\tname:'nav',\n\n\t\tmethods:{\n\t\t\ttoggleCollapse(){\n\t\t\t\t$(\"#bs-example-navbar-collapse-1\").collapse('hide')\n\t\t\t},\n\t\t\ttoggleLatest(){\n\t\t\t\tthis.toggleCollapse()\n\t\t\t\t// this.$parent.getLatest()\n\t\t\t},\n\t\t\ttoggleHot(){\n\t\t\t\tthis.toggleCollapse()\n\t\t\t\t// this.$parent.getHot()\n\t\t\t},\n\t\t\ttoggleNode(){\n\t\t\t\tthis.toggleCollapse()\n\t\t\t},\n\t\t\tBack(){\n\t\t\t\thistory.back(-1)\n\t\t\t}\n\t\t},\n\n\t\tcomputed:{\n\t\t\tisIndex() {\n\t\t\t\treturn this.$route.name === 'list'?true:false\n\t\t\t}\n\t\t}\n\t}\n</script>\n<style>\n\t.gloable-nav{\n\t\twidth: 100%;\n\t\theight:auto;\n\t\ttop:0;\n\t}\n\t#bs-example-navbar-collapse-1>ul>li>a{\n\t\ttext-align: center;\n\t\tfont-size: 18px;\n\t}\n\t.back{\n\t\tline-height: 50px;\n\t\tmargin-left: 10px;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.gloable-nav{\n\twidth: 100%;\n\theight:auto;\n\ttop:0;\n}\n#bs-example-navbar-collapse-1>ul>li>a{\n\ttext-align: center;\n\tfont-size: 18px;\n}\n.back{\n\tline-height: 50px;\n\tmargin-left: 10px;\n}\n", "", {"version":3,"sources":["/./src/components/Nav.vue?42277484"],"names":[],"mappings":";AAwEA;CACA,YAAA;CACA,YAAA;CACA,MAAA;CACA;AACA;CACA,mBAAA;CACA,gBAAA;CACA;AACA;CACA,kBAAA;CACA,kBAAA;CACA","file":"Nav.vue","sourcesContent":["<template>\n<div class=\"gloable-nav\">\n\t<nav class=\"navbar navbar-default\" role=\"banner\">\n        <div class=\"container\">\n            <div class=\"navbar-header page-scroll\">\n                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n                    <span class=\"sr-only\">Toggle navigation</span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand page-scroll\" v-show=\"isIndex\">V2EX</a>\n                <span class=\"glyphicon glyphicon glyphicon-arrow-left back\" @click=\"Back()\" v-show=\"!isIndex\"></span>\n                <span v-text=\"\">{{nodeName()}}</span>\n            </div>\n            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n                <ul class=\"nav navbar-nav navbar-right\">\n                    <li class=\"active\"><a  v-link=\"'list'\" @click=\"toggleLatest\">最新</a></li>\n                    <li><a  v-link=\"'list'\" @click=\"toggleHot\">最热</a></li>\n                    <li><a  v-link=\"'node'\" @click=\"toggleNode\">节点</a></li>\n                    <li><a>个人</a></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n</div>\n</template>\n<script>\n\timport router from 'vue-router'\n\texport default {\n\t\tname:'nav',\n\n\t\tdata(){\n\t\t\treturn{\n\t\t\t\tnode:''\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\ttoggleCollapse(){\n\t\t\t\t$(\"#bs-example-navbar-collapse-1\").collapse('hide')\n\t\t\t},\n\t\t\ttoggleLatest(){\n\t\t\t\tthis.toggleCollapse()\n\t\t\t\tthis.$root.$refs.list.getLatest()\n\t\t\t},\n\t\t\ttoggleHot(){\n\t\t\t\tthis.toggleCollapse()\n\t\t\t\tthis.$root.$refs.list.getHot()\n\t\t\t},\n\t\t\ttoggleNode(){\n\t\t\t\tthis.toggleCollapse()\n\t\t\t},\n\t\t\tBack(){\n\t\t\t\thistory.back(-1)\n\t\t\t}\n\t\t},\n\n\t\tcomputed:{\n\t\t\tisIndex() {\n\t\t\t\treturn this.$route.name === 'list'?true:false\n\t\t\t},\n\n\t\t\tnodeName: {\n\t\t\t\tset(){\n\t\t\t\t\treturn this.node = sessionStorage.node_name\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n</script>\n<style>\n\t.gloable-nav{\n\t\twidth: 100%;\n\t\theight:auto;\n\t\ttop:0;\n\t}\n\t#bs-example-navbar-collapse-1>ul>li>a{\n\t\ttext-align: center;\n\t\tfont-size: 18px;\n\t}\n\t.back{\n\t\tline-height: 50px;\n\t\tmargin-left: 10px;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -12841,17 +12842,23 @@
 	exports.default = {
 		name: 'nav',
 	
+		data: function data() {
+			return {
+				node: ''
+			};
+		},
+	
 		methods: {
 			toggleCollapse: function toggleCollapse() {
 				$("#bs-example-navbar-collapse-1").collapse('hide');
 			},
 			toggleLatest: function toggleLatest() {
 				this.toggleCollapse();
-				// this.$parent.getLatest()
+				this.$root.$refs.list.getLatest();
 			},
 			toggleHot: function toggleHot() {
 				this.toggleCollapse();
-				// this.$parent.getHot()
+				this.$root.$refs.list.getHot();
 			},
 			toggleNode: function toggleNode() {
 				this.toggleCollapse();
@@ -12864,6 +12871,12 @@
 		computed: {
 			isIndex: function isIndex() {
 				return this.$route.name === 'list' ? true : false;
+			},
+	
+			nodeName: {
+				set: function set() {
+					return this.node = sessionStorage.node_name;
+				}
 			}
 		}
 	};
@@ -12898,6 +12911,7 @@
 	//                 </button>
 	//                 <a class="navbar-brand page-scroll" v-show="isIndex">V2EX</a>
 	//                 <span class="glyphicon glyphicon glyphicon-arrow-left back" @click="Back()" v-show="!isIndex"></span>
+	//                 <span v-text="">{{nodeName()}}</span>
 	//             </div>
 	//             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	//                 <ul class="nav navbar-nav navbar-right">
@@ -12917,13 +12931,13 @@
 /* 27 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"gloable-nav\">\n\t<nav class=\"navbar navbar-default\" role=\"banner\">\n        <div class=\"container\">\n            <div class=\"navbar-header page-scroll\">\n                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n                    <span class=\"sr-only\">Toggle navigation</span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand page-scroll\" v-show=\"isIndex\">V2EX</a>\n                <span class=\"glyphicon glyphicon glyphicon-arrow-left back\" @click=\"Back()\" v-show=\"!isIndex\"></span>\n            </div>\n            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n                <ul class=\"nav navbar-nav navbar-right\">\n                    <li class=\"active\"><a  v-link=\"'list'\" @click=\"toggleLatest\">最新</a></li>\n                    <li><a  v-link=\"'list'\" @click=\"toggleHot\">最热</a></li>\n                    <li><a  v-link=\"'node'\" @click=\"toggleNode\">节点</a></li>\n                    <li><a>个人</a></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n</div>\n";
+	module.exports = "\n<div class=\"gloable-nav\">\n\t<nav class=\"navbar navbar-default\" role=\"banner\">\n        <div class=\"container\">\n            <div class=\"navbar-header page-scroll\">\n                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n                    <span class=\"sr-only\">Toggle navigation</span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand page-scroll\" v-show=\"isIndex\">V2EX</a>\n                <span class=\"glyphicon glyphicon glyphicon-arrow-left back\" @click=\"Back()\" v-show=\"!isIndex\"></span>\n                <span v-text=\"\">{{nodeName()}}</span>\n            </div>\n            <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n                <ul class=\"nav navbar-nav navbar-right\">\n                    <li class=\"active\"><a  v-link=\"'list'\" @click=\"toggleLatest\">最新</a></li>\n                    <li><a  v-link=\"'list'\" @click=\"toggleHot\">最热</a></li>\n                    <li><a  v-link=\"'node'\" @click=\"toggleNode\">节点</a></li>\n                    <li><a>个人</a></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n</div>\n";
 
 /***/ },
 /* 28 */
 /***/ function(module, exports) {
 
-	module.exports = "\n\t<nav-con></nav-con>\n    <router-view\n      keep-alive>\n    </router-view>\n";
+	module.exports = "\n\t<nav-con></nav-con>\n    <router-view\n\t v-ref:list\n      keep-alive>\n    </router-view>\n";
 
 /***/ },
 /* 29 */
@@ -12932,7 +12946,7 @@
 	var __vue_script__, __vue_template__
 	__webpack_require__(30)
 	__vue_script__ = __webpack_require__(32)
-	__vue_template__ = __webpack_require__(43)
+	__vue_template__ = __webpack_require__(94)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -12983,7 +12997,7 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.wrap{\n\theight: auto;\n}\n.nav-tabs{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n}\n.nav>li{\n\t-webkit-box-flex:1;\n\t-webkit-flex-grow:1;\n\t    -ms-flex-positive:1;\n\t        flex-grow:1;\n\t-webkit-box-pack:center;\n\t-webkit-justify-content:center;\n\t    -ms-flex-pack:center;\n\t        justify-content:center;\n}\n.nav>li>span{\n\tpadding: 5px;\n\tfont-size: 16px;\n}\n\n", "", {"version":3,"sources":["/./src/views/list.vue?114555e2"],"names":[],"mappings":";AA0FA;CACA,aAAA;CACA;AACA;CACA,qBAAA;CAAA,sBAAA;CAAA,qBAAA;CAAA,cAAA;CACA;AACA;CACA,mBAAA;CAAA,oBAAA;KAAA,oBAAA;SAAA,YAAA;CACA,wBAAA;CAAA,+BAAA;KAAA,qBAAA;SAAA,uBAAA;CACA;AACA;CACA,aAAA;CACA,gBAAA;CACA","file":"list.vue","sourcesContent":["<template>\n    \t<!--公共导航栏-->\n    <div class=\"wrap\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12 col-md-9\">\n\t\t\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t        <item-con :show=\"!showLoad\" v-ref:listItem></item-con>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n    </div>\n  </div>\n</template>\n\n<script>\nimport itemCon from '../components/Item.vue'\nimport loadCon from '../components/loading.vue'\n\nexport default {\n\n  name: 'List',\n\n  data(){\n  \treturn{\n  \t\tnavActive:true,\n  \t\tshowLoad:false,\n      node:sessionStorage.node_name\n  \t}\n  },\n\n  components:{\n    itemCon,\n    loadCon\n  },\n\n  ready(){\n  \tthis.getLatest()\n  },\n\n\n  methods:{\n  \t//获取最新列表\n  \tgetLatest (){\n  \t\tvar _self = this\n      sessionStorage.node_name = '最新'\n  \t\t_self.showLoad = true\n  \t  _self.$http.get('https://www.v2ex.com/api/topics/latest.json',(data)=> {\n  \t        if(data){\n  \t            _self.$refs.listitem.items = data\n  \t            setTimeout(function(){\n  \t            \t_self.showLoad = false\n  \t            }, 1000)\n  \t        }\n  \t    })\n  \t},\n  \t//获取热门列表\n  \tgetHot(){\n  \t\tvar _self = this\n      sessionStorage.node_name = '最热'\n  \t\t_self.showLoad = true\n  \t\t_self.$http.get('https://www.v2ex.com/api/topics/hot.json',(data)=>{\n  \t\t\tif (data) {\n  \t\t\t\t_self.$refs.listitem.items = data\n  \t\t\t\tsetTimeout(function(){\n  \t            \t_self.showLoad = false\n  \t            }, 1000)\n  \t\t\t};\n  \t\t})\n  \t},\n    //获取相关节点列表\n    getListByNode(nodeid,nodename){\n        var _self = this\n        sessionStorage.node_name = nodename\n        var params = $.param({node_id:nodeid})\n        _self.showLoad = true\n        _self.$http.get('https://www.v2ex.com/api/topics/show.json?'+params,(data)=> {\n              if(data){\n                  _self.$refs.listitem.items = data\n                  setTimeout(function(){\n                    _self.showLoad = false\n                  }, 1000)\n              }\n          })\n    }\n  }\n\n}\n</script>\n<style>\n\t.wrap{\n\t\theight: auto;\n\t}\n\t.nav-tabs{\n\t\tdisplay: flex;\n\t}\n\t.nav>li{\n\t\tflex-grow:1;\n\t\tjustify-content:center;\n\t}\n\t.nav>li>span{\n\t\tpadding: 5px;\n\t\tfont-size: 16px;\n\t}\n\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.wrap{\n\theight: auto;\n}\n.nav-tabs{\n\tdisplay: -webkit-box;\n\tdisplay: -webkit-flex;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n}\n.nav>li{\n\t-webkit-box-flex:1;\n\t-webkit-flex-grow:1;\n\t    -ms-flex-positive:1;\n\t        flex-grow:1;\n\t-webkit-box-pack:center;\n\t-webkit-justify-content:center;\n\t    -ms-flex-pack:center;\n\t        justify-content:center;\n}\n.nav>li>span{\n\tpadding: 5px;\n\tfont-size: 16px;\n}\n\n", "", {"version":3,"sources":["/./src/views/list.vue?13a731a4"],"names":[],"mappings":";AAgGA;CACA,aAAA;CACA;AACA;CACA,qBAAA;CAAA,sBAAA;CAAA,qBAAA;CAAA,cAAA;CACA;AACA;CACA,mBAAA;CAAA,oBAAA;KAAA,oBAAA;SAAA,YAAA;CACA,wBAAA;CAAA,+BAAA;KAAA,qBAAA;SAAA,uBAAA;CACA;AACA;CACA,aAAA;CACA,gBAAA;CACA","file":"list.vue","sourcesContent":["<template>\n    \t<!--公共导航栏-->\n    <div class=\"wrap\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12 col-md-9\">\n\t\t\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t        <item-con :show=\"!showLoad\" v-ref:listItem></item-con>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n    </div>\n  </div>\n</template>\n\n<script>\nimport itemCon from '../components/Item.vue'\nimport loadCon from '../components/loading.vue'\nimport store from '../store'\n\nexport default {\n\n  name: 'List',\n\n  data(){\n  \treturn{\n  \t\tnavActive:true,\n  \t\tshowLoad:false,\n      node:sessionStorage.node_name\n  \t}\n  },\n\n  components:{\n    itemCon,\n    loadCon\n  },\n\n  ready(){\n  \tthis.getLatest()\n  },\n\n\n  methods:{\n  \t//获取最新列表\n  \tgetLatest (){\n  \t\tvar _self = this\n      _self.showLoad = true\n      _self.$http.get('http://localhost:8090/api/topics/latest.json').then(data =>{\n        if (data) {\n          _self.$refs.listitem.items = data.data\n          setTimeout(function(){\n                  _self.showLoad = false\n                }, 1000)\n        };\n      })\n  \t},\n  \t//获取热门列表\n  \tgetHot(){\n  \t\tvar _self = this\n      sessionStorage.node_name = '最热'\n  \t\t_self.showLoad = true\n  \t\t_self.$http.get('http://localhost:8090/api/topics/hot.json').then(data =>{\n  \t\t\tif (data) {\n  \t\t\t\t_self.$refs.listitem.items = data.data\n  \t\t\t\tsetTimeout(function(){\n  \t            \t_self.showLoad = false\n  \t            }, 1000)\n  \t\t\t};\n  \t\t})\n  \t},\n    //获取相关节点列表\n    getListByNode(nodeid,nodename){\n        var _self = this\n        sessionStorage.node_name = nodename\n        var params = $.param({node_id:nodeid})\n        _self.showLoad = true\n        _self.$http.get('http://localhost:8090/api/topics/show.json?'+params,(data)=> {\n              if(data){\n                  _self.$refs.listitem.items = data\n                  setTimeout(function(){\n                    _self.showLoad = false\n                  }, 1000)\n              }\n          })\n    }\n  },\n\n  events:{\n    'loadLatest':function(){\n      alert(1)\n    }\n  }\n\n}\n</script>\n<style>\n\t.wrap{\n\t\theight: auto;\n\t}\n\t.nav-tabs{\n\t\tdisplay: flex;\n\t}\n\t.nav>li{\n\t\tflex-grow:1;\n\t\tjustify-content:center;\n\t}\n\t.nav>li>span{\n\t\tpadding: 5px;\n\t\tfont-size: 16px;\n\t}\n\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -12995,7 +13009,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	
 	var _Item = __webpack_require__(33);
@@ -13006,93 +13020,86 @@
 	
 	var _loading2 = _interopRequireDefault(_loading);
 	
+	var _store = __webpack_require__(43);
+	
+	var _store2 = _interopRequireDefault(_store);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// <template>
-	//     	<!--公共导航栏-->
-	//     <div class="wrap">
-	// 			<div class="container">
-	// 				<div class="row">
-	// 					<div class="col-xs-12 col-md-9">
-	// 						<load-con :show="showLoad"></load-con>
-	// 		        <item-con :show="!showLoad" v-ref:listItem></item-con>
-	// 					</div>
-	// 				</div>
-	// 			</div>
-	//     </div>
-	//   </div>
-	// </template>
-	
-	// <script>
 	exports.default = {
 	
-	    name: 'List',
+	  name: 'List',
 	
-	    data: function data() {
-	        return {
-	            navActive: true,
-	            showLoad: false,
-	            node: sessionStorage.node_name
+	  data: function data() {
+	    return {
+	      navActive: true,
+	      showLoad: false,
+	      node: sessionStorage.node_name
+	    };
+	  },
+	
+	  components: {
+	    itemCon: _Item2.default,
+	    loadCon: _loading2.default
+	  },
+	
+	  ready: function ready() {
+	    this.getLatest();
+	  },
+	
+	  methods: {
+	    //获取最新列表
+	
+	    getLatest: function getLatest() {
+	      var _self = this;
+	      _self.showLoad = true;
+	      _self.$http.get('http://localhost:8090/api/topics/latest.json').then(function (data) {
+	        if (data) {
+	          _self.$refs.listitem.items = data.data;
+	          setTimeout(function () {
+	            _self.showLoad = false;
+	          }, 1000);
 	        };
+	      });
 	    },
 	
-	    components: {
-	        itemCon: _Item2.default,
-	        loadCon: _loading2.default
+	    //获取热门列表
+	    getHot: function getHot() {
+	      var _self = this;
+	      sessionStorage.node_name = '最热';
+	      _self.showLoad = true;
+	      _self.$http.get('http://localhost:8090/api/topics/hot.json').then(function (data) {
+	        if (data) {
+	          _self.$refs.listitem.items = data.data;
+	          setTimeout(function () {
+	            _self.showLoad = false;
+	          }, 1000);
+	        };
+	      });
 	    },
 	
-	    ready: function ready() {
-	        this.getLatest();
-	    },
-	
-	    methods: {
-	        //获取最新列表
-	
-	        getLatest: function getLatest() {
-	            var _self = this;
-	            sessionStorage.node_name = '最新';
-	            _self.showLoad = true;
-	            _self.$http.get('https://www.v2ex.com/api/topics/latest.json', function (data) {
-	                if (data) {
-	                    _self.$refs.listitem.items = data;
-	                    setTimeout(function () {
-	                        _self.showLoad = false;
-	                    }, 1000);
-	                }
-	            });
-	        },
-	
-	        //获取热门列表
-	        getHot: function getHot() {
-	            var _self = this;
-	            sessionStorage.node_name = '最热';
-	            _self.showLoad = true;
-	            _self.$http.get('https://www.v2ex.com/api/topics/hot.json', function (data) {
-	                if (data) {
-	                    _self.$refs.listitem.items = data;
-	                    setTimeout(function () {
-	                        _self.showLoad = false;
-	                    }, 1000);
-	                };
-	            });
-	        },
-	
-	        //获取相关节点列表
-	        getListByNode: function getListByNode(nodeid, nodename) {
-	            var _self = this;
-	            sessionStorage.node_name = nodename;
-	            var params = $.param({ node_id: nodeid });
-	            _self.showLoad = true;
-	            _self.$http.get('https://www.v2ex.com/api/topics/show.json?' + params, function (data) {
-	                if (data) {
-	                    _self.$refs.listitem.items = data;
-	                    setTimeout(function () {
-	                        _self.showLoad = false;
-	                    }, 1000);
-	                }
-	            });
+	    //获取相关节点列表
+	    getListByNode: function getListByNode(nodeid, nodename) {
+	      var _self = this;
+	      sessionStorage.node_name = nodename;
+	      var params = $.param({ node_id: nodeid });
+	      _self.showLoad = true;
+	      _self.$http.get('http://localhost:8090/api/topics/show.json?' + params, function (data) {
+	        if (data) {
+	          _self.$refs.listitem.items = data;
+	          setTimeout(function () {
+	            _self.showLoad = false;
+	          }, 1000);
 	        }
+	      });
 	    }
+	  },
+	
+	  events: {
+	    'loadLatest': function loadLatest() {
+	      alert(1);
+	    }
+	  }
 	
 	};
 	// </script>
@@ -13115,6 +13122,22 @@
 	// </style>
 
 	/* generated by vue-loader */
+	// <template>
+	//     	<!--公共导航栏-->
+	//     <div class="wrap">
+	// 			<div class="container">
+	// 				<div class="row">
+	// 					<div class="col-xs-12 col-md-9">
+	// 						<load-con :show="showLoad"></load-con>
+	// 		        <item-con :show="!showLoad" v-ref:listItem></item-con>
+	// 					</div>
+	// 				</div>
+	// 			</div>
+	//     </div>
+	//   </div>
+	// </template>
+
+	// <script>
 
 /***/ },
 /* 33 */
@@ -13423,18 +13446,1865 @@
 
 /***/ },
 /* 43 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(fetch) {'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _promise = __webpack_require__(45);
+	
+	var _promise2 = _interopRequireDefault(_promise);
+	
+	var _events = __webpack_require__(93);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var store = new _events.EventEmitter();
+	
+	store.fetchItems = function (api) {
+	  return fetch(api, {
+	    method: 'GET',
+	    headers: {
+	      'Content-Type': 'application/json;charset=UTF-8'
+	    },
+	    mode: 'no-cors'
+	  }).then(function (res) {
+	    if (res.status >= 200 && res.status < 300) {
+	      return _promise2.default.resolve(res);
+	    } else {
+	      return _promise2.default.reject(new Error(res.statusText));
+	    }
+	  }).then(function (res) {
+	    return res.json();
+	  }).then(function (data) {
+	    return data;
+	  }).catch(function (err) {
+	    console.log(err);
+	  });
+	};
+	
+	store.fetchItemsByTab = function (tab) {
+	  var api = tab;
+	  return store.fetchItems(api);
+	};
+	
+	exports.default = store;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(44)))
+
+/***/ },
+/* 44 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/*** IMPORTS FROM imports-loader ***/
+	(function() {
+	
+	(function() {
+	  'use strict';
+	
+	  if (self.fetch) {
+	    return
+	  }
+	
+	  function normalizeName(name) {
+	    if (typeof name !== 'string') {
+	      name = String(name)
+	    }
+	    if (/[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(name)) {
+	      throw new TypeError('Invalid character in header field name')
+	    }
+	    return name.toLowerCase()
+	  }
+	
+	  function normalizeValue(value) {
+	    if (typeof value !== 'string') {
+	      value = String(value)
+	    }
+	    return value
+	  }
+	
+	  function Headers(headers) {
+	    this.map = {}
+	
+	    if (headers instanceof Headers) {
+	      headers.forEach(function(value, name) {
+	        this.append(name, value)
+	      }, this)
+	
+	    } else if (headers) {
+	      Object.getOwnPropertyNames(headers).forEach(function(name) {
+	        this.append(name, headers[name])
+	      }, this)
+	    }
+	  }
+	
+	  Headers.prototype.append = function(name, value) {
+	    name = normalizeName(name)
+	    value = normalizeValue(value)
+	    var list = this.map[name]
+	    if (!list) {
+	      list = []
+	      this.map[name] = list
+	    }
+	    list.push(value)
+	  }
+	
+	  Headers.prototype['delete'] = function(name) {
+	    delete this.map[normalizeName(name)]
+	  }
+	
+	  Headers.prototype.get = function(name) {
+	    var values = this.map[normalizeName(name)]
+	    return values ? values[0] : null
+	  }
+	
+	  Headers.prototype.getAll = function(name) {
+	    return this.map[normalizeName(name)] || []
+	  }
+	
+	  Headers.prototype.has = function(name) {
+	    return this.map.hasOwnProperty(normalizeName(name))
+	  }
+	
+	  Headers.prototype.set = function(name, value) {
+	    this.map[normalizeName(name)] = [normalizeValue(value)]
+	  }
+	
+	  Headers.prototype.forEach = function(callback, thisArg) {
+	    Object.getOwnPropertyNames(this.map).forEach(function(name) {
+	      this.map[name].forEach(function(value) {
+	        callback.call(thisArg, value, name, this)
+	      }, this)
+	    }, this)
+	  }
+	
+	  function consumed(body) {
+	    if (body.bodyUsed) {
+	      return Promise.reject(new TypeError('Already read'))
+	    }
+	    body.bodyUsed = true
+	  }
+	
+	  function fileReaderReady(reader) {
+	    return new Promise(function(resolve, reject) {
+	      reader.onload = function() {
+	        resolve(reader.result)
+	      }
+	      reader.onerror = function() {
+	        reject(reader.error)
+	      }
+	    })
+	  }
+	
+	  function readBlobAsArrayBuffer(blob) {
+	    var reader = new FileReader()
+	    reader.readAsArrayBuffer(blob)
+	    return fileReaderReady(reader)
+	  }
+	
+	  function readBlobAsText(blob) {
+	    var reader = new FileReader()
+	    reader.readAsText(blob)
+	    return fileReaderReady(reader)
+	  }
+	
+	  var support = {
+	    blob: 'FileReader' in self && 'Blob' in self && (function() {
+	      try {
+	        new Blob();
+	        return true
+	      } catch(e) {
+	        return false
+	      }
+	    })(),
+	    formData: 'FormData' in self,
+	    arrayBuffer: 'ArrayBuffer' in self
+	  }
+	
+	  function Body() {
+	    this.bodyUsed = false
+	
+	
+	    this._initBody = function(body) {
+	      this._bodyInit = body
+	      if (typeof body === 'string') {
+	        this._bodyText = body
+	      } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
+	        this._bodyBlob = body
+	      } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
+	        this._bodyFormData = body
+	      } else if (!body) {
+	        this._bodyText = ''
+	      } else if (support.arrayBuffer && ArrayBuffer.prototype.isPrototypeOf(body)) {
+	        // Only support ArrayBuffers for POST method.
+	        // Receiving ArrayBuffers happens via Blobs, instead.
+	      } else {
+	        throw new Error('unsupported BodyInit type')
+	      }
+	    }
+	
+	    if (support.blob) {
+	      this.blob = function() {
+	        var rejected = consumed(this)
+	        if (rejected) {
+	          return rejected
+	        }
+	
+	        if (this._bodyBlob) {
+	          return Promise.resolve(this._bodyBlob)
+	        } else if (this._bodyFormData) {
+	          throw new Error('could not read FormData body as blob')
+	        } else {
+	          return Promise.resolve(new Blob([this._bodyText]))
+	        }
+	      }
+	
+	      this.arrayBuffer = function() {
+	        return this.blob().then(readBlobAsArrayBuffer)
+	      }
+	
+	      this.text = function() {
+	        var rejected = consumed(this)
+	        if (rejected) {
+	          return rejected
+	        }
+	
+	        if (this._bodyBlob) {
+	          return readBlobAsText(this._bodyBlob)
+	        } else if (this._bodyFormData) {
+	          throw new Error('could not read FormData body as text')
+	        } else {
+	          return Promise.resolve(this._bodyText)
+	        }
+	      }
+	    } else {
+	      this.text = function() {
+	        var rejected = consumed(this)
+	        return rejected ? rejected : Promise.resolve(this._bodyText)
+	      }
+	    }
+	
+	    if (support.formData) {
+	      this.formData = function() {
+	        return this.text().then(decode)
+	      }
+	    }
+	
+	    this.json = function() {
+	      return this.text().then(JSON.parse)
+	    }
+	
+	    return this
+	  }
+	
+	  // HTTP methods whose capitalization should be normalized
+	  var methods = ['DELETE', 'GET', 'HEAD', 'OPTIONS', 'POST', 'PUT']
+	
+	  function normalizeMethod(method) {
+	    var upcased = method.toUpperCase()
+	    return (methods.indexOf(upcased) > -1) ? upcased : method
+	  }
+	
+	  function Request(input, options) {
+	    options = options || {}
+	    var body = options.body
+	    if (Request.prototype.isPrototypeOf(input)) {
+	      if (input.bodyUsed) {
+	        throw new TypeError('Already read')
+	      }
+	      this.url = input.url
+	      this.credentials = input.credentials
+	      if (!options.headers) {
+	        this.headers = new Headers(input.headers)
+	      }
+	      this.method = input.method
+	      this.mode = input.mode
+	      if (!body) {
+	        body = input._bodyInit
+	        input.bodyUsed = true
+	      }
+	    } else {
+	      this.url = input
+	    }
+	
+	    this.credentials = options.credentials || this.credentials || 'omit'
+	    if (options.headers || !this.headers) {
+	      this.headers = new Headers(options.headers)
+	    }
+	    this.method = normalizeMethod(options.method || this.method || 'GET')
+	    this.mode = options.mode || this.mode || null
+	    this.referrer = null
+	
+	    if ((this.method === 'GET' || this.method === 'HEAD') && body) {
+	      throw new TypeError('Body not allowed for GET or HEAD requests')
+	    }
+	    this._initBody(body)
+	  }
+	
+	  Request.prototype.clone = function() {
+	    return new Request(this)
+	  }
+	
+	  function decode(body) {
+	    var form = new FormData()
+	    body.trim().split('&').forEach(function(bytes) {
+	      if (bytes) {
+	        var split = bytes.split('=')
+	        var name = split.shift().replace(/\+/g, ' ')
+	        var value = split.join('=').replace(/\+/g, ' ')
+	        form.append(decodeURIComponent(name), decodeURIComponent(value))
+	      }
+	    })
+	    return form
+	  }
+	
+	  function headers(xhr) {
+	    var head = new Headers()
+	    var pairs = xhr.getAllResponseHeaders().trim().split('\n')
+	    pairs.forEach(function(header) {
+	      var split = header.trim().split(':')
+	      var key = split.shift().trim()
+	      var value = split.join(':').trim()
+	      head.append(key, value)
+	    })
+	    return head
+	  }
+	
+	  Body.call(Request.prototype)
+	
+	  function Response(bodyInit, options) {
+	    if (!options) {
+	      options = {}
+	    }
+	
+	    this._initBody(bodyInit)
+	    this.type = 'default'
+	    this.status = options.status
+	    this.ok = this.status >= 200 && this.status < 300
+	    this.statusText = options.statusText
+	    this.headers = options.headers instanceof Headers ? options.headers : new Headers(options.headers)
+	    this.url = options.url || ''
+	  }
+	
+	  Body.call(Response.prototype)
+	
+	  Response.prototype.clone = function() {
+	    return new Response(this._bodyInit, {
+	      status: this.status,
+	      statusText: this.statusText,
+	      headers: new Headers(this.headers),
+	      url: this.url
+	    })
+	  }
+	
+	  Response.error = function() {
+	    var response = new Response(null, {status: 0, statusText: ''})
+	    response.type = 'error'
+	    return response
+	  }
+	
+	  var redirectStatuses = [301, 302, 303, 307, 308]
+	
+	  Response.redirect = function(url, status) {
+	    if (redirectStatuses.indexOf(status) === -1) {
+	      throw new RangeError('Invalid status code')
+	    }
+	
+	    return new Response(null, {status: status, headers: {location: url}})
+	  }
+	
+	  self.Headers = Headers;
+	  self.Request = Request;
+	  self.Response = Response;
+	
+	  self.fetch = function(input, init) {
+	    return new Promise(function(resolve, reject) {
+	      var request
+	      if (Request.prototype.isPrototypeOf(input) && !init) {
+	        request = input
+	      } else {
+	        request = new Request(input, init)
+	      }
+	
+	      var xhr = new XMLHttpRequest()
+	
+	      function responseURL() {
+	        if ('responseURL' in xhr) {
+	          return xhr.responseURL
+	        }
+	
+	        // Avoid security warnings on getResponseHeader when not allowed by CORS
+	        if (/^X-Request-URL:/m.test(xhr.getAllResponseHeaders())) {
+	          return xhr.getResponseHeader('X-Request-URL')
+	        }
+	
+	        return;
+	      }
+	
+	      xhr.onload = function() {
+	        var status = (xhr.status === 1223) ? 204 : xhr.status
+	        if (status < 100 || status > 599) {
+	          reject(new TypeError('Network request failed'))
+	          return
+	        }
+	        var options = {
+	          status: status,
+	          statusText: xhr.statusText,
+	          headers: headers(xhr),
+	          url: responseURL()
+	        }
+	        var body = 'response' in xhr ? xhr.response : xhr.responseText;
+	        resolve(new Response(body, options))
+	      }
+	
+	      xhr.onerror = function() {
+	        reject(new TypeError('Network request failed'))
+	      }
+	
+	      xhr.open(request.method, request.url, true)
+	
+	      if (request.credentials === 'include') {
+	        xhr.withCredentials = true
+	      }
+	
+	      if ('responseType' in xhr && support.blob) {
+	        xhr.responseType = 'blob'
+	      }
+	
+	      request.headers.forEach(function(value, name) {
+	        xhr.setRequestHeader(name, value)
+	      })
+	
+	      xhr.send(typeof request._bodyInit === 'undefined' ? null : request._bodyInit)
+	    })
+	  }
+	  self.fetch.polyfill = true
+	})();
+	
+	
+	/*** EXPORTS FROM exports-loader ***/
+	module.exports = global.fetch
+	}.call(global));
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 45 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(46), __esModule: true };
+
+/***/ },
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(47);
+	__webpack_require__(48);
+	__webpack_require__(65);
+	__webpack_require__(72);
+	module.exports = __webpack_require__(10).Promise;
+
+/***/ },
+/* 47 */
+/***/ function(module, exports) {
+
+
+
+/***/ },
+/* 48 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var $at  = __webpack_require__(49)(true);
+	
+	// 21.1.3.27 String.prototype[@@iterator]()
+	__webpack_require__(51)(String, 'String', function(iterated){
+	  this._t = String(iterated); // target
+	  this._i = 0;                // next index
+	// 21.1.5.2.1 %StringIteratorPrototype%.next()
+	}, function(){
+	  var O     = this._t
+	    , index = this._i
+	    , point;
+	  if(index >= O.length)return {value: undefined, done: true};
+	  point = $at(O, index);
+	  this._i += point.length;
+	  return {value: point, done: false};
+	});
+
+/***/ },
+/* 49 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var toInteger = __webpack_require__(50)
+	  , defined   = __webpack_require__(6);
+	// true  -> String#at
+	// false -> String#codePointAt
+	module.exports = function(TO_STRING){
+	  return function(that, pos){
+	    var s = String(defined(that))
+	      , i = toInteger(pos)
+	      , l = s.length
+	      , a, b;
+	    if(i < 0 || i >= l)return TO_STRING ? '' : undefined;
+	    a = s.charCodeAt(i);
+	    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
+	      ? TO_STRING ? s.charAt(i) : a
+	      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
+	  };
+	};
+
+/***/ },
+/* 50 */
+/***/ function(module, exports) {
+
+	// 7.1.4 ToInteger
+	var ceil  = Math.ceil
+	  , floor = Math.floor;
+	module.exports = function(it){
+	  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+	};
+
+/***/ },
+/* 51 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var LIBRARY        = __webpack_require__(52)
+	  , $export        = __webpack_require__(8)
+	  , redefine       = __webpack_require__(53)
+	  , hide           = __webpack_require__(54)
+	  , has            = __webpack_require__(58)
+	  , Iterators      = __webpack_require__(59)
+	  , $iterCreate    = __webpack_require__(60)
+	  , setToStringTag = __webpack_require__(61)
+	  , getProto       = __webpack_require__(55).getProto
+	  , ITERATOR       = __webpack_require__(62)('iterator')
+	  , BUGGY          = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
+	  , FF_ITERATOR    = '@@iterator'
+	  , KEYS           = 'keys'
+	  , VALUES         = 'values';
+	
+	var returnThis = function(){ return this; };
+	
+	module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED){
+	  $iterCreate(Constructor, NAME, next);
+	  var getMethod = function(kind){
+	    if(!BUGGY && kind in proto)return proto[kind];
+	    switch(kind){
+	      case KEYS: return function keys(){ return new Constructor(this, kind); };
+	      case VALUES: return function values(){ return new Constructor(this, kind); };
+	    } return function entries(){ return new Constructor(this, kind); };
+	  };
+	  var TAG        = NAME + ' Iterator'
+	    , DEF_VALUES = DEFAULT == VALUES
+	    , VALUES_BUG = false
+	    , proto      = Base.prototype
+	    , $native    = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT]
+	    , $default   = $native || getMethod(DEFAULT)
+	    , methods, key;
+	  // Fix native
+	  if($native){
+	    var IteratorPrototype = getProto($default.call(new Base));
+	    // Set @@toStringTag to native iterators
+	    setToStringTag(IteratorPrototype, TAG, true);
+	    // FF fix
+	    if(!LIBRARY && has(proto, FF_ITERATOR))hide(IteratorPrototype, ITERATOR, returnThis);
+	    // fix Array#{values, @@iterator}.name in V8 / FF
+	    if(DEF_VALUES && $native.name !== VALUES){
+	      VALUES_BUG = true;
+	      $default = function values(){ return $native.call(this); };
+	    }
+	  }
+	  // Define iterator
+	  if((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])){
+	    hide(proto, ITERATOR, $default);
+	  }
+	  // Plug for library
+	  Iterators[NAME] = $default;
+	  Iterators[TAG]  = returnThis;
+	  if(DEFAULT){
+	    methods = {
+	      values:  DEF_VALUES  ? $default : getMethod(VALUES),
+	      keys:    IS_SET      ? $default : getMethod(KEYS),
+	      entries: !DEF_VALUES ? $default : getMethod('entries')
+	    };
+	    if(FORCED)for(key in methods){
+	      if(!(key in proto))redefine(proto, key, methods[key]);
+	    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
+	  }
+	  return methods;
+	};
+
+/***/ },
+/* 52 */
+/***/ function(module, exports) {
+
+	module.exports = true;
+
+/***/ },
+/* 53 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(54);
+
+/***/ },
+/* 54 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var $          = __webpack_require__(55)
+	  , createDesc = __webpack_require__(56);
+	module.exports = __webpack_require__(57) ? function(object, key, value){
+	  return $.setDesc(object, key, createDesc(1, value));
+	} : function(object, key, value){
+	  object[key] = value;
+	  return object;
+	};
+
+/***/ },
+/* 55 */
+/***/ function(module, exports) {
+
+	var $Object = Object;
+	module.exports = {
+	  create:     $Object.create,
+	  getProto:   $Object.getPrototypeOf,
+	  isEnum:     {}.propertyIsEnumerable,
+	  getDesc:    $Object.getOwnPropertyDescriptor,
+	  setDesc:    $Object.defineProperty,
+	  setDescs:   $Object.defineProperties,
+	  getKeys:    $Object.keys,
+	  getNames:   $Object.getOwnPropertyNames,
+	  getSymbols: $Object.getOwnPropertySymbols,
+	  each:       [].forEach
+	};
+
+/***/ },
+/* 56 */
+/***/ function(module, exports) {
+
+	module.exports = function(bitmap, value){
+	  return {
+	    enumerable  : !(bitmap & 1),
+	    configurable: !(bitmap & 2),
+	    writable    : !(bitmap & 4),
+	    value       : value
+	  };
+	};
+
+/***/ },
+/* 57 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Thank's IE8 for his funny defineProperty
+	module.exports = !__webpack_require__(13)(function(){
+	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
+	});
+
+/***/ },
+/* 58 */
+/***/ function(module, exports) {
+
+	var hasOwnProperty = {}.hasOwnProperty;
+	module.exports = function(it, key){
+	  return hasOwnProperty.call(it, key);
+	};
+
+/***/ },
+/* 59 */
+/***/ function(module, exports) {
+
+	module.exports = {};
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var $              = __webpack_require__(55)
+	  , descriptor     = __webpack_require__(56)
+	  , setToStringTag = __webpack_require__(61)
+	  , IteratorPrototype = {};
+	
+	// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
+	__webpack_require__(54)(IteratorPrototype, __webpack_require__(62)('iterator'), function(){ return this; });
+	
+	module.exports = function(Constructor, NAME, next){
+	  Constructor.prototype = $.create(IteratorPrototype, {next: descriptor(1, next)});
+	  setToStringTag(Constructor, NAME + ' Iterator');
+	};
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var def = __webpack_require__(55).setDesc
+	  , has = __webpack_require__(58)
+	  , TAG = __webpack_require__(62)('toStringTag');
+	
+	module.exports = function(it, tag, stat){
+	  if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
+	};
+
+/***/ },
+/* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var store  = __webpack_require__(63)('wks')
+	  , uid    = __webpack_require__(64)
+	  , Symbol = __webpack_require__(9).Symbol;
+	module.exports = function(name){
+	  return store[name] || (store[name] =
+	    Symbol && Symbol[name] || (Symbol || uid)('Symbol.' + name));
+	};
+
+/***/ },
+/* 63 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var global = __webpack_require__(9)
+	  , SHARED = '__core-js_shared__'
+	  , store  = global[SHARED] || (global[SHARED] = {});
+	module.exports = function(key){
+	  return store[key] || (store[key] = {});
+	};
+
+/***/ },
+/* 64 */
+/***/ function(module, exports) {
+
+	var id = 0
+	  , px = Math.random();
+	module.exports = function(key){
+	  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+	};
+
+/***/ },
+/* 65 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(66);
+	var Iterators = __webpack_require__(59);
+	Iterators.NodeList = Iterators.HTMLCollection = Iterators.Array;
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var addToUnscopables = __webpack_require__(67)
+	  , step             = __webpack_require__(68)
+	  , Iterators        = __webpack_require__(59)
+	  , toIObject        = __webpack_require__(69);
+	
+	// 22.1.3.4 Array.prototype.entries()
+	// 22.1.3.13 Array.prototype.keys()
+	// 22.1.3.29 Array.prototype.values()
+	// 22.1.3.30 Array.prototype[@@iterator]()
+	module.exports = __webpack_require__(51)(Array, 'Array', function(iterated, kind){
+	  this._t = toIObject(iterated); // target
+	  this._i = 0;                   // next index
+	  this._k = kind;                // kind
+	// 22.1.5.2.1 %ArrayIteratorPrototype%.next()
+	}, function(){
+	  var O     = this._t
+	    , kind  = this._k
+	    , index = this._i++;
+	  if(!O || index >= O.length){
+	    this._t = undefined;
+	    return step(1);
+	  }
+	  if(kind == 'keys'  )return step(0, index);
+	  if(kind == 'values')return step(0, O[index]);
+	  return step(0, [index, O[index]]);
+	}, 'values');
+	
+	// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
+	Iterators.Arguments = Iterators.Array;
+	
+	addToUnscopables('keys');
+	addToUnscopables('values');
+	addToUnscopables('entries');
+
+/***/ },
+/* 67 */
+/***/ function(module, exports) {
+
+	module.exports = function(){ /* empty */ };
+
+/***/ },
+/* 68 */
+/***/ function(module, exports) {
+
+	module.exports = function(done, value){
+	  return {value: value, done: !!done};
+	};
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// to indexed object, toObject with fallback for non-array-like ES3 strings
+	var IObject = __webpack_require__(70)
+	  , defined = __webpack_require__(6);
+	module.exports = function(it){
+	  return IObject(defined(it));
+	};
+
+/***/ },
+/* 70 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// fallback for non-array-like ES3 and non-enumerable old V8 strings
+	var cof = __webpack_require__(71);
+	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
+	  return cof(it) == 'String' ? it.split('') : Object(it);
+	};
+
+/***/ },
+/* 71 */
+/***/ function(module, exports) {
+
+	var toString = {}.toString;
+	
+	module.exports = function(it){
+	  return toString.call(it).slice(8, -1);
+	};
+
+/***/ },
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var $          = __webpack_require__(55)
+	  , LIBRARY    = __webpack_require__(52)
+	  , global     = __webpack_require__(9)
+	  , ctx        = __webpack_require__(11)
+	  , classof    = __webpack_require__(73)
+	  , $export    = __webpack_require__(8)
+	  , isObject   = __webpack_require__(74)
+	  , anObject   = __webpack_require__(75)
+	  , aFunction  = __webpack_require__(12)
+	  , strictNew  = __webpack_require__(76)
+	  , forOf      = __webpack_require__(77)
+	  , setProto   = __webpack_require__(82).set
+	  , same       = __webpack_require__(83)
+	  , SPECIES    = __webpack_require__(62)('species')
+	  , speciesConstructor = __webpack_require__(84)
+	  , asap       = __webpack_require__(85)
+	  , PROMISE    = 'Promise'
+	  , process    = global.process
+	  , isNode     = classof(process) == 'process'
+	  , P          = global[PROMISE]
+	  , Wrapper;
+	
+	var testResolve = function(sub){
+	  var test = new P(function(){});
+	  if(sub)test.constructor = Object;
+	  return P.resolve(test) === test;
+	};
+	
+	var USE_NATIVE = function(){
+	  var works = false;
+	  function P2(x){
+	    var self = new P(x);
+	    setProto(self, P2.prototype);
+	    return self;
+	  }
+	  try {
+	    works = P && P.resolve && testResolve();
+	    setProto(P2, P);
+	    P2.prototype = $.create(P.prototype, {constructor: {value: P2}});
+	    // actual Firefox has broken subclass support, test that
+	    if(!(P2.resolve(5).then(function(){}) instanceof P2)){
+	      works = false;
+	    }
+	    // actual V8 bug, https://code.google.com/p/v8/issues/detail?id=4162
+	    if(works && __webpack_require__(57)){
+	      var thenableThenGotten = false;
+	      P.resolve($.setDesc({}, 'then', {
+	        get: function(){ thenableThenGotten = true; }
+	      }));
+	      works = thenableThenGotten;
+	    }
+	  } catch(e){ works = false; }
+	  return works;
+	}();
+	
+	// helpers
+	var sameConstructor = function(a, b){
+	  // library wrapper special case
+	  if(LIBRARY && a === P && b === Wrapper)return true;
+	  return same(a, b);
+	};
+	var getConstructor = function(C){
+	  var S = anObject(C)[SPECIES];
+	  return S != undefined ? S : C;
+	};
+	var isThenable = function(it){
+	  var then;
+	  return isObject(it) && typeof (then = it.then) == 'function' ? then : false;
+	};
+	var PromiseCapability = function(C){
+	  var resolve, reject;
+	  this.promise = new C(function($$resolve, $$reject){
+	    if(resolve !== undefined || reject !== undefined)throw TypeError('Bad Promise constructor');
+	    resolve = $$resolve;
+	    reject  = $$reject;
+	  });
+	  this.resolve = aFunction(resolve),
+	  this.reject  = aFunction(reject)
+	};
+	var perform = function(exec){
+	  try {
+	    exec();
+	  } catch(e){
+	    return {error: e};
+	  }
+	};
+	var notify = function(record, isReject){
+	  if(record.n)return;
+	  record.n = true;
+	  var chain = record.c;
+	  asap(function(){
+	    var value = record.v
+	      , ok    = record.s == 1
+	      , i     = 0;
+	    var run = function(reaction){
+	      var handler = ok ? reaction.ok : reaction.fail
+	        , resolve = reaction.resolve
+	        , reject  = reaction.reject
+	        , result, then;
+	      try {
+	        if(handler){
+	          if(!ok)record.h = true;
+	          result = handler === true ? value : handler(value);
+	          if(result === reaction.promise){
+	            reject(TypeError('Promise-chain cycle'));
+	          } else if(then = isThenable(result)){
+	            then.call(result, resolve, reject);
+	          } else resolve(result);
+	        } else reject(value);
+	      } catch(e){
+	        reject(e);
+	      }
+	    };
+	    while(chain.length > i)run(chain[i++]); // variable length - can't use forEach
+	    chain.length = 0;
+	    record.n = false;
+	    if(isReject)setTimeout(function(){
+	      var promise = record.p
+	        , handler, console;
+	      if(isUnhandled(promise)){
+	        if(isNode){
+	          process.emit('unhandledRejection', value, promise);
+	        } else if(handler = global.onunhandledrejection){
+	          handler({promise: promise, reason: value});
+	        } else if((console = global.console) && console.error){
+	          console.error('Unhandled promise rejection', value);
+	        }
+	      } record.a = undefined;
+	    }, 1);
+	  });
+	};
+	var isUnhandled = function(promise){
+	  var record = promise._d
+	    , chain  = record.a || record.c
+	    , i      = 0
+	    , reaction;
+	  if(record.h)return false;
+	  while(chain.length > i){
+	    reaction = chain[i++];
+	    if(reaction.fail || !isUnhandled(reaction.promise))return false;
+	  } return true;
+	};
+	var $reject = function(value){
+	  var record = this;
+	  if(record.d)return;
+	  record.d = true;
+	  record = record.r || record; // unwrap
+	  record.v = value;
+	  record.s = 2;
+	  record.a = record.c.slice();
+	  notify(record, true);
+	};
+	var $resolve = function(value){
+	  var record = this
+	    , then;
+	  if(record.d)return;
+	  record.d = true;
+	  record = record.r || record; // unwrap
+	  try {
+	    if(record.p === value)throw TypeError("Promise can't be resolved itself");
+	    if(then = isThenable(value)){
+	      asap(function(){
+	        var wrapper = {r: record, d: false}; // wrap
+	        try {
+	          then.call(value, ctx($resolve, wrapper, 1), ctx($reject, wrapper, 1));
+	        } catch(e){
+	          $reject.call(wrapper, e);
+	        }
+	      });
+	    } else {
+	      record.v = value;
+	      record.s = 1;
+	      notify(record, false);
+	    }
+	  } catch(e){
+	    $reject.call({r: record, d: false}, e); // wrap
+	  }
+	};
+	
+	// constructor polyfill
+	if(!USE_NATIVE){
+	  // 25.4.3.1 Promise(executor)
+	  P = function Promise(executor){
+	    aFunction(executor);
+	    var record = this._d = {
+	      p: strictNew(this, P, PROMISE),         // <- promise
+	      c: [],                                  // <- awaiting reactions
+	      a: undefined,                           // <- checked in isUnhandled reactions
+	      s: 0,                                   // <- state
+	      d: false,                               // <- done
+	      v: undefined,                           // <- value
+	      h: false,                               // <- handled rejection
+	      n: false                                // <- notify
+	    };
+	    try {
+	      executor(ctx($resolve, record, 1), ctx($reject, record, 1));
+	    } catch(err){
+	      $reject.call(record, err);
+	    }
+	  };
+	  __webpack_require__(90)(P.prototype, {
+	    // 25.4.5.3 Promise.prototype.then(onFulfilled, onRejected)
+	    then: function then(onFulfilled, onRejected){
+	      var reaction = new PromiseCapability(speciesConstructor(this, P))
+	        , promise  = reaction.promise
+	        , record   = this._d;
+	      reaction.ok   = typeof onFulfilled == 'function' ? onFulfilled : true;
+	      reaction.fail = typeof onRejected == 'function' && onRejected;
+	      record.c.push(reaction);
+	      if(record.a)record.a.push(reaction);
+	      if(record.s)notify(record, false);
+	      return promise;
+	    },
+	    // 25.4.5.1 Promise.prototype.catch(onRejected)
+	    'catch': function(onRejected){
+	      return this.then(undefined, onRejected);
+	    }
+	  });
+	}
+	
+	$export($export.G + $export.W + $export.F * !USE_NATIVE, {Promise: P});
+	__webpack_require__(61)(P, PROMISE);
+	__webpack_require__(91)(PROMISE);
+	Wrapper = __webpack_require__(10)[PROMISE];
+	
+	// statics
+	$export($export.S + $export.F * !USE_NATIVE, PROMISE, {
+	  // 25.4.4.5 Promise.reject(r)
+	  reject: function reject(r){
+	    var capability = new PromiseCapability(this)
+	      , $$reject   = capability.reject;
+	    $$reject(r);
+	    return capability.promise;
+	  }
+	});
+	$export($export.S + $export.F * (!USE_NATIVE || testResolve(true)), PROMISE, {
+	  // 25.4.4.6 Promise.resolve(x)
+	  resolve: function resolve(x){
+	    // instanceof instead of internal slot check because we should fix it without replacement native Promise core
+	    if(x instanceof P && sameConstructor(x.constructor, this))return x;
+	    var capability = new PromiseCapability(this)
+	      , $$resolve  = capability.resolve;
+	    $$resolve(x);
+	    return capability.promise;
+	  }
+	});
+	$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(92)(function(iter){
+	  P.all(iter)['catch'](function(){});
+	})), PROMISE, {
+	  // 25.4.4.1 Promise.all(iterable)
+	  all: function all(iterable){
+	    var C          = getConstructor(this)
+	      , capability = new PromiseCapability(C)
+	      , resolve    = capability.resolve
+	      , reject     = capability.reject
+	      , values     = [];
+	    var abrupt = perform(function(){
+	      forOf(iterable, false, values.push, values);
+	      var remaining = values.length
+	        , results   = Array(remaining);
+	      if(remaining)$.each.call(values, function(promise, index){
+	        var alreadyCalled = false;
+	        C.resolve(promise).then(function(value){
+	          if(alreadyCalled)return;
+	          alreadyCalled = true;
+	          results[index] = value;
+	          --remaining || resolve(results);
+	        }, reject);
+	      });
+	      else resolve(results);
+	    });
+	    if(abrupt)reject(abrupt.error);
+	    return capability.promise;
+	  },
+	  // 25.4.4.4 Promise.race(iterable)
+	  race: function race(iterable){
+	    var C          = getConstructor(this)
+	      , capability = new PromiseCapability(C)
+	      , reject     = capability.reject;
+	    var abrupt = perform(function(){
+	      forOf(iterable, false, function(promise){
+	        C.resolve(promise).then(capability.resolve, reject);
+	      });
+	    });
+	    if(abrupt)reject(abrupt.error);
+	    return capability.promise;
+	  }
+	});
+
+/***/ },
+/* 73 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// getting tag from 19.1.3.6 Object.prototype.toString()
+	var cof = __webpack_require__(71)
+	  , TAG = __webpack_require__(62)('toStringTag')
+	  // ES3 wrong here
+	  , ARG = cof(function(){ return arguments; }()) == 'Arguments';
+	
+	module.exports = function(it){
+	  var O, T, B;
+	  return it === undefined ? 'Undefined' : it === null ? 'Null'
+	    // @@toStringTag case
+	    : typeof (T = (O = Object(it))[TAG]) == 'string' ? T
+	    // builtinTag case
+	    : ARG ? cof(O)
+	    // ES3 arguments fallback
+	    : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
+	};
+
+/***/ },
+/* 74 */
+/***/ function(module, exports) {
+
+	module.exports = function(it){
+	  return typeof it === 'object' ? it !== null : typeof it === 'function';
+	};
+
+/***/ },
+/* 75 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var isObject = __webpack_require__(74);
+	module.exports = function(it){
+	  if(!isObject(it))throw TypeError(it + ' is not an object!');
+	  return it;
+	};
+
+/***/ },
+/* 76 */
+/***/ function(module, exports) {
+
+	module.exports = function(it, Constructor, name){
+	  if(!(it instanceof Constructor))throw TypeError(name + ": use the 'new' operator!");
+	  return it;
+	};
+
+/***/ },
+/* 77 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var ctx         = __webpack_require__(11)
+	  , call        = __webpack_require__(78)
+	  , isArrayIter = __webpack_require__(79)
+	  , anObject    = __webpack_require__(75)
+	  , toLength    = __webpack_require__(80)
+	  , getIterFn   = __webpack_require__(81);
+	module.exports = function(iterable, entries, fn, that){
+	  var iterFn = getIterFn(iterable)
+	    , f      = ctx(fn, that, entries ? 2 : 1)
+	    , index  = 0
+	    , length, step, iterator;
+	  if(typeof iterFn != 'function')throw TypeError(iterable + ' is not iterable!');
+	  // fast case for arrays with default iterator
+	  if(isArrayIter(iterFn))for(length = toLength(iterable.length); length > index; index++){
+	    entries ? f(anObject(step = iterable[index])[0], step[1]) : f(iterable[index]);
+	  } else for(iterator = iterFn.call(iterable); !(step = iterator.next()).done; ){
+	    call(iterator, f, step.value, entries);
+	  }
+	};
+
+/***/ },
+/* 78 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// call something on iterator step with safe closing on error
+	var anObject = __webpack_require__(75);
+	module.exports = function(iterator, fn, value, entries){
+	  try {
+	    return entries ? fn(anObject(value)[0], value[1]) : fn(value);
+	  // 7.4.6 IteratorClose(iterator, completion)
+	  } catch(e){
+	    var ret = iterator['return'];
+	    if(ret !== undefined)anObject(ret.call(iterator));
+	    throw e;
+	  }
+	};
+
+/***/ },
+/* 79 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// check on default Array iterator
+	var Iterators  = __webpack_require__(59)
+	  , ITERATOR   = __webpack_require__(62)('iterator')
+	  , ArrayProto = Array.prototype;
+	
+	module.exports = function(it){
+	  return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
+	};
+
+/***/ },
+/* 80 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.15 ToLength
+	var toInteger = __webpack_require__(50)
+	  , min       = Math.min;
+	module.exports = function(it){
+	  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+	};
+
+/***/ },
+/* 81 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var classof   = __webpack_require__(73)
+	  , ITERATOR  = __webpack_require__(62)('iterator')
+	  , Iterators = __webpack_require__(59);
+	module.exports = __webpack_require__(10).getIteratorMethod = function(it){
+	  if(it != undefined)return it[ITERATOR]
+	    || it['@@iterator']
+	    || Iterators[classof(it)];
+	};
+
+/***/ },
+/* 82 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Works with __proto__ only. Old v8 can't work with null proto objects.
+	/* eslint-disable no-proto */
+	var getDesc  = __webpack_require__(55).getDesc
+	  , isObject = __webpack_require__(74)
+	  , anObject = __webpack_require__(75);
+	var check = function(O, proto){
+	  anObject(O);
+	  if(!isObject(proto) && proto !== null)throw TypeError(proto + ": can't set as prototype!");
+	};
+	module.exports = {
+	  set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
+	    function(test, buggy, set){
+	      try {
+	        set = __webpack_require__(11)(Function.call, getDesc(Object.prototype, '__proto__').set, 2);
+	        set(test, []);
+	        buggy = !(test instanceof Array);
+	      } catch(e){ buggy = true; }
+	      return function setPrototypeOf(O, proto){
+	        check(O, proto);
+	        if(buggy)O.__proto__ = proto;
+	        else set(O, proto);
+	        return O;
+	      };
+	    }({}, false) : undefined),
+	  check: check
+	};
+
+/***/ },
+/* 83 */
+/***/ function(module, exports) {
+
+	// 7.2.9 SameValue(x, y)
+	module.exports = Object.is || function is(x, y){
+	  return x === y ? x !== 0 || 1 / x === 1 / y : x != x && y != y;
+	};
+
+/***/ },
+/* 84 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.3.20 SpeciesConstructor(O, defaultConstructor)
+	var anObject  = __webpack_require__(75)
+	  , aFunction = __webpack_require__(12)
+	  , SPECIES   = __webpack_require__(62)('species');
+	module.exports = function(O, D){
+	  var C = anObject(O).constructor, S;
+	  return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
+	};
+
+/***/ },
+/* 85 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var global    = __webpack_require__(9)
+	  , macrotask = __webpack_require__(86).set
+	  , Observer  = global.MutationObserver || global.WebKitMutationObserver
+	  , process   = global.process
+	  , Promise   = global.Promise
+	  , isNode    = __webpack_require__(71)(process) == 'process'
+	  , head, last, notify;
+	
+	var flush = function(){
+	  var parent, domain, fn;
+	  if(isNode && (parent = process.domain)){
+	    process.domain = null;
+	    parent.exit();
+	  }
+	  while(head){
+	    domain = head.domain;
+	    fn     = head.fn;
+	    if(domain)domain.enter();
+	    fn(); // <- currently we use it only for Promise - try / catch not required
+	    if(domain)domain.exit();
+	    head = head.next;
+	  } last = undefined;
+	  if(parent)parent.enter();
+	};
+	
+	// Node.js
+	if(isNode){
+	  notify = function(){
+	    process.nextTick(flush);
+	  };
+	// browsers with MutationObserver
+	} else if(Observer){
+	  var toggle = 1
+	    , node   = document.createTextNode('');
+	  new Observer(flush).observe(node, {characterData: true}); // eslint-disable-line no-new
+	  notify = function(){
+	    node.data = toggle = -toggle;
+	  };
+	// environments with maybe non-completely correct, but existent Promise
+	} else if(Promise && Promise.resolve){
+	  notify = function(){
+	    Promise.resolve().then(flush);
+	  };
+	// for other environments - macrotask based on:
+	// - setImmediate
+	// - MessageChannel
+	// - window.postMessag
+	// - onreadystatechange
+	// - setTimeout
+	} else {
+	  notify = function(){
+	    // strange IE + webpack dev server bug - use .call(global)
+	    macrotask.call(global, flush);
+	  };
+	}
+	
+	module.exports = function asap(fn){
+	  var task = {fn: fn, next: undefined, domain: isNode && process.domain};
+	  if(last)last.next = task;
+	  if(!head){
+	    head = task;
+	    notify();
+	  } last = task;
+	};
+
+/***/ },
+/* 86 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var ctx                = __webpack_require__(11)
+	  , invoke             = __webpack_require__(87)
+	  , html               = __webpack_require__(88)
+	  , cel                = __webpack_require__(89)
+	  , global             = __webpack_require__(9)
+	  , process            = global.process
+	  , setTask            = global.setImmediate
+	  , clearTask          = global.clearImmediate
+	  , MessageChannel     = global.MessageChannel
+	  , counter            = 0
+	  , queue              = {}
+	  , ONREADYSTATECHANGE = 'onreadystatechange'
+	  , defer, channel, port;
+	var run = function(){
+	  var id = +this;
+	  if(queue.hasOwnProperty(id)){
+	    var fn = queue[id];
+	    delete queue[id];
+	    fn();
+	  }
+	};
+	var listner = function(event){
+	  run.call(event.data);
+	};
+	// Node.js 0.9+ & IE10+ has setImmediate, otherwise:
+	if(!setTask || !clearTask){
+	  setTask = function setImmediate(fn){
+	    var args = [], i = 1;
+	    while(arguments.length > i)args.push(arguments[i++]);
+	    queue[++counter] = function(){
+	      invoke(typeof fn == 'function' ? fn : Function(fn), args);
+	    };
+	    defer(counter);
+	    return counter;
+	  };
+	  clearTask = function clearImmediate(id){
+	    delete queue[id];
+	  };
+	  // Node.js 0.8-
+	  if(__webpack_require__(71)(process) == 'process'){
+	    defer = function(id){
+	      process.nextTick(ctx(run, id, 1));
+	    };
+	  // Browsers with MessageChannel, includes WebWorkers
+	  } else if(MessageChannel){
+	    channel = new MessageChannel;
+	    port    = channel.port2;
+	    channel.port1.onmessage = listner;
+	    defer = ctx(port.postMessage, port, 1);
+	  // Browsers with postMessage, skip WebWorkers
+	  // IE8 has postMessage, but it's sync & typeof its postMessage is 'object'
+	  } else if(global.addEventListener && typeof postMessage == 'function' && !global.importScripts){
+	    defer = function(id){
+	      global.postMessage(id + '', '*');
+	    };
+	    global.addEventListener('message', listner, false);
+	  // IE8-
+	  } else if(ONREADYSTATECHANGE in cel('script')){
+	    defer = function(id){
+	      html.appendChild(cel('script'))[ONREADYSTATECHANGE] = function(){
+	        html.removeChild(this);
+	        run.call(id);
+	      };
+	    };
+	  // Rest old browsers
+	  } else {
+	    defer = function(id){
+	      setTimeout(ctx(run, id, 1), 0);
+	    };
+	  }
+	}
+	module.exports = {
+	  set:   setTask,
+	  clear: clearTask
+	};
+
+/***/ },
+/* 87 */
+/***/ function(module, exports) {
+
+	// fast apply, http://jsperf.lnkit.com/fast-apply/5
+	module.exports = function(fn, args, that){
+	  var un = that === undefined;
+	  switch(args.length){
+	    case 0: return un ? fn()
+	                      : fn.call(that);
+	    case 1: return un ? fn(args[0])
+	                      : fn.call(that, args[0]);
+	    case 2: return un ? fn(args[0], args[1])
+	                      : fn.call(that, args[0], args[1]);
+	    case 3: return un ? fn(args[0], args[1], args[2])
+	                      : fn.call(that, args[0], args[1], args[2]);
+	    case 4: return un ? fn(args[0], args[1], args[2], args[3])
+	                      : fn.call(that, args[0], args[1], args[2], args[3]);
+	  } return              fn.apply(that, args);
+	};
+
+/***/ },
+/* 88 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(9).document && document.documentElement;
+
+/***/ },
+/* 89 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var isObject = __webpack_require__(74)
+	  , document = __webpack_require__(9).document
+	  // in old IE typeof document.createElement is 'object'
+	  , is = isObject(document) && isObject(document.createElement);
+	module.exports = function(it){
+	  return is ? document.createElement(it) : {};
+	};
+
+/***/ },
+/* 90 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var redefine = __webpack_require__(53);
+	module.exports = function(target, src){
+	  for(var key in src)redefine(target, key, src[key]);
+	  return target;
+	};
+
+/***/ },
+/* 91 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var core        = __webpack_require__(10)
+	  , $           = __webpack_require__(55)
+	  , DESCRIPTORS = __webpack_require__(57)
+	  , SPECIES     = __webpack_require__(62)('species');
+	
+	module.exports = function(KEY){
+	  var C = core[KEY];
+	  if(DESCRIPTORS && C && !C[SPECIES])$.setDesc(C, SPECIES, {
+	    configurable: true,
+	    get: function(){ return this; }
+	  });
+	};
+
+/***/ },
+/* 92 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var ITERATOR     = __webpack_require__(62)('iterator')
+	  , SAFE_CLOSING = false;
+	
+	try {
+	  var riter = [7][ITERATOR]();
+	  riter['return'] = function(){ SAFE_CLOSING = true; };
+	  Array.from(riter, function(){ throw 2; });
+	} catch(e){ /* empty */ }
+	
+	module.exports = function(exec, skipClosing){
+	  if(!skipClosing && !SAFE_CLOSING)return false;
+	  var safe = false;
+	  try {
+	    var arr  = [7]
+	      , iter = arr[ITERATOR]();
+	    iter.next = function(){ safe = true; };
+	    arr[ITERATOR] = function(){ return iter; };
+	    exec(arr);
+	  } catch(e){ /* empty */ }
+	  return safe;
+	};
+
+/***/ },
+/* 93 */
+/***/ function(module, exports) {
+
+	// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+	
+	function EventEmitter() {
+	  this._events = this._events || {};
+	  this._maxListeners = this._maxListeners || undefined;
+	}
+	module.exports = EventEmitter;
+	
+	// Backwards-compat with node 0.10.x
+	EventEmitter.EventEmitter = EventEmitter;
+	
+	EventEmitter.prototype._events = undefined;
+	EventEmitter.prototype._maxListeners = undefined;
+	
+	// By default EventEmitters will print a warning if more than 10 listeners are
+	// added to it. This is a useful default which helps finding memory leaks.
+	EventEmitter.defaultMaxListeners = 10;
+	
+	// Obviously not all Emitters should be limited to 10. This function allows
+	// that to be increased. Set to zero for unlimited.
+	EventEmitter.prototype.setMaxListeners = function(n) {
+	  if (!isNumber(n) || n < 0 || isNaN(n))
+	    throw TypeError('n must be a positive number');
+	  this._maxListeners = n;
+	  return this;
+	};
+	
+	EventEmitter.prototype.emit = function(type) {
+	  var er, handler, len, args, i, listeners;
+	
+	  if (!this._events)
+	    this._events = {};
+	
+	  // If there is no 'error' event listener then throw.
+	  if (type === 'error') {
+	    if (!this._events.error ||
+	        (isObject(this._events.error) && !this._events.error.length)) {
+	      er = arguments[1];
+	      if (er instanceof Error) {
+	        throw er; // Unhandled 'error' event
+	      }
+	      throw TypeError('Uncaught, unspecified "error" event.');
+	    }
+	  }
+	
+	  handler = this._events[type];
+	
+	  if (isUndefined(handler))
+	    return false;
+	
+	  if (isFunction(handler)) {
+	    switch (arguments.length) {
+	      // fast cases
+	      case 1:
+	        handler.call(this);
+	        break;
+	      case 2:
+	        handler.call(this, arguments[1]);
+	        break;
+	      case 3:
+	        handler.call(this, arguments[1], arguments[2]);
+	        break;
+	      // slower
+	      default:
+	        args = Array.prototype.slice.call(arguments, 1);
+	        handler.apply(this, args);
+	    }
+	  } else if (isObject(handler)) {
+	    args = Array.prototype.slice.call(arguments, 1);
+	    listeners = handler.slice();
+	    len = listeners.length;
+	    for (i = 0; i < len; i++)
+	      listeners[i].apply(this, args);
+	  }
+	
+	  return true;
+	};
+	
+	EventEmitter.prototype.addListener = function(type, listener) {
+	  var m;
+	
+	  if (!isFunction(listener))
+	    throw TypeError('listener must be a function');
+	
+	  if (!this._events)
+	    this._events = {};
+	
+	  // To avoid recursion in the case that type === "newListener"! Before
+	  // adding it to the listeners, first emit "newListener".
+	  if (this._events.newListener)
+	    this.emit('newListener', type,
+	              isFunction(listener.listener) ?
+	              listener.listener : listener);
+	
+	  if (!this._events[type])
+	    // Optimize the case of one listener. Don't need the extra array object.
+	    this._events[type] = listener;
+	  else if (isObject(this._events[type]))
+	    // If we've already got an array, just append.
+	    this._events[type].push(listener);
+	  else
+	    // Adding the second element, need to change to array.
+	    this._events[type] = [this._events[type], listener];
+	
+	  // Check for listener leak
+	  if (isObject(this._events[type]) && !this._events[type].warned) {
+	    if (!isUndefined(this._maxListeners)) {
+	      m = this._maxListeners;
+	    } else {
+	      m = EventEmitter.defaultMaxListeners;
+	    }
+	
+	    if (m && m > 0 && this._events[type].length > m) {
+	      this._events[type].warned = true;
+	      console.error('(node) warning: possible EventEmitter memory ' +
+	                    'leak detected. %d listeners added. ' +
+	                    'Use emitter.setMaxListeners() to increase limit.',
+	                    this._events[type].length);
+	      if (typeof console.trace === 'function') {
+	        // not supported in IE 10
+	        console.trace();
+	      }
+	    }
+	  }
+	
+	  return this;
+	};
+	
+	EventEmitter.prototype.on = EventEmitter.prototype.addListener;
+	
+	EventEmitter.prototype.once = function(type, listener) {
+	  if (!isFunction(listener))
+	    throw TypeError('listener must be a function');
+	
+	  var fired = false;
+	
+	  function g() {
+	    this.removeListener(type, g);
+	
+	    if (!fired) {
+	      fired = true;
+	      listener.apply(this, arguments);
+	    }
+	  }
+	
+	  g.listener = listener;
+	  this.on(type, g);
+	
+	  return this;
+	};
+	
+	// emits a 'removeListener' event iff the listener was removed
+	EventEmitter.prototype.removeListener = function(type, listener) {
+	  var list, position, length, i;
+	
+	  if (!isFunction(listener))
+	    throw TypeError('listener must be a function');
+	
+	  if (!this._events || !this._events[type])
+	    return this;
+	
+	  list = this._events[type];
+	  length = list.length;
+	  position = -1;
+	
+	  if (list === listener ||
+	      (isFunction(list.listener) && list.listener === listener)) {
+	    delete this._events[type];
+	    if (this._events.removeListener)
+	      this.emit('removeListener', type, listener);
+	
+	  } else if (isObject(list)) {
+	    for (i = length; i-- > 0;) {
+	      if (list[i] === listener ||
+	          (list[i].listener && list[i].listener === listener)) {
+	        position = i;
+	        break;
+	      }
+	    }
+	
+	    if (position < 0)
+	      return this;
+	
+	    if (list.length === 1) {
+	      list.length = 0;
+	      delete this._events[type];
+	    } else {
+	      list.splice(position, 1);
+	    }
+	
+	    if (this._events.removeListener)
+	      this.emit('removeListener', type, listener);
+	  }
+	
+	  return this;
+	};
+	
+	EventEmitter.prototype.removeAllListeners = function(type) {
+	  var key, listeners;
+	
+	  if (!this._events)
+	    return this;
+	
+	  // not listening for removeListener, no need to emit
+	  if (!this._events.removeListener) {
+	    if (arguments.length === 0)
+	      this._events = {};
+	    else if (this._events[type])
+	      delete this._events[type];
+	    return this;
+	  }
+	
+	  // emit removeListener for all listeners on all events
+	  if (arguments.length === 0) {
+	    for (key in this._events) {
+	      if (key === 'removeListener') continue;
+	      this.removeAllListeners(key);
+	    }
+	    this.removeAllListeners('removeListener');
+	    this._events = {};
+	    return this;
+	  }
+	
+	  listeners = this._events[type];
+	
+	  if (isFunction(listeners)) {
+	    this.removeListener(type, listeners);
+	  } else if (listeners) {
+	    // LIFO order
+	    while (listeners.length)
+	      this.removeListener(type, listeners[listeners.length - 1]);
+	  }
+	  delete this._events[type];
+	
+	  return this;
+	};
+	
+	EventEmitter.prototype.listeners = function(type) {
+	  var ret;
+	  if (!this._events || !this._events[type])
+	    ret = [];
+	  else if (isFunction(this._events[type]))
+	    ret = [this._events[type]];
+	  else
+	    ret = this._events[type].slice();
+	  return ret;
+	};
+	
+	EventEmitter.prototype.listenerCount = function(type) {
+	  if (this._events) {
+	    var evlistener = this._events[type];
+	
+	    if (isFunction(evlistener))
+	      return 1;
+	    else if (evlistener)
+	      return evlistener.length;
+	  }
+	  return 0;
+	};
+	
+	EventEmitter.listenerCount = function(emitter, type) {
+	  return emitter.listenerCount(type);
+	};
+	
+	function isFunction(arg) {
+	  return typeof arg === 'function';
+	}
+	
+	function isNumber(arg) {
+	  return typeof arg === 'number';
+	}
+	
+	function isObject(arg) {
+	  return typeof arg === 'object' && arg !== null;
+	}
+	
+	function isUndefined(arg) {
+	  return arg === void 0;
+	}
+
+
+/***/ },
+/* 94 */
 /***/ function(module, exports) {
 
 	module.exports = "\n    \t<!--公共导航栏-->\n    <div class=\"wrap\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12 col-md-9\">\n\t\t\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t        <item-con :show=\"!showLoad\" v-ref:listItem></item-con>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n    </div>\n  </div>\n";
 
 /***/ },
-/* 44 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(45)
-	__vue_script__ = __webpack_require__(47)
-	__vue_template__ = __webpack_require__(63)
+	__webpack_require__(96)
+	__vue_script__ = __webpack_require__(98)
+	__vue_template__ = __webpack_require__(114)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -13451,13 +15321,13 @@
 	})()}
 
 /***/ },
-/* 45 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(46);
+	var content = __webpack_require__(97);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(21)(content, {});
@@ -13477,7 +15347,7 @@
 	}
 
 /***/ },
-/* 46 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(20)();
@@ -13491,7 +15361,7 @@
 
 
 /***/ },
-/* 47 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13500,11 +15370,11 @@
 		value: true
 	});
 	
-	var _conHead = __webpack_require__(48);
+	var _conHead = __webpack_require__(99);
 	
 	var _conHead2 = _interopRequireDefault(_conHead);
 	
-	var _reply = __webpack_require__(58);
+	var _reply = __webpack_require__(109);
 	
 	var _reply2 = _interopRequireDefault(_reply);
 	
@@ -13569,13 +15439,13 @@
 	// <script>
 
 /***/ },
-/* 48 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(49)
-	__vue_script__ = __webpack_require__(51)
-	__vue_template__ = __webpack_require__(57)
+	__webpack_require__(100)
+	__vue_script__ = __webpack_require__(102)
+	__vue_template__ = __webpack_require__(108)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -13592,13 +15462,13 @@
 	})()}
 
 /***/ },
-/* 49 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(50);
+	var content = __webpack_require__(101);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(21)(content, {});
@@ -13618,7 +15488,7 @@
 	}
 
 /***/ },
-/* 50 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(20)();
@@ -13626,13 +15496,13 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.con-article{\n\ttext-indent: 1rem;\n\tword-break: break-all;\n\tpadding: 10px 0;\n}\n.con-title{\n\tdisplay: inline-block;\n\tmax-width: 85%;\n}\n.author-img {\n    display: inline-block;\n    float: right;\n    margin: 5px;\n}\n", "", {"version":3,"sources":["/./src/components/conHead.vue?36933913"],"names":[],"mappings":";AAqDA;CACA,kBAAA;CACA,sBAAA;CACA,gBAAA;CACA;AACA;CACA,sBAAA;CACA,eAAA;CACA;AACA;IACA,sBAAA;IACA,aAAA;IACA,YAAA;CACA","file":"conHead.vue","sourcesContent":["<template>\n\t<div class=\"conHead\" v-show=\"show\">\n\t\t<h3 class=\"con-title\">{{conHeadCon.title}}</h3>\n\t\t<div class=\"author-img\">\n\t\t\t<img :src=\"conHeadCon.member.avatar_normal\">\n\t\t</div>\n\t\t<div class=\"con-author\">\n\t\t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"author\" v-link=\"{ name: 'user',params: { username: conHeadCon.member.username}}\">By {{conHeadCon.member.username}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t<li class=\"create-time\">At {{conHeadCon.created | getLastTimeStr true}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t<li class=\"create-time\">{{conHeadCon.replies}} 个回复</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t<div class=\"con-article\">{{conHeadCon.content }}</div>\n\t</div>\n</template>\n<script>\nimport MD from 'markdown'\n\texport default {\n\t\tname:'conHead',\n\t\tprops:['show'],\n\t\tdata(){\n\t\t\treturn{\n\t\t\t\tconHeadCon:{}\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\tgetConById(){\n\t\t\t\tconst _self = this\n\t\t\t\t_self.$dispatch('showLoad',true)\n\t\t\t\tlet params = $.param({id:_self.$parent.$route.params.id})\n\t\t\t\t_self.$http.get('https://www.v2ex.com/api/topics/show.json?'+ params,(data) =>{\n\t\t\t\t\tif (data) {\n\t\t\t\t\t\t_self.conHeadCon = data[0]\n\t\t\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t_self.$dispatch('showLoad',false)\n\t\t\t\t\t\t}, 1000)\n\t\t\t\t\t};\n\t\t\t\t})\n\t\t\t}\n\t\t},\n\n\t\tfilters:{\n\t\t\tmarkdown(content){\n\t\t\t\treturn content || MD.toHTML(content)\n\t\t\t}\n\t\t}\n\t}\n</script>\n<style>\n\t.con-article{\n\t\ttext-indent: 1rem;\n\t\tword-break: break-all;\n\t\tpadding: 10px 0;\n\t}\n\t.con-title{\n\t\tdisplay: inline-block;\n\t\tmax-width: 85%;\n\t}\n\t.author-img {\n\t    display: inline-block;\n\t    float: right;\n\t    margin: 5px;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.con-article{\n\ttext-indent: 1rem;\n\tword-break: break-all;\n\tpadding: 10px 0;\n}\n.con-title{\n\tdisplay: inline-block;\n\tmax-width: 85%;\n}\n.author-img {\n    display: inline-block;\n    float: right;\n    margin: 5px;\n}\n", "", {"version":3,"sources":["/./src/components/conHead.vue?5591efc6"],"names":[],"mappings":";AAqDA;CACA,kBAAA;CACA,sBAAA;CACA,gBAAA;CACA;AACA;CACA,sBAAA;CACA,eAAA;CACA;AACA;IACA,sBAAA;IACA,aAAA;IACA,YAAA;CACA","file":"conHead.vue","sourcesContent":["<template>\n\t<div class=\"conHead\" v-show=\"show\">\n\t\t<h3 class=\"con-title\">{{conHeadCon.title}}</h3>\n\t\t<div class=\"author-img\">\n\t\t\t<img :src=\"conHeadCon.member.avatar_normal\">\n\t\t</div>\n\t\t<div class=\"con-author\">\n\t\t\t<ul class=\"list-inline\">\n\t\t\t\t<li class=\"author\" v-link=\"{ name: 'user',params: { username: conHeadCon.member.username}}\">By {{conHeadCon.member.username}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t<li class=\"create-time\">At {{conHeadCon.created | getLastTimeStr true}}</li>\n\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t<li class=\"create-time\">{{conHeadCon.replies}} 个回复</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t<div class=\"con-article\">{{conHeadCon.content }}</div>\n\t</div>\n</template>\n<script>\nimport MD from 'markdown'\n\texport default {\n\t\tname:'conHead',\n\t\tprops:['show'],\n\t\tdata(){\n\t\t\treturn{\n\t\t\t\tconHeadCon:{}\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\tgetConById(){\n\t\t\t\tconst _self = this\n\t\t\t\t_self.$dispatch('showLoad',true)\n\t\t\t\tlet params = $.param({id:_self.$parent.$route.params.id})\n\t\t\t\t_self.$http.get('http://localhost:8090/api/topics/show.json?'+ params,(data) =>{\n\t\t\t\t\tif (data) {\n\t\t\t\t\t\t_self.conHeadCon = data[0]\n\t\t\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t_self.$dispatch('showLoad',false)\n\t\t\t\t\t\t}, 1000)\n\t\t\t\t\t};\n\t\t\t\t})\n\t\t\t}\n\t\t},\n\n\t\tfilters:{\n\t\t\tmarkdown(content){\n\t\t\t\treturn content || MD.toHTML(content)\n\t\t\t}\n\t\t}\n\t}\n</script>\n<style>\n\t.con-article{\n\t\ttext-indent: 1rem;\n\t\tword-break: break-all;\n\t\tpadding: 10px 0;\n\t}\n\t.con-title{\n\t\tdisplay: inline-block;\n\t\tmax-width: 85%;\n\t}\n\t.author-img {\n\t    display: inline-block;\n\t    float: right;\n\t    margin: 5px;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
 
 /***/ },
-/* 51 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13641,7 +15511,7 @@
 		value: true
 	});
 	
-	var _markdown = __webpack_require__(52);
+	var _markdown = __webpack_require__(103);
 	
 	var _markdown2 = _interopRequireDefault(_markdown);
 	
@@ -13661,7 +15531,7 @@
 				var _self = this;
 				_self.$dispatch('showLoad', true);
 				var params = $.param({ id: _self.$parent.$route.params.id });
-				_self.$http.get('https://www.v2ex.com/api/topics/show.json?' + params, function (data) {
+				_self.$http.get('http://localhost:8090/api/topics/show.json?' + params, function (data) {
 					if (data) {
 						_self.conHeadCon = data[0];
 						setTimeout(function () {
@@ -13718,16 +15588,16 @@
 	// <script>
 
 /***/ },
-/* 52 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// super simple module for the most common nodejs use case.
-	exports.markdown = __webpack_require__(53);
+	exports.markdown = __webpack_require__(104);
 	exports.parse = exports.markdown.toHTML;
 
 
 /***/ },
-/* 53 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Released under MIT license
@@ -13859,7 +15729,7 @@
 	
 	// node
 	function mk_block_inspect() {
-	  var util = __webpack_require__(54);
+	  var util = __webpack_require__(105);
 	  return "Markdown.mk_block( " +
 	          util.inspect(this.toString()) +
 	          ", " +
@@ -15458,7 +17328,7 @@
 
 
 /***/ },
-/* 54 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -15986,7 +17856,7 @@
 	}
 	exports.isPrimitive = isPrimitive;
 	
-	exports.isBuffer = __webpack_require__(55);
+	exports.isBuffer = __webpack_require__(106);
 	
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -16030,7 +17900,7 @@
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(56);
+	exports.inherits = __webpack_require__(107);
 	
 	exports._extend = function(origin, add) {
 	  // Don't do anything if add isn't an object
@@ -16051,7 +17921,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(15)))
 
 /***/ },
-/* 55 */
+/* 106 */
 /***/ function(module, exports) {
 
 	module.exports = function isBuffer(arg) {
@@ -16062,7 +17932,7 @@
 	}
 
 /***/ },
-/* 56 */
+/* 107 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
@@ -16091,19 +17961,19 @@
 
 
 /***/ },
-/* 57 */
+/* 108 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"conHead\" v-show=\"show\">\n\t<h3 class=\"con-title\">{{conHeadCon.title}}</h3>\n\t<div class=\"author-img\">\n\t\t<img :src=\"conHeadCon.member.avatar_normal\">\n\t</div>\n\t<div class=\"con-author\">\n\t\t<ul class=\"list-inline\">\n\t\t\t<li class=\"author\" v-link=\"{ name: 'user',params: { username: conHeadCon.member.username}}\">By {{conHeadCon.member.username}}</li>\n\t\t\t<span class=\"split\">·</span>\n\t\t\t<li class=\"create-time\">At {{conHeadCon.created | getLastTimeStr true}}</li>\n\t\t\t<span class=\"split\">·</span>\n\t\t\t<li class=\"create-time\">{{conHeadCon.replies}} 个回复</li>\n\t\t</ul>\n\t</div>\n\t<div class=\"con-article\">{{conHeadCon.content }}</div>\n</div>\n";
 
 /***/ },
-/* 58 */
+/* 109 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(59)
-	__vue_script__ = __webpack_require__(61)
-	__vue_template__ = __webpack_require__(62)
+	__webpack_require__(110)
+	__vue_script__ = __webpack_require__(112)
+	__vue_template__ = __webpack_require__(113)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -16120,13 +17990,13 @@
 	})()}
 
 /***/ },
-/* 59 */
+/* 110 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(60);
+	var content = __webpack_require__(111);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(21)(content, {});
@@ -16146,7 +18016,7 @@
 	}
 
 /***/ },
-/* 60 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(20)();
@@ -16154,13 +18024,13 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.man-avater{\n\tpadding: 0 5px;\n}\n.floor{\n\tfloat: right;\n\n}\n.conReply{\n\tpadding: 10px;\n}\n.replys{\n\tmax-width: 85%;\n}\n", "", {"version":3,"sources":["/./src/components/reply.vue?31296536"],"names":[],"mappings":";AAwCA;CACA,eAAA;CACA;AACA;CACA,aAAA;;CAEA;AACA;CACA,cAAA;CACA;AACA;CACA,eAAA;CACA","file":"reply.vue","sourcesContent":["<template>\n\t<div class=\"conReply\" v-show=\"show\" v-for=\"reply in replyDatas\">\n\t\t<div class=\"man-avater list-inline\">\n\t\t\t<img :src=\"reply.member.avatar_mini\">\n\t\t</div>\n\t\t<div class=\"floor list-inline\">\n\t\t\t<span>#{{$index+1}}</span>\n\t\t</div>\n\t\t<ul class=\"replys list-inline\">\n\t\t\t<li class=\"username\" v-link=\"{ name: 'user',params: { username: reply.member.username}}\">{{reply.member.username}}</li>\n\t\t\t<li class=\"reply-time\">Reply at {{reply.created | getLastTimeStr true}}</li>\n\t\t\t<div class=\"reply-con\">{{reply.content}}</div>\n\t\t</ul>\n\t</div>\n</template>\n<script>\n\texport default {\n\t\tname:'Reply',\n\t\tprops:['show'],\n\n\t\tdata(){\n\t\t\treturn {\n\t\t\t\treplyDatas:{}\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\tgetReplyById(){\n\t\t\t\tvar _self = this\n\t\t\t\tconst params = $.param({topic_id:_self.$route.params.id})\n\t\t\t\t_self.$http.get('https://www.v2ex.com/api/replies/show.json?'+ params,(data) => {\n\t\t\t\t\tif (data) {\n\t\t\t\t\t\t_self.replyDatas = data\n\t\t\t\t\t};\n\t\t\t\t})\n\t\t\t}\n\t\t}\n\t}\n</script>\n<style>\n\t.man-avater{\n\t\tpadding: 0 5px;\n\t}\n\t.floor{\n\t\tfloat: right;\n\n\t}\n\t.conReply{\n\t\tpadding: 10px;\n\t}\n\t.replys{\n\t\tmax-width: 85%;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.man-avater{\n\tpadding: 0 5px;\n}\n.floor{\n\tfloat: right;\n\n}\n.conReply{\n\tpadding: 10px;\n}\n.replys{\n\tmax-width: 85%;\n}\n", "", {"version":3,"sources":["/./src/components/reply.vue?e0ca0d7a"],"names":[],"mappings":";AAwCA;CACA,eAAA;CACA;AACA;CACA,aAAA;;CAEA;AACA;CACA,cAAA;CACA;AACA;CACA,eAAA;CACA","file":"reply.vue","sourcesContent":["<template>\n\t<div class=\"conReply\" v-show=\"show\" v-for=\"reply in replyDatas\">\n\t\t<div class=\"man-avater list-inline\">\n\t\t\t<img :src=\"reply.member.avatar_mini\">\n\t\t</div>\n\t\t<div class=\"floor list-inline\">\n\t\t\t<span>#{{$index+1}}</span>\n\t\t</div>\n\t\t<ul class=\"replys list-inline\">\n\t\t\t<li class=\"username\" v-link=\"{ name: 'user',params: { username: reply.member.username}}\">{{reply.member.username}}</li>\n\t\t\t<li class=\"reply-time\">Reply at {{reply.created | getLastTimeStr true}}</li>\n\t\t\t<div class=\"reply-con\">{{reply.content}}</div>\n\t\t</ul>\n\t</div>\n</template>\n<script>\n\texport default {\n\t\tname:'Reply',\n\t\tprops:['show'],\n\n\t\tdata(){\n\t\t\treturn {\n\t\t\t\treplyDatas:{}\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\tgetReplyById(){\n\t\t\t\tvar _self = this\n\t\t\t\tconst params = $.param({topic_id:_self.$route.params.id})\n\t\t\t\t_self.$http.get('http://localhost:8090/api/replies/show.json?'+ params,(data) => {\n\t\t\t\t\tif (data) {\n\t\t\t\t\t\t_self.replyDatas = data\n\t\t\t\t\t};\n\t\t\t\t})\n\t\t\t}\n\t\t}\n\t}\n</script>\n<style>\n\t.man-avater{\n\t\tpadding: 0 5px;\n\t}\n\t.floor{\n\t\tfloat: right;\n\n\t}\n\t.conReply{\n\t\tpadding: 10px;\n\t}\n\t.replys{\n\t\tmax-width: 85%;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
 
 /***/ },
-/* 61 */
+/* 112 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -16198,7 +18068,7 @@
 			getReplyById: function getReplyById() {
 				var _self = this;
 				var params = $.param({ topic_id: _self.$route.params.id });
-				_self.$http.get('https://www.v2ex.com/api/replies/show.json?' + params, function (data) {
+				_self.$http.get('http://localhost:8090/api/replies/show.json?' + params, function (data) {
 					if (data) {
 						_self.replyDatas = data;
 					};
@@ -16226,25 +18096,25 @@
 	/* generated by vue-loader */
 
 /***/ },
-/* 62 */
+/* 113 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"conReply\" v-show=\"show\" v-for=\"reply in replyDatas\">\n\t<div class=\"man-avater list-inline\">\n\t\t<img :src=\"reply.member.avatar_mini\">\n\t</div>\n\t<div class=\"floor list-inline\">\n\t\t<span>#{{$index+1}}</span>\n\t</div>\n\t<ul class=\"replys list-inline\">\n\t\t<li class=\"username\" v-link=\"{ name: 'user',params: { username: reply.member.username}}\">{{reply.member.username}}</li>\n\t\t<li class=\"reply-time\">Reply at {{reply.created | getLastTimeStr true}}</li>\n\t\t<div class=\"reply-con\">{{reply.content}}</div>\n\t</ul>\n</div>\n";
 
 /***/ },
-/* 63 */
+/* 114 */
 /***/ function(module, exports) {
 
 	module.exports = "\n\t<div class=\"content-wrap\">\n\t<div class=\"contaier\" >\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-6\">\n\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t<con-head v-ref:ConHead :show=\"!showLoad\"></con-head>\n\t\t<con-reply v-ref:conReply :show=\"!showLoad\"></con-reply>\n\t\t</div>\n\t</div>\n</div>\n\t</div>\n";
 
 /***/ },
-/* 64 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(65)
-	__vue_script__ = __webpack_require__(67)
-	__vue_template__ = __webpack_require__(68)
+	__webpack_require__(116)
+	__vue_script__ = __webpack_require__(118)
+	__vue_template__ = __webpack_require__(119)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -16261,13 +18131,13 @@
 	})()}
 
 /***/ },
-/* 65 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(66);
+	var content = __webpack_require__(117);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(21)(content, {});
@@ -16287,7 +18157,7 @@
 	}
 
 /***/ },
-/* 66 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(20)();
@@ -16295,13 +18165,13 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.member-reply{\n\tmargin-top: 20px;\n}\n.reply-item{\n\tmargin: 5px;\n\tborder-bottom: 1px solid #eee;\n\tmin-width: 100%;\n}\n.reply{\n\twidth: 100%;\n\tword-break: break-all;\n\toverflow-x:hidden;\n}\n\n", "", {"version":3,"sources":["/./src/views/user.vue?1d0611ae"],"names":[],"mappings":";AAsFA;CACA,iBAAA;CACA;AACA;CACA,YAAA;CACA,8BAAA;CACA,gBAAA;CACA;AACA;CACA,YAAA;CACA,sBAAA;CACA,kBAAA;CACA","file":"user.vue","sourcesContent":["<template>\n\t<div class=\"member\">\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t\t\t\t<div class=\"member-stauts\" v-show=\"!showLoad\">\n\t\t\t\t\t\t<ul class=\"list-inline\">\n\t\t\t\t\t\t\t<li class=\"avatar-big\"><img :src=\"userInfo.avatar_large\"></li>\n\t\t\t\t\t\t\t<li class=\"username\">{{userInfo.username}}</li>\n\t\t\t\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t\t\t\t<li class=\"create_time\">加入于 {{userInfo.created | getLastTimeStr false}}</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"panel panel-default member-reply\" v-show=\"!showLoad\">\n\t\t\t\t\t   <div class=\"panel-heading\">{{userInfo.username}}的主题</div>\n\t\t\t\t\t   <div class=\"panel-body\">\n\t\t\t\t\t    \t\t<ul class=\"list-inline\">\n\t\t\t\t\t    \t\t\t<li v-for=\"userReply in userReplys\" class=\"reply-item\">\n\t\t\t\t\t    \t\t\t\t<div class=\"reply\" v-link=\"{ name: 'content',params: { id: userReply.id}}\">{{userReply.title}}</div>\n\t\t\t\t\t    \t\t\t\t<div class=\"floor\">#{{$index+1}}</div>\n\t\t\t\t\t    \t\t\t\t<div>{{userReply.created | getLastTimeStr true}}</div>\n\t\t\t\t\t    \t\t\t</li>\n\t\t\t\t\t    \t\t</ul>\n\t\t\t\t\t   </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</template>\n<script>\n\timport loadCon from '../components/loading.vue'\n\texport default{\n\t\tname:'Member',\n\n\t\tdata(){\n\t\t\treturn{\n\t\t\t\tuserInfo:{},\n\t\t\t\tuserReplys:{},\n\t\t\t\tshowLoad:false\n\t\t\t}\n\t\t},\n\n\t\troute:{\n\t\t\tdata(){\n\t\t\t\tthis.getUserInfo()\n\t\t\t\tthis.getUserReply()\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\tgetUserInfo(){\n\t\t\t\tvar _self = this\n\t\t\t\t_self.showLoad = true\n\t\t\t\tvar params = $.param({username:_self.$route.params.username})\n\t\t\t\t_self.$http.get('https://www.v2ex.com/api/members/show.json?'+ params,(data) => {\n\t\t\t\t\tif (data) {\n\t\t\t\t\t\t_self.userInfo = data\n\t\t\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t_self.showLoad = false\n\t\t\t\t\t\t}, 1000)\n\t\t\t\t\t};\n\t\t\t\t})\n\t\t\t},\n\t\t\tgetUserReply(){\n\t\t\t\tvar _self = this\n\t\t\t\t_self.showLoad = true\n\t\t\t\tvar params = $.param({username:_self.$route.params.username})\n\t\t\t\t_self.$http.get('https://www.v2ex.com/api/topics/show.json?'+ params,(data) => {\n\t\t\t\t\tif (data) {\n\t\t\t\t\t\t_self.userReplys = data\n\t\t\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t_self.showLoad = false\n\t\t\t\t\t\t}, 1000)\n\t\t\t\t\t};\n\t\t\t\t})\n\t\t\t}\n\t\t},\n\n\t\tcomponents:{\n\t\t\tloadCon\n\t\t}\n\t}\n</script>\n<style>\n\t.member-reply{\n\t\tmargin-top: 20px;\n\t}\n\t.reply-item{\n\t\tmargin: 5px;\n\t\tborder-bottom: 1px solid #eee;\n\t\tmin-width: 100%;\n\t}\n\t.reply{\n\t\twidth: 100%;\n\t\tword-break: break-all;\n\t\toverflow-x:hidden;\n\t}\n\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.member-reply{\n\tmargin-top: 20px;\n}\n.reply-item{\n\tmargin: 5px;\n\tborder-bottom: 1px solid #eee;\n\tmin-width: 100%;\n}\n.reply{\n\twidth: 100%;\n\tword-break: break-all;\n\toverflow-x:hidden;\n}\n\n", "", {"version":3,"sources":["/./src/views/user.vue?37ad555e"],"names":[],"mappings":";AAsFA;CACA,iBAAA;CACA;AACA;CACA,YAAA;CACA,8BAAA;CACA,gBAAA;CACA;AACA;CACA,YAAA;CACA,sBAAA;CACA,kBAAA;CACA","file":"user.vue","sourcesContent":["<template>\n\t<div class=\"member\">\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t\t\t\t<div class=\"member-stauts\" v-show=\"!showLoad\">\n\t\t\t\t\t\t<ul class=\"list-inline\">\n\t\t\t\t\t\t\t<li class=\"avatar-big\"><img :src=\"userInfo.avatar_large\"></li>\n\t\t\t\t\t\t\t<li class=\"username\">{{userInfo.username}}</li>\n\t\t\t\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t\t\t\t<li class=\"create_time\">加入于 {{userInfo.created | getLastTimeStr false}}</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"panel panel-default member-reply\" v-show=\"!showLoad\">\n\t\t\t\t\t   <div class=\"panel-heading\">{{userInfo.username}}的主题</div>\n\t\t\t\t\t   <div class=\"panel-body\">\n\t\t\t\t\t    \t\t<ul class=\"list-inline\">\n\t\t\t\t\t    \t\t\t<li v-for=\"userReply in userReplys\" class=\"reply-item\">\n\t\t\t\t\t    \t\t\t\t<div class=\"reply\" v-link=\"{ name: 'content',params: { id: userReply.id}}\">{{userReply.title}}</div>\n\t\t\t\t\t    \t\t\t\t<div class=\"floor\">#{{$index+1}}</div>\n\t\t\t\t\t    \t\t\t\t<div>{{userReply.created | getLastTimeStr true}}</div>\n\t\t\t\t\t    \t\t\t</li>\n\t\t\t\t\t    \t\t</ul>\n\t\t\t\t\t   </div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</template>\n<script>\n\timport loadCon from '../components/loading.vue'\n\texport default{\n\t\tname:'Member',\n\n\t\tdata(){\n\t\t\treturn{\n\t\t\t\tuserInfo:{},\n\t\t\t\tuserReplys:{},\n\t\t\t\tshowLoad:false\n\t\t\t}\n\t\t},\n\n\t\troute:{\n\t\t\tdata(){\n\t\t\t\tthis.getUserInfo()\n\t\t\t\tthis.getUserReply()\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\tgetUserInfo(){\n\t\t\t\tvar _self = this\n\t\t\t\t_self.showLoad = true\n\t\t\t\tvar params = $.param({username:_self.$route.params.username})\n\t\t\t\t_self.$http.get('http://localhost:8090/api/members/show.json?'+ params,(data) => {\n\t\t\t\t\tif (data) {\n\t\t\t\t\t\t_self.userInfo = data\n\t\t\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t_self.showLoad = false\n\t\t\t\t\t\t}, 1000)\n\t\t\t\t\t};\n\t\t\t\t})\n\t\t\t},\n\t\t\tgetUserReply(){\n\t\t\t\tvar _self = this\n\t\t\t\t_self.showLoad = true\n\t\t\t\tvar params = $.param({username:_self.$route.params.username})\n\t\t\t\t_self.$http.get('http://localhost:8090/api/topics/show.json?'+ params,(data) => {\n\t\t\t\t\tif (data) {\n\t\t\t\t\t\t_self.userReplys = data\n\t\t\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t_self.showLoad = false\n\t\t\t\t\t\t}, 1000)\n\t\t\t\t\t};\n\t\t\t\t})\n\t\t\t}\n\t\t},\n\n\t\tcomponents:{\n\t\t\tloadCon\n\t\t}\n\t}\n</script>\n<style>\n\t.member-reply{\n\t\tmargin-top: 20px;\n\t}\n\t.reply-item{\n\t\tmargin: 5px;\n\t\tborder-bottom: 1px solid #eee;\n\t\tmin-width: 100%;\n\t}\n\t.reply{\n\t\twidth: 100%;\n\t\tword-break: break-all;\n\t\toverflow-x:hidden;\n\t}\n\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
 
 /***/ },
-/* 67 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16339,7 +18209,7 @@
 				var _self = this;
 				_self.showLoad = true;
 				var params = $.param({ username: _self.$route.params.username });
-				_self.$http.get('https://www.v2ex.com/api/members/show.json?' + params, function (data) {
+				_self.$http.get('http://localhost:8090/api/members/show.json?' + params, function (data) {
 					if (data) {
 						_self.userInfo = data;
 						setTimeout(function () {
@@ -16352,7 +18222,7 @@
 				var _self = this;
 				_self.showLoad = true;
 				var params = $.param({ username: _self.$route.params.username });
-				_self.$http.get('https://www.v2ex.com/api/topics/show.json?' + params, function (data) {
+				_self.$http.get('http://localhost:8090/api/topics/show.json?' + params, function (data) {
 					if (data) {
 						_self.userReplys = data;
 						setTimeout(function () {
@@ -16420,19 +18290,19 @@
 	// <script>
 
 /***/ },
-/* 68 */
+/* 119 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"member\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-6\">\n\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t\t\t<div class=\"member-stauts\" v-show=\"!showLoad\">\n\t\t\t\t\t<ul class=\"list-inline\">\n\t\t\t\t\t\t<li class=\"avatar-big\"><img :src=\"userInfo.avatar_large\"></li>\n\t\t\t\t\t\t<li class=\"username\">{{userInfo.username}}</li>\n\t\t\t\t\t\t<span class=\"split\">·</span>\n\t\t\t\t\t\t<li class=\"create_time\">加入于 {{userInfo.created | getLastTimeStr false}}</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"panel panel-default member-reply\" v-show=\"!showLoad\">\n\t\t\t\t   <div class=\"panel-heading\">{{userInfo.username}}的主题</div>\n\t\t\t\t   <div class=\"panel-body\">\n\t\t\t\t    \t\t<ul class=\"list-inline\">\n\t\t\t\t    \t\t\t<li v-for=\"userReply in userReplys\" class=\"reply-item\">\n\t\t\t\t    \t\t\t\t<div class=\"reply\" v-link=\"{ name: 'content',params: { id: userReply.id}}\">{{userReply.title}}</div>\n\t\t\t\t    \t\t\t\t<div class=\"floor\">#{{$index+1}}</div>\n\t\t\t\t    \t\t\t\t<div>{{userReply.created | getLastTimeStr true}}</div>\n\t\t\t\t    \t\t\t</li>\n\t\t\t\t    \t\t</ul>\n\t\t\t\t   </div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n";
 
 /***/ },
-/* 69 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(70)
-	__vue_script__ = __webpack_require__(72)
-	__vue_template__ = __webpack_require__(73)
+	__webpack_require__(121)
+	__vue_script__ = __webpack_require__(123)
+	__vue_template__ = __webpack_require__(124)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -16449,13 +18319,13 @@
 	})()}
 
 /***/ },
-/* 70 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(71);
+	var content = __webpack_require__(122);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(21)(content, {});
@@ -16475,7 +18345,7 @@
 	}
 
 /***/ },
-/* 71 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(20)();
@@ -16483,13 +18353,13 @@
 	
 	
 	// module
-	exports.push([module.id, "\n.node-item{\n\tfont-size: 12px;\n    line-height: 12px;\n    padding: 4px 10px 4px 10px;\n    margin: 5px;\n    display: inline-block;\n    border: 1px solid #e5e5e5;\n}\n.topics-num{\n\tmargin-left: 2px;\n}\n", "", {"version":3,"sources":["/./src/views/node.vue?1fa9894f"],"names":[],"mappings":";AAkDA;CACA,gBAAA;IACA,kBAAA;IACA,2BAAA;IACA,YAAA;IACA,sBAAA;IACA,0BAAA;CACA;AACA;CACA,iBAAA;CACA","file":"node.vue","sourcesContent":["<template>\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-6\">\n\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t\t\t<div class=\"node-list\" v-show=\"!showLoad\">\n\t\t\t\t\t<a class=\"node-item\" v-link=\"{ name: 'list',params: { node: node.id}}\" v-for=\"node in nodeList\">{{node.title}}<span class=\"badge topics-num\">{{node.topics}}</span></a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</template>\n<script>\nimport loadCon from '../components/loading.vue'\n\texport default {\n\t\tname:'Node',\n\n\t\tdata(){\n\t\t\treturn {\n\t\t\t\tnodeList:{},\n\t\t\t\tshowLoad:false\n\t\t\t}\n\t\t},\n\t\troute:{\n\t\t\tdata(){\n\t\t\t\tthis.getAllNode()\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\tgetAllNode(){\n\t\t\t\tvar _self = this\n\t\t\t\t_self.showLoad = true\n\t\t\t\t_self.$http.get('https://www.v2ex.com/api/nodes/all.json',(data) => {\n\t\t\t\t\tif(data){\n\t\t\t\t\t    _self.nodeList = data\n\t\t\t\t\t    setTimeout(function(){\n\t\t\t\t\t    \t_self.showLoad = false\n\t\t\t\t\t    }, 1000)\n\t\t\t\t\t}\n\t\t\t\t})\n\t\t\t}\n\t\t},\n\n\t\tcomponents:{\n\t\t\tloadCon\n\t\t}\n\t}\n</script>\n<style>\n\t.node-item{\n\t\tfont-size: 12px;\n\t    line-height: 12px;\n\t    padding: 4px 10px 4px 10px;\n\t    margin: 5px;\n\t    display: inline-block;\n\t    border: 1px solid #e5e5e5;\n\t}\n\t.topics-num{\n\t\tmargin-left: 2px;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.node-item{\n\tfont-size: 12px;\n    line-height: 12px;\n    padding: 4px 10px 4px 10px;\n    margin: 5px;\n    display: inline-block;\n    border: 1px solid #e5e5e5;\n}\n.topics-num{\n\tmargin-left: 2px;\n}\n", "", {"version":3,"sources":["/./src/views/node.vue?95a0b3a8"],"names":[],"mappings":";AAkDA;CACA,gBAAA;IACA,kBAAA;IACA,2BAAA;IACA,YAAA;IACA,sBAAA;IACA,0BAAA;CACA;AACA;CACA,iBAAA;CACA","file":"node.vue","sourcesContent":["<template>\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-6\">\n\t\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t\t\t<div class=\"node-list\" v-show=\"!showLoad\">\n\t\t\t\t\t<a class=\"node-item\" v-link=\"{ name: 'list',params: { node: node.id}}\" v-for=\"node in nodeList\">{{node.title}}<span class=\"badge topics-num\">{{node.topics}}</span></a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</template>\n<script>\nimport loadCon from '../components/loading.vue'\n\texport default {\n\t\tname:'Node',\n\n\t\tdata(){\n\t\t\treturn {\n\t\t\t\tnodeList:{},\n\t\t\t\tshowLoad:false\n\t\t\t}\n\t\t},\n\t\troute:{\n\t\t\tdata(){\n\t\t\t\tthis.getAllNode()\n\t\t\t}\n\t\t},\n\n\t\tmethods:{\n\t\t\tgetAllNode(){\n\t\t\t\tvar _self = this\n\t\t\t\t_self.showLoad = true\n\t\t\t\t_self.$http.get('https://localhost:8090/api/nodes/all.json',(data) => {\n\t\t\t\t\tif(data){\n\t\t\t\t\t    _self.nodeList = data\n\t\t\t\t\t    setTimeout(function(){\n\t\t\t\t\t    \t_self.showLoad = false\n\t\t\t\t\t    }, 1000)\n\t\t\t\t\t}\n\t\t\t\t})\n\t\t\t}\n\t\t},\n\n\t\tcomponents:{\n\t\t\tloadCon\n\t\t}\n\t}\n</script>\n<style>\n\t.node-item{\n\t\tfont-size: 12px;\n\t    line-height: 12px;\n\t    padding: 4px 10px 4px 10px;\n\t    margin: 5px;\n\t    display: inline-block;\n\t    border: 1px solid #e5e5e5;\n\t}\n\t.topics-num{\n\t\tmargin-left: 2px;\n\t}\n</style>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
 
 /***/ },
-/* 72 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16524,7 +18394,7 @@
 			getAllNode: function getAllNode() {
 				var _self = this;
 				_self.showLoad = true;
-				_self.$http.get('https://www.v2ex.com/api/nodes/all.json', function (data) {
+				_self.$http.get('https://localhost:8090/api/nodes/all.json', function (data) {
 					if (data) {
 						_self.nodeList = data;
 						setTimeout(function () {
@@ -16570,13 +18440,13 @@
 	// <script>
 
 /***/ },
-/* 73 */
+/* 124 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col-md-6\">\n\t\t\t<load-con :show=\"showLoad\"></load-con>\n\t\t\t<div class=\"node-list\" v-show=\"!showLoad\">\n\t\t\t\t<a class=\"node-item\" v-link=\"{ name: 'list',params: { node: node.id}}\" v-for=\"node in nodeList\">{{node.title}}<span class=\"badge topics-num\">{{node.topics}}</span></a>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n";
 
 /***/ },
-/* 74 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16585,16 +18455,16 @@
 	
 	function install(Vue) {
 	
-	    var _ = __webpack_require__(75);
+	    var _ = __webpack_require__(126);
 	
 	    _.config = Vue.config;
 	    _.warning = Vue.util.warn;
 	    _.nextTick = Vue.util.nextTick;
 	
-	    Vue.url = __webpack_require__(76);
-	    Vue.http = __webpack_require__(82);
-	    Vue.resource = __webpack_require__(97);
-	    Vue.Promise = __webpack_require__(83);
+	    Vue.url = __webpack_require__(127);
+	    Vue.http = __webpack_require__(133);
+	    Vue.resource = __webpack_require__(148);
+	    Vue.Promise = __webpack_require__(134);
 	
 	    Object.defineProperties(Vue.prototype, {
 	
@@ -16635,7 +18505,7 @@
 
 
 /***/ },
-/* 75 */
+/* 126 */
 /***/ function(module, exports) {
 
 	/**
@@ -16763,14 +18633,14 @@
 
 
 /***/ },
-/* 76 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Service for URL templating.
 	 */
 	
-	var _ = __webpack_require__(75);
+	var _ = __webpack_require__(126);
 	var ie = document.documentMode;
 	var el = document.createElement('a');
 	
@@ -16806,10 +18676,10 @@
 	 */
 	
 	Url.transforms = [
-	    __webpack_require__(77),
-	    __webpack_require__(79),
-	    __webpack_require__(80),
-	    __webpack_require__(81)
+	    __webpack_require__(128),
+	    __webpack_require__(130),
+	    __webpack_require__(131),
+	    __webpack_require__(132)
 	];
 	
 	/**
@@ -16899,14 +18769,14 @@
 
 
 /***/ },
-/* 77 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * URL Template (RFC 6570) Transform.
 	 */
 	
-	var UrlTemplate = __webpack_require__(78);
+	var UrlTemplate = __webpack_require__(129);
 	
 	module.exports = function (options) {
 	
@@ -16921,7 +18791,7 @@
 
 
 /***/ },
-/* 78 */
+/* 129 */
 /***/ function(module, exports) {
 
 	/**
@@ -17077,14 +18947,14 @@
 
 
 /***/ },
-/* 79 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Legacy Transform.
 	 */
 	
-	var _ = __webpack_require__(75);
+	var _ = __webpack_require__(126);
 	
 	module.exports = function (options, next) {
 	
@@ -17129,14 +18999,14 @@
 
 
 /***/ },
-/* 80 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Query Parameter Transform.
 	 */
 	
-	var _ = __webpack_require__(75);
+	var _ = __webpack_require__(126);
 	
 	module.exports = function (options, next) {
 	
@@ -17159,14 +19029,14 @@
 
 
 /***/ },
-/* 81 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Root Prefix Transform.
 	 */
 	
-	var _ = __webpack_require__(75);
+	var _ = __webpack_require__(126);
 	
 	module.exports = function (options, next) {
 	
@@ -17181,17 +19051,17 @@
 
 
 /***/ },
-/* 82 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Service for sending network requests.
 	 */
 	
-	var _ = __webpack_require__(75);
-	var Promise = __webpack_require__(83);
-	var interceptor = __webpack_require__(85);
-	var defaultClient = __webpack_require__(86);
+	var _ = __webpack_require__(126);
+	var Promise = __webpack_require__(134);
+	var interceptor = __webpack_require__(136);
+	var defaultClient = __webpack_require__(137);
 	var jsonType = {'Content-Type': 'application/json'};
 	
 	function Http(url, options) {
@@ -17244,13 +19114,13 @@
 	};
 	
 	Http.interceptors = [
-	    __webpack_require__(88),
-	    __webpack_require__(89),
-	    __webpack_require__(90),
-	    __webpack_require__(92),
-	    __webpack_require__(93),
-	    __webpack_require__(94),
-	    __webpack_require__(95)
+	    __webpack_require__(139),
+	    __webpack_require__(140),
+	    __webpack_require__(141),
+	    __webpack_require__(143),
+	    __webpack_require__(144),
+	    __webpack_require__(145),
+	    __webpack_require__(146)
 	];
 	
 	Http.headers = {
@@ -17285,15 +19155,15 @@
 
 
 /***/ },
-/* 83 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Promise adapter.
 	 */
 	
-	var _ = __webpack_require__(75);
-	var PromiseObj = window.Promise || __webpack_require__(84);
+	var _ = __webpack_require__(126);
+	var PromiseObj = window.Promise || __webpack_require__(135);
 	
 	function Promise(executor, context) {
 	
@@ -17400,14 +19270,14 @@
 
 
 /***/ },
-/* 84 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Promises/A+ polyfill v1.1.4 (https://github.com/bramstein/promis)
 	 */
 	
-	var _ = __webpack_require__(75);
+	var _ = __webpack_require__(126);
 	
 	var RESOLVED = 0;
 	var REJECTED = 1;
@@ -17585,15 +19455,15 @@
 
 
 /***/ },
-/* 85 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Interceptor factory.
 	 */
 	
-	var _ = __webpack_require__(75);
-	var Promise = __webpack_require__(83);
+	var _ = __webpack_require__(126);
+	var Promise = __webpack_require__(134);
 	
 	module.exports = function (handler, vm) {
 	
@@ -17636,14 +19506,14 @@
 
 
 /***/ },
-/* 86 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Default client.
 	 */
 	
-	var xhrClient = __webpack_require__(87);
+	var xhrClient = __webpack_require__(138);
 	
 	module.exports = function (request) {
 	    return (request.client || xhrClient)(request);
@@ -17651,15 +19521,15 @@
 
 
 /***/ },
-/* 87 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * XMLHttp client.
 	 */
 	
-	var _ = __webpack_require__(75);
-	var Promise = __webpack_require__(83);
+	var _ = __webpack_require__(126);
+	var Promise = __webpack_require__(134);
 	
 	module.exports = function (request) {
 	    return new Promise(function (resolve) {
@@ -17748,14 +19618,14 @@
 
 
 /***/ },
-/* 88 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Before Interceptor.
 	 */
 	
-	var _ = __webpack_require__(75);
+	var _ = __webpack_require__(126);
 	
 	module.exports = {
 	
@@ -17772,7 +19642,7 @@
 
 
 /***/ },
-/* 89 */
+/* 140 */
 /***/ function(module, exports) {
 
 	/**
@@ -17808,14 +19678,14 @@
 
 
 /***/ },
-/* 90 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * JSONP Interceptor.
 	 */
 	
-	var jsonpClient = __webpack_require__(91);
+	var jsonpClient = __webpack_require__(142);
 	
 	module.exports = {
 	
@@ -17832,15 +19702,15 @@
 
 
 /***/ },
-/* 91 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * JSONP client.
 	 */
 	
-	var _ = __webpack_require__(75);
-	var Promise = __webpack_require__(83);
+	var _ = __webpack_require__(126);
+	var Promise = __webpack_require__(134);
 	
 	module.exports = function (request) {
 	    return new Promise(function (resolve) {
@@ -17886,7 +19756,7 @@
 
 
 /***/ },
-/* 92 */
+/* 143 */
 /***/ function(module, exports) {
 
 	/**
@@ -17909,14 +19779,14 @@
 
 
 /***/ },
-/* 93 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Mime Interceptor.
 	 */
 	
-	var _ = __webpack_require__(75);
+	var _ = __webpack_require__(126);
 	
 	module.exports = {
 	
@@ -17951,14 +19821,14 @@
 
 
 /***/ },
-/* 94 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Header Interceptor.
 	 */
 	
-	var _ = __webpack_require__(75);
+	var _ = __webpack_require__(126);
 	
 	module.exports = {
 	
@@ -17983,15 +19853,15 @@
 
 
 /***/ },
-/* 95 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * CORS Interceptor.
 	 */
 	
-	var _ = __webpack_require__(75);
-	var xdrClient = __webpack_require__(96);
+	var _ = __webpack_require__(126);
+	var xdrClient = __webpack_require__(147);
 	var xhrCors = 'withCredentials' in new XMLHttpRequest();
 	var originUrl = _.url.parse(location.href);
 	
@@ -18026,15 +19896,15 @@
 
 
 /***/ },
-/* 96 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * XDomain client (Internet Explorer).
 	 */
 	
-	var _ = __webpack_require__(75);
-	var Promise = __webpack_require__(83);
+	var _ = __webpack_require__(126);
+	var Promise = __webpack_require__(134);
 	
 	module.exports = function (request) {
 	    return new Promise(function (resolve) {
@@ -18069,14 +19939,14 @@
 
 
 /***/ },
-/* 97 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Service for interacting with RESTful services.
 	 */
 	
-	var _ = __webpack_require__(75);
+	var _ = __webpack_require__(126);
 	
 	function Resource(url, params, actions, options) {
 	
@@ -18185,12 +20055,12 @@
 
 
 /***/ },
-/* 98 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _utils = __webpack_require__(99);
+	var _utils = __webpack_require__(150);
 	
 	var _utils2 = _interopRequireDefault(_utils);
 	
@@ -18210,7 +20080,7 @@
 	};
 
 /***/ },
-/* 99 */
+/* 150 */
 /***/ function(module, exports) {
 
 	"use strict";

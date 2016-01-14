@@ -16,6 +16,7 @@
 <script>
 import itemCon from '../components/Item.vue'
 import loadCon from '../components/loading.vue'
+import store from '../store'
 
 export default {
 
@@ -43,25 +44,24 @@ export default {
   	//获取最新列表
   	getLatest (){
   		var _self = this
-      sessionStorage.node_name = '最新'
-  		_self.showLoad = true
-  	  _self.$http.get('https://www.v2ex.com/api/topics/latest.json',(data)=> {
-  	        if(data){
-  	            _self.$refs.listitem.items = data
-  	            setTimeout(function(){
-  	            	_self.showLoad = false
-  	            }, 1000)
-  	        }
-  	    })
+      _self.showLoad = true
+      _self.$http.get('http://localhost:8090/api/topics/latest.json').then(data =>{
+        if (data) {
+          _self.$refs.listitem.items = data.data
+          setTimeout(function(){
+                  _self.showLoad = false
+                }, 1000)
+        };
+      })
   	},
   	//获取热门列表
   	getHot(){
   		var _self = this
       sessionStorage.node_name = '最热'
   		_self.showLoad = true
-  		_self.$http.get('https://www.v2ex.com/api/topics/hot.json',(data)=>{
+  		_self.$http.get('http://localhost:8090/api/topics/hot.json').then(data =>{
   			if (data) {
-  				_self.$refs.listitem.items = data
+  				_self.$refs.listitem.items = data.data
   				setTimeout(function(){
   	            	_self.showLoad = false
   	            }, 1000)
@@ -74,7 +74,7 @@ export default {
         sessionStorage.node_name = nodename
         var params = $.param({node_id:nodeid})
         _self.showLoad = true
-        _self.$http.get('https://www.v2ex.com/api/topics/show.json?'+params,(data)=> {
+        _self.$http.get('http://localhost:8090/api/topics/show.json?'+params,(data)=> {
               if(data){
                   _self.$refs.listitem.items = data
                   setTimeout(function(){
@@ -82,6 +82,12 @@ export default {
                   }, 1000)
               }
           })
+    }
+  },
+
+  events:{
+    'loadLatest':function(){
+      alert(1)
     }
   }
 

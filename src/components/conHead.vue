@@ -32,7 +32,7 @@ import MD from 'markdown'
 				const _self = this
 				_self.$dispatch('showLoad',true)
 				let params = $.param({id:_self.$parent.$route.params.id})
-				_self.$http.get('https://www.v2ex.com/api/topics/show.json?'+ params,(data) =>{
+				_self.$http.get('http://localhost:8090/api/topics/show.json?'+ params,(data) =>{
 					if (data) {
 						_self.conHeadCon = data[0]
 						setTimeout(function(){

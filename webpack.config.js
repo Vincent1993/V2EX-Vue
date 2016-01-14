@@ -1,13 +1,15 @@
 var webpack = require('webpack')
 var path = require('path');
+var entry = ['./src/main']
 var entry = ['./src/main'],
-buildPath = "/static/"
-var plugins = [];
+    cdnPrefix = "",
+    buildPath = "/static/",
+    publishPath = cdnPrefix + buildPath;
 module.exports = {
     entry: entry,
     output: {
          path: __dirname + buildPath,
-         // publicPath: '/static/',
+         publicPath: '/static/',
          filename: 'build.js'
             },
     module: {
@@ -23,25 +25,8 @@ module.exports = {
     resolve: {
     },
     devtool: '#source-map',
-    plugins:plugins
-}
-
-
-if (process.env.NODE_ENV === 'production') {
-    module.exports.plugins = [
-    new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"'
-            }
-        }),
-    new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
-    new webpack.optimize.OccurenceOrderPlugin()
-  ]
-} else {
-    module.exports.devtool = '#source-map'
+    plugins:[new webpack.ProvidePlugin({
+    'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+  })]
 }
 

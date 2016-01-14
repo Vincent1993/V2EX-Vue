@@ -1,6 +1,7 @@
 <template>
 	<nav-con></nav-con>
     <router-view
+	 v-ref:list
       keep-alive>
     </router-view>
 </template>

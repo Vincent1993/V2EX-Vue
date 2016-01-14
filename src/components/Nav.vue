@@ -11,6 +11,7 @@
                 </button>
                 <a class="navbar-brand page-scroll" v-show="isIndex">V2EX</a>
                 <span class="glyphicon glyphicon glyphicon-arrow-left back" @click="Back()" v-show="!isIndex"></span>
+                <span v-text="">{{nodeName()}}</span>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -29,17 +30,23 @@
 	export default {
 		name:'nav',
 
+		data(){
+			return{
+				node:''
+			}
+		},
+
 		methods:{
 			toggleCollapse(){
 				$("#bs-example-navbar-collapse-1").collapse('hide')
 			},
 			toggleLatest(){
 				this.toggleCollapse()
-				// this.$parent.getLatest()
+				this.$root.$refs.list.getLatest()
 			},
 			toggleHot(){
 				this.toggleCollapse()
-				// this.$parent.getHot()
+				this.$root.$refs.list.getHot()
 			},
 			toggleNode(){
 				this.toggleCollapse()
@@ -52,6 +59,12 @@
 		computed:{
 			isIndex() {
 				return this.$route.name === 'list'?true:false
+			},
+
+			nodeName: {
+				set(){
+					return this.node = sessionStorage.node_name
+				}
 			}
 		}
 	}
