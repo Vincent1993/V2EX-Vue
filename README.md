@@ -10,6 +10,10 @@
 
 `npm run build`
 
+>run
+
+'npm run start'
+
 ##界面截图
 
 ![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-latest.png)
