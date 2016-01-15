@@ -1,5 +1,5 @@
 <template>
-    	<!--公共导航栏-->
+    <nav-con :title="nodeName"></nav-con>
     <div class="wrap">
 			<div class="container">
 				<div class="row">
@@ -16,6 +16,8 @@
 <script>
 import itemCon from '../components/Item.vue'
 import loadCon from '../components/loading.vue'
+import navCon from '../components/Nav.vue'
+import store from '../store'
 
 export default {
 
@@ -25,13 +27,14 @@ export default {
   	return{
   		navActive:true,
   		showLoad:false,
-      node:sessionStorage.node_name
+      nodeName:'最新'
   	}
   },
 
   components:{
     itemCon,
-    loadCon
+    loadCon,
+    navCon
   },
 
   ready(){
@@ -42,51 +45,40 @@ export default {
   methods:{
   	//获取最新列表
   	getLatest (){
-  		var _self = this
+  		const _self = this
       _self.showLoad = true
-      _self.$http.get('http://localhost:8890/api/topics/latest.json').then(data =>{
-        if (data) {
-          _self.$refs.listitem.items = data.data
+      _self.nodeName = "最新"
+      store.fetchItemsByTag('topics/latest.json').then(items => {
+          _self.$refs.listitem.items = items || []
           setTimeout(function(){
-                  _self.showLoad = false
-                }, 1000)
-        };
+              _self.showLoad = false
+          }, 1000)
       })
   	},
   	//获取热门列表
   	getHot(){
-  		var _self = this
-      sessionStorage.node_name = '最热'
-  		_self.showLoad = true
-  		_self.$http.get('http://localhost:8890/api/topics/hot.json').then(data =>{
-  			if (data) {
-  				_self.$refs.listitem.items = data.data
-  				setTimeout(function(){
-  	            	_self.showLoad = false
-  	            }, 1000)
-  			};
-  		})
+	    const _self = this
+      _self.showLoad = true
+      _self.nodeName = "最热"
+      store.fetchItemsByTag('topics/hot.json').then(items => {
+          _self.$refs.listitem.items = items || []
+          setTimeout(function(){
+              _self.showLoad = false
+          }, 1000)
+      })
   	},
     //获取相关节点列表
     getListByNode(nodeid,nodename){
-        var _self = this
-        sessionStorage.node_name = nodename
-        var params = $.param({node_id:nodeid})
+        const _self = this
+        const params = $.param({node_id:nodeid})
+        _self.nodeName = nodename
         _self.showLoad = true
-        _self.$http.get('http://localhost:8890/api/topics/show.json?'+params,(data)=> {
-              if(data){
-                  _self.$refs.listitem.items = data
-                  setTimeout(function(){
-                    _self.showLoad = false
-                  }, 1000)
-              }
-          })
-    }
-  },
-
-  events:{
-    'loadLatest':function(){
-      alert(1)
+        store.fetchItemsByTag('topics/show.json?' + params).then(items => {
+          _self.$refs.listitem.items = items || []
+          setTimeout(function(){
+              _self.showLoad = false
+          }, 1000)
+      })
     }
   }
 

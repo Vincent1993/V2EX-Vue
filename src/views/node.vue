@@ -11,13 +11,14 @@
 	</div>
 </template>
 <script>
-import loadCon from '../components/loading.vue'
+	import loadCon from '../components/loading.vue'
+	import store from '../store'
 	export default {
 		name:'Node',
 
 		data(){
 			return {
-				nodeList:{},
+				nodeList:[],
 				showLoad:false
 			}
 		},
@@ -28,16 +29,15 @@ import loadCon from '../components/loading.vue'
 		},
 
 		methods:{
+			//获取全部节点
 			getAllNode(){
-				var _self = this
+				const _self = this
 				_self.showLoad = true
-				_self.$http.get('http://localhost:8890/api/nodes/all.json',(data) => {
-					if(data){
-					    _self.nodeList = data
-					    setTimeout(function(){
-					    	_self.showLoad = false
-					    }, 1000)
-					}
+				store.fetchItemsByTag('nodes/all.json').then(items => {
+				    _self.nodeList = items || []
+				    setTimeout(function(){
+				        _self.showLoad = false
+				    }, 1000)
 				})
 			}
 		},

@@ -10,7 +10,7 @@
 				<li class="tag" @click="getListByNode(item.node.id,item.node.title)">{{item.node.title}}</li>
 				<span class="split">·</span>
 			</ul>
-			<ul class="list-inline author">
+			<ul class="list-inline user-info">
 				<li class="author" v-link="{ name: 'user',params: { username: item.member.username}}">{{item.member.username}}</li>
 				<span class="split">·</span>
 				<li class="last-modify-time">{{item.last_modified | getLastTimeStr true}}回复</li>
@@ -60,10 +60,14 @@
 		border-bottom: 1px solid #eee;
 		padding: 5px 0;
 	}
+	.summary{
+		overflow: auto;
+		overflow-x: hidden;
+	}
 	.title{
 		font-size: 17px;
 	}
-	ul.list-inline.author {
+	.author {
 	    font-size: 13px;
 	    color: #999;
 	}

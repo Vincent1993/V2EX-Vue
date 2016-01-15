@@ -18,6 +18,8 @@
 </template>
 <script>
 import MD from 'markdown'
+import store from '../store'
+
 	export default {
 		name:'conHead',
 		props:['show'],
@@ -31,14 +33,12 @@ import MD from 'markdown'
 			getConById(){
 				const _self = this
 				_self.$dispatch('showLoad',true)
-				let params = $.param({id:_self.$parent.$route.params.id})
-				_self.$http.get('http://localhost:8890/api/topics/show.json?'+ params,(data) =>{
-					if (data) {
-						_self.conHeadCon = data[0]
-						setTimeout(function(){
-							_self.$dispatch('showLoad',false)
-						}, 1000)
-					};
+				const params = $.param({id:_self.$parent.$route.params.id})
+				store.fetchItemsByTag('topics/show.json?'+ params).then(items => {
+				    _self.conHeadCon = items[0]
+				    setTimeout(function(){
+				    	_self.$dispatch('showLoad',false)
+				    }, 1000)
 				})
 			}
 		},
@@ -58,11 +58,15 @@ import MD from 'markdown'
 	}
 	.con-title{
 		display: inline-block;
-		max-width: 85%;
+		max-width: 80%;
 	}
 	.author-img {
 	    display: inline-block;
 	    float: right;
 	    margin: 5px;
+	}
+	.replys{
+		overflow-x: hidden;
+		word-break: break-all;
 	}
 </style>

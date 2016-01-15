@@ -1,4 +1,5 @@
 <template>
+	<nav-con :title="'详情'"></nav-con>
 	<div class="content-wrap">
 	<div class="contaier" >
 		<div class="row">
@@ -15,6 +16,7 @@
 	import conHead from '../components/conHead.vue'
 	import conReply from '../components/reply.vue'
 	import loadCon from '../components/loading.vue'
+	import navCon from '../components/Nav.vue'
 	export default{
 		name:'Content',
 
@@ -22,25 +24,29 @@
 			return{
 				content:Object,
 				showLoad:true,
-				node:sessionStorage.node_name
+				hasUpdate:false
 			}
 		},
 		route:{
-			data(){
-				this.$refs.conhead.getConById()
-				this.$refs.conreply.getReplyById()
+			activate(){
+					this.$refs.conhead.getConById()
+					this.$refs.conreply.getReplyById()
 			}
 		},
 
 		components:{
 			conHead,
 			loadCon,
-			conReply
+			conReply,
+			navCon
 		},
 
 		events:{
 			'showLoad':function(boolean){
 				this.showLoad = boolean
+			},
+			'title':function(string){
+				this.conTitle = string
 			}
 		}
 	}

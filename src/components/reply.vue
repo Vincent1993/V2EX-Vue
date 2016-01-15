@@ -14,6 +14,8 @@
 	</div>
 </template>
 <script>
+import store from '../store'
+
 	export default {
 		name:'Reply',
 		props:['show'],
@@ -28,10 +30,8 @@
 			getReplyById(){
 				var _self = this
 				const params = $.param({topic_id:_self.$route.params.id})
-				_self.$http.get('http://localhost:8890/api/replies/show.json?'+ params,(data) => {
-					if (data) {
-						_self.replyDatas = data
-					};
+				store.fetchItemsByTag('replies/show.json?'+ params).then(items => {
+				    _self.replyDatas = items
 				})
 			}
 		}
@@ -40,10 +40,11 @@
 <style>
 	.man-avater{
 		padding: 0 5px;
+		float: left;
+
 	}
 	.floor{
 		float: right;
-
 	}
 	.conReply{
 		padding: 10px;

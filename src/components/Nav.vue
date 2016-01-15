@@ -10,14 +10,16 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll" v-show="isIndex">V2EX</a>
+
                 <span class="glyphicon glyphicon glyphicon-arrow-left back" @click="Back()" v-show="!isIndex"></span>
-                <span v-text="">{{nodeName()}}</span>
+                <span class="navbar-title">{{title}}</span>
+
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a  v-link="'list'" @click="toggleLatest">最新</a></li>
-                    <li><a  v-link="'list'" @click="toggleHot">最热</a></li>
-                    <li><a  v-link="'node'" @click="toggleNode">节点</a></li>
+                    <li class="active"> <a  v-link="'list'" @click="toggleLatest">最新</a></li>
+                    <li> <a  v-link="'list'" @click="toggleHot">最热</a></li>
+                    <!-- <li><a  v-link="'node'" @click="toggleNode">节点</a></li> -->
                     <li><a>个人</a></li>
                 </ul>
             </div>
@@ -27,8 +29,10 @@
 </template>
 <script>
 	import router from 'vue-router'
+	import store  from '../store'
 	export default {
 		name:'nav',
+		props:['title'],
 
 		data(){
 			return{
@@ -53,18 +57,13 @@
 			},
 			Back(){
 				history.back(-1)
+
 			}
 		},
 
 		computed:{
 			isIndex() {
 				return this.$route.name === 'list'?true:false
-			},
-
-			nodeName: {
-				set(){
-					return this.node = sessionStorage.node_name
-				}
 			}
 		}
 	}
@@ -78,6 +77,11 @@
 	#bs-example-navbar-collapse-1>ul>li>a{
 		text-align: center;
 		font-size: 18px;
+	}
+	.navbar-title {
+	    text-align: center;
+	    font-size: 20px;
+	    line-height: 52px;
 	}
 	.back{
 		line-height: 50px;

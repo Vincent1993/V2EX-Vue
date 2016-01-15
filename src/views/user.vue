@@ -1,4 +1,5 @@
 <template>
+	<nav-con :title="'个人信息'"></nav-con>
 	<div class="member">
 		<div class="container">
 			<div class="row">
@@ -31,6 +32,8 @@
 </template>
 <script>
 	import loadCon from '../components/loading.vue'
+	import navCon from '../components/Nav.vue'
+	import store from '../store'
 	export default{
 		name:'Member',
 
@@ -50,36 +53,35 @@
 		},
 
 		methods:{
+			//获取用户信息
 			getUserInfo(){
-				var _self = this
+				const _self = this
 				_self.showLoad = true
-				var params = $.param({username:_self.$route.params.username})
-				_self.$http.get('http://localhost:8890/api/members/show.json?'+ params,(data) => {
-					if (data) {
-						_self.userInfo = data
-						setTimeout(function(){
-							_self.showLoad = false
-						}, 1000)
-					};
+				const params = $.param({username:_self.$route.params.username})
+				store.fetchItemsByTag('members/show.json?' + params).then(items => {
+				    _self.userInfo = items || []
+				    setTimeout(function(){
+				        _self.showLoad = false
+				    }, 1000)
 				})
 			},
+			//获取用户回复
 			getUserReply(){
-				var _self = this
+				const _self = this
 				_self.showLoad = true
-				var params = $.param({username:_self.$route.params.username})
-				_self.$http.get('http://localhost:8890/api/topics/show.json?'+ params,(data) => {
-					if (data) {
-						_self.userReplys = data
-						setTimeout(function(){
-							_self.showLoad = false
-						}, 1000)
-					};
+				const params = $.param({username:_self.$route.params.username})
+				store.fetchItemsByTag('topics/show.json?' + params).then(items => {
+				    _self.userReplys = items || []
+				    setTimeout(function(){
+				        _self.showLoad = false
+				    }, 1000)
 				})
 			}
 		},
 
 		components:{
-			loadCon
+			loadCon,
+			navCon
 		}
 	}
 </script>
