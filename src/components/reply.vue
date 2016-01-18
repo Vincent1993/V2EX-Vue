@@ -1,14 +1,14 @@
 <template>
 	<div class="conReply" v-show="show" v-for="reply in replyDatas">
 		<div class="man-avater list-inline">
-			<img :src="reply.member.avatar_mini">
+			<img class="avatar-img" :src="reply.member.avatar_mini">
 		</div>
 		<div class="floor list-inline">
 			<span>#{{$index+1}}</span>
 		</div>
 		<ul class="replys list-inline">
-			<li class="username" v-link="{ name: 'user',params: { username: reply.member.username}}">{{reply.member.username}}</li>
-			<li class="reply-time">Reply at {{reply.created | getLastTimeStr true}}</li>
+			<li class="username" v-link="{ name: 'user',params: { username: reply.member.username}}"><a>{{reply.member.username}}</a></li>
+			<li class="reply-time">回复于 {{reply.created | getLastTimeStr true}}</li>
 			<div class="reply-con">{{reply.content}}</div>
 		</ul>
 	</div>
@@ -41,7 +41,13 @@ import store from '../store'
 	.man-avater{
 		padding: 0 5px;
 		float: left;
-
+	}
+	.man-avater img{
+		border-radius: 100%;
+	}
+	.reply-time{
+		color:#eee;
+		font-size: 13px;
 	}
 	.floor{
 		float: right;

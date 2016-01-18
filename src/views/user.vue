@@ -1,29 +1,39 @@
 <template>
-	<nav-con :title="'个人信息'"></nav-con>
+	<nav-con :title="'个人'"></nav-con>
 	<div class="member">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
 					<load-con :show="showLoad"></load-con>
 					<div class="member-stauts" v-show="!showLoad">
-						<ul class="list-inline">
-							<li class="avatar-big"><img :src="userInfo.avatar_large"></li>
-							<li class="username">{{userInfo.username}}</li>
-							<span class="split">·</span>
-							<li class="create_time">加入于 {{userInfo.created | getLastTimeStr false}}</li>
+						<ul>
+							<li class="avatar-big"><img class="avatar-img" :src="userInfo.avatar_large"></li>
+							<li class="member-username"><h2>{{userInfo.username}}</h2></li>
+							<li class="member-create_time"><span class="glyphicon glyphicon-time">加入于{{userInfo.created | getLastTimeStr false}}</span></li>
+							<li class="member-location"><span class="glyphicon glyphicon-map-marker">{{userInfo.location | hasLocation}}</span></li>
+							<li class="member-tagline">{{userInfo.tagline}}</li>
 						</ul>
 					</div>
-					<div class="panel panel-default member-reply" v-show="!showLoad">
-					   <div class="panel-heading">{{userInfo.username}}的主题</div>
-					   <div class="panel-body">
-					    		<ul class="list-inline">
-					    			<li v-for="userReply in userReplys" class="reply-item">
-					    				<div class="reply" v-link="{ name: 'content',params: { id: userReply.id}}">{{userReply.title}}</div>
-					    				<div class="floor">#{{$index+1}}</div>
-					    				<div>{{userReply.created | getLastTimeStr true}}</div>
-					    			</li>
-					    		</ul>
-					   </div>
+					<div class="member-post-list" v-show="!showLoad">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="post-head">
+										<strong>发布的帖子</strong>
+									</div>
+									<div class="post-item" v-for="userReply in userReplys">
+										<div class="postMeta">
+											<div class="avatar"><img class="avatar-img" :src="userInfo.avatar_mini"></div>
+											<div class="username"><a>{{userInfo.username}}</a> in {{userReply.node.title}}</div>
+											<div class="created-time">{{userReply.created | getLastTimeStr true}}</div>
+										</div>
+										<section class="postCon">
+											<h4 class="postCon-title" v-link="{ name: 'content',params: { id: userReply.id}}">{{userReply.title}}</h4>
+										</section>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -79,6 +89,12 @@
 			}
 		},
 
+		filters:{
+			hasLocation(){
+				return this.userInfo.location ?  this.userInfo.location:'未知的星球'
+			}
+		},
+
 		components:{
 			loadCon,
 			navCon
@@ -86,18 +102,35 @@
 	}
 </script>
 <style>
+	.member{
+		margin-top: 60px;
+	}
+	.member-tagline{
+		color: rgba(0,0,0,0.6);
+		font-size: 18px;
+		outline: 0;
+		word-break: break-word;
+		word-wrap: break-word;
+	}
+	.postMeta div{
+		display: table-cell;
+		padding-right: 5px;
+	}
 	.member-reply{
 		margin-top: 20px;
 	}
-	.reply-item{
-		margin: 5px;
-		border-bottom: 1px solid #eee;
-		min-width: 100%;
+	.avatar-big{
+		float: right;
 	}
-	.reply{
-		width: 100%;
-		word-break: break-all;
-		overflow-x:hidden;
+	.post-head {
+	    margin: 10px 0;
+	    padding-bottom: 5px;
+	    border-bottom: 1px solid #eee;
+	}
+	.post-item {
+	    margin: 10px 0;
+	    padding-bottom: 10px;
+	    border-bottom: 1px solid #eee;
 	}
 
 </style>

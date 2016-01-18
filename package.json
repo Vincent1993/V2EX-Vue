@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --process --color",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "start":"node server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "webpack-dev-server": "^1.12.0"
   },
   "dependencies": {
+    "cheerio": "^0.19.0",
     "exports-loader": "^0.6.2",
     "imports-loader": "^0.6.5",
     "markdown": "^0.5.0",

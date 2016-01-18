@@ -53,7 +53,7 @@
 </script>
 <style>
 	.content-wrap{
-		margin-top: -20px;
-		padding: 5px;
+		padding: 15px;
+		margin-top: 60px;
 	}
 </style>

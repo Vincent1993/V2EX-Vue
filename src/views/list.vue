@@ -87,6 +87,7 @@ export default {
 <style>
 	.wrap{
 		height: auto;
+    margin-top: 60px;
 	}
 	.nav-tabs{
 		display: flex;

@@ -1,6 +1,5 @@
 <template>
-<div class="gloable-nav">
-	<nav class="navbar navbar-default" role="banner">
+	<nav class="navbar navbar-default navbar-fixed-top gloable-nav" role="banner">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -13,7 +12,6 @@
 
                 <span class="glyphicon glyphicon glyphicon-arrow-left back" @click="Back()" v-show="!isIndex"></span>
                 <span class="navbar-title">{{title}}</span>
-
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -25,7 +23,6 @@
             </div>
         </div>
     </nav>
-</div>
 </template>
 <script>
 	import router from 'vue-router'
@@ -46,18 +43,14 @@
 			},
 			toggleLatest(){
 				this.toggleCollapse()
-				this.$root.$refs.list.getLatest()
+				this.$parent.getLatest()
 			},
 			toggleHot(){
 				this.toggleCollapse()
-				this.$root.$refs.list.getHot()
-			},
-			toggleNode(){
-				this.toggleCollapse()
+				this.$parent.getHot()
 			},
 			Back(){
 				history.back(-1)
-
 			}
 		},
 
@@ -70,16 +63,16 @@
 </script>
 <style>
 	.gloable-nav{
-		width: 100%;
-		height:auto;
-		top:0;
+		background: #fff;
+		box-shadow: 0 1px 4px #eeeeee;
 	}
 	#bs-example-navbar-collapse-1>ul>li>a{
 		text-align: center;
 		font-size: 18px;
 	}
 	.navbar-title {
-	    text-align: center;
+		position: absolute;
+		left: 45%;
 	    font-size: 20px;
 	    line-height: 52px;
 	}

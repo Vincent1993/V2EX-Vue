@@ -2,7 +2,7 @@
 <div class="steam-list" v-for="item in items" v-show="show">
 	<section class="steam-list-item">
 		<div class="man-picture">
-			<img :src="item.member.avatar_mini">
+			<img class="avatar-img" :src="item.member.avatar_mini">
 		</div>
 		<div class="summary">
 			<div class="title" v-link="{ name: 'content',params: { id: item.id}}">{{item.title}}</div>

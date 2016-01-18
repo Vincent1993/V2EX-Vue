@@ -16,7 +16,9 @@
 
 ##界面截图
 
-![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-latest.png)
-![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-node.png)
-![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-user.png)
-![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-detail.png)
+###列表
+![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-Mobile-list.png)
+###详情
+![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-Mobile-detail.png)
+###用户
+![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-Mobile-user.png)

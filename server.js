@@ -6,7 +6,6 @@ var config = require('./webpack.config');
 config.entry.unshift('webpack-dev-server/client?http://localhost:8890',"webpack/hot/dev-server");
 config.plugins.push(new webpack.HotModuleReplacementPlugin());
 
-// 这里配置：请求http://localhost:9090/api，
 var proxy = [{
     path: "/api/*",
     target: "https://www.v2ex.com",
