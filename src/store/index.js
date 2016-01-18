@@ -1,7 +1,7 @@
 import { EventEmitter } from 'events'
 
 const store = new EventEmitter()
-const url = 'http://localhost:8890/api/'
+const url = 'http://120.26.48.76:8890/api/'
 
 store.fetchItems = (api) => {
   return fetch(api, {
