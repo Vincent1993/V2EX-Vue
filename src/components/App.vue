@@ -15,7 +15,7 @@
 	img{
 		max-width: 300px!important;
 	}
-	ul{
+	ul li{
 		list-style-type: none;
 	}
 </style>

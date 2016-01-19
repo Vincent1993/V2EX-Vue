@@ -29,8 +29,8 @@ import store from '../store'
 		methods:{
 			getReplyById(){
 				var _self = this
-				const params = $.param({topic_id:_self.$route.params.id})
-				store.fetchItemsByTag('replies/show.json?'+ params).then(items => {
+				const params = _self.$route.params.id
+				store.fetchItemsByTag('replies/show.json?topic_id='+ params).then(items => {
 				    _self.replyDatas = items
 				})
 			}
@@ -46,7 +46,7 @@ import store from '../store'
 		border-radius: 100%;
 	}
 	.reply-time{
-		color:#eee;
+		color:#9C9C9C;
 		font-size: 13px;
 	}
 	.floor{

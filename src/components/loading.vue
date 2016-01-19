@@ -27,6 +27,7 @@
 
 	.spinner > div {
 	  background-color: #333;
+	  margin: 0 1px;
 	  height: 100%;
 	  width: 6px;
 	  display: inline-block;

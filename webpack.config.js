@@ -1,6 +1,5 @@
 var webpack = require('webpack')
 var path = require('path');
-var entry = ['./src/main']
 var entry = ['./src/main'],
     cdnPrefix = "",
     buildPath = "/static/",
@@ -16,8 +15,9 @@ module.exports = {
     module: {
         noParse: [],
         loaders:
-            [{test: /\.vue$/,loader: 'vue'},
-             {test: /\.js$/,exclude: /node_modules|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,loader: 'babel'}
+            [{test: /\.vue$/,loader: 'vue',devtool: 'source-map'},
+             {test: /\.js$/,exclude: /node_modules|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,loader: 'babel'},
+             { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}
             ]},
     babel: {
         presets: ['es2015'],

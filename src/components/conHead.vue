@@ -1,17 +1,13 @@
 <template>
 	<div class="conHead" v-show="show">
-		<header class="container postManMeta">
-			<div class="postManHeader row">
-				<div class="col-md-6">
-					<div class="V-left">
-						<div class="postManMeta-avatar" v-link="{ name: 'user',params: { username: conHeadCon.member.username}}">
-							<a class="avatar"><img :src="conHeadCon.member.avatar_normal" class="avatar-img"></a>
-						</div>
-						<div class="postManMeta-summary">
-							<a v-link="{ name: 'user',params: { username: conHeadCon.member.username}}">{{conHeadCon.member.username}}</a>
-							<span class="postManMeta-inline">发布于 {{conHeadCon.created | getLastTimeStr true}}</span>
-						</div>
-					</div>
+		<header class="postManMeta">
+			<div class="postManHeader">
+				<div class="postManMeta-avatar" v-link="{ name: 'user',params: { username: conHeadCon.member.username}}">
+					<a class="avatar"><img :src="conHeadCon.member.avatar_normal" class="avatar-img"></a>
+				</div>
+				<div class="postManMeta-summary">
+					<a v-link="{ name: 'user',params: { username: conHeadCon.member.username}}">{{conHeadCon.member.username}}</a>
+					<span class="postManMeta-inline">发布于 {{conHeadCon.created | getLastTimeStr true}}</span>
 				</div>
 			</div>
 		</header><!-- /header -->
@@ -42,8 +38,8 @@ import store from '../store'
 			getConById(){
 				const _self = this
 				_self.$dispatch('showLoad',true)
-				const params = $.param({id:_self.$parent.$route.params.id})
-				store.fetchItemsByTag('topics/show.json?'+ params).then(items => {
+				const params = _self.$parent.$route.params.id
+				store.fetchItemsByTag('topics/show.json?id='+ params).then(items => {
 				    _self.conHeadCon = items[0]
 				    setTimeout(function(){
 				    	_self.$dispatch('showLoad',false)
@@ -65,9 +61,6 @@ import store from '../store'
 		    border-bottom: 1px solid #eeeeee;
 		    margin-bottom: 30px;
 		}
-	.V-left{
-		float: left;
-	}
 	.postManMeta-avatar{
 		display: table-cell;
 	}
@@ -81,6 +74,7 @@ import store from '../store'
 	}
 	.postManMeta-summary{
 		display: table-cell;
+		vertical-align: middle;
 	}
 	.con-article{
 		text-indent: 32px;
@@ -93,7 +87,7 @@ import store from '../store'
 	.con-info{
 		text-align: left;
 		font-size: 13px;
-		color:#eee;
+		color:#9C9C9C;
 	}
 	.con-info span {
 		margin-right: 10px;

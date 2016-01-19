@@ -1,28 +1,14 @@
 <template>
-	<nav class="navbar navbar-default navbar-fixed-top gloable-nav" role="banner">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" v-show="isIndex">V2EX</a>
-
-                <span class="glyphicon glyphicon glyphicon-arrow-left back" @click="Back()" v-show="!isIndex"></span>
-                <span class="navbar-title">{{title}}</span>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"> <a  v-link="'list'" @click="toggleLatest">最新</a></li>
-                    <li> <a  v-link="'list'" @click="toggleHot">最热</a></li>
-                    <!-- <li><a  v-link="'node'" @click="toggleNode">节点</a></li> -->
-                    <li><a>个人</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+	<nav class="gloable-nav nabar">
+		<div class="nav-brand">V2EX</div>
+		<div class="nav-bars" @click="showDropDown()">
+			<i class="fa fa-bars fa-large" :class="{ 'fa-bars': !showDrop, 'fa-close': showDrop }"></i>
+		</div>
+		<ul class="nav-list" v-show="showDrop">
+			<li @click="toggleLatest()">最新</li>
+			<li @click="toggleHot()">最热</li>
+		</ul>
+	</nav>
 </template>
 <script>
 	import router from 'vue-router'
@@ -33,21 +19,22 @@
 
 		data(){
 			return{
-				node:''
+				node:'',
+				showDrop:false
 			}
 		},
 
 		methods:{
-			toggleCollapse(){
-				$("#bs-example-navbar-collapse-1").collapse('hide')
+			showDropDown(){
+				this.showDrop = !this.showDrop
 			},
 			toggleLatest(){
-				this.toggleCollapse()
 				this.$parent.getLatest()
+				this.showDropDown()
 			},
 			toggleHot(){
-				this.toggleCollapse()
 				this.$parent.getHot()
+				this.showDropDown()
 			},
 			Back(){
 				history.back(-1)
@@ -64,20 +51,45 @@
 <style>
 	.gloable-nav{
 		background: #fff;
-		box-shadow: 0 1px 4px #eeeeee;
+		box-shadow: 0 1px 4px #D8D7D7;
+		height: 50px;
+		width: 100%;
+		position: fixed;
+		top: 0;
 	}
-	#bs-example-navbar-collapse-1>ul>li>a{
-		text-align: center;
+	.nav-brand{
+		float: left;
+		padding: 15px;
 		font-size: 18px;
+		line-height: 20px;
+	}
+	.nav-bars{
+		float: right;
+		padding: 15px;
+		font-size: 18px;
+		line-height: 20px;
+	}
+	.nav-list{
+		padding: 10px;
+		margin:0;
+	    position: absolute;
+	    right: 5px;
+	    top: 50px;
+	    height: 50px;
+	    width: 100px;
+	    background-color: #fff;
+	    z-index: 1;
+	    border: 1px solid #ccc;
+	    border-radius: 0 0 5px 5px;
+	}
+	.nav-list li{
+		font-size: 18px;
+		line-height: 1;
 	}
 	.navbar-title {
 		position: absolute;
 		left: 45%;
 	    font-size: 20px;
 	    line-height: 52px;
-	}
-	.back{
-		line-height: 50px;
-		margin-left: 10px;
 	}
 </style>

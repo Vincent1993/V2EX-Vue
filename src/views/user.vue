@@ -1,41 +1,29 @@
 <template>
 	<nav-con :title="'个人'"></nav-con>
-	<div class="member">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<load-con :show="showLoad"></load-con>
-					<div class="member-stauts" v-show="!showLoad">
-						<ul>
-							<li class="avatar-big"><img class="avatar-img" :src="userInfo.avatar_large"></li>
-							<li class="member-username"><h2>{{userInfo.username}}</h2></li>
-							<li class="member-create_time"><span class="glyphicon glyphicon-time">加入于{{userInfo.created | getLastTimeStr false}}</span></li>
-							<li class="member-location"><span class="glyphicon glyphicon-map-marker">{{userInfo.location | hasLocation}}</span></li>
-							<li class="member-tagline">{{userInfo.tagline}}</li>
-						</ul>
-					</div>
-					<div class="member-post-list" v-show="!showLoad">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="post-head">
-										<strong>发布的帖子</strong>
-									</div>
-									<div class="post-item" v-for="userReply in userReplys">
-										<div class="postMeta">
-											<div class="avatar"><img class="avatar-img" :src="userInfo.avatar_mini"></div>
-											<div class="username"><a>{{userInfo.username}}</a> in {{userReply.node.title}}</div>
-											<div class="created-time">{{userReply.created | getLastTimeStr true}}</div>
-										</div>
-										<section class="postCon">
-											<h4 class="postCon-title" v-link="{ name: 'content',params: { id: userReply.id}}">{{userReply.title}}</h4>
-										</section>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+	<div class="wrap member">
+		<load-con :show="showLoad"></load-con>
+		<div class="member-stauts" v-show="!showLoad">
+			<ul>
+				<li class="avatar-big"><img class="avatar-img" :src="userInfo.avatar_large"></li>
+				<li class="member-username"><h2>{{userInfo.username}}</h2></li>
+				<li class="member-create_time"><i class="fa fa-clock-o">加入于{{userInfo.created | getLastTimeStr false}}</i></li>
+				<li class="member-location"><i class="fa fa-map-pin">{{userInfo.location | hasLocation}}</i></li>
+				<li class="member-tagline">{{userInfo.tagline}}</li>
+			</ul>
+		</div>
+		<div class="member-post-list" v-show="!showLoad">
+			<div class="post-head">
+				<strong>发布的帖子</strong>
+			</div>
+			<div class="post-item" v-for="userReply in userReplys">
+				<div class="postMeta">
+					<div class="avatar"><img class="avatar-img" :src="userInfo.avatar_mini"></div>
+					<div class="username"><a>{{userInfo.username}}</a> in {{userReply.node.title}}</div>
+					<div class="created-time">{{userReply.created | getLastTimeStr true}}</div>
 				</div>
+				<section class="postCon">
+					<h4 class="postCon-title" v-link="{ name: 'content',params: { id: userReply.id}}">{{userReply.title}}</h4>
+				</section>
 			</div>
 		</div>
 	</div>
@@ -67,8 +55,8 @@
 			getUserInfo(){
 				const _self = this
 				_self.showLoad = true
-				const params = $.param({username:_self.$route.params.username})
-				store.fetchItemsByTag('members/show.json?' + params).then(items => {
+				const params = _self.$route.params.username
+				store.fetchItemsByTag('members/show.json?username=' + params).then(items => {
 				    _self.userInfo = items || []
 				    setTimeout(function(){
 				        _self.showLoad = false
@@ -79,8 +67,8 @@
 			getUserReply(){
 				const _self = this
 				_self.showLoad = true
-				const params = $.param({username:_self.$route.params.username})
-				store.fetchItemsByTag('topics/show.json?' + params).then(items => {
+				const params = _self.$route.params.username
+				store.fetchItemsByTag('topics/show.json?username=' + params).then(items => {
 				    _self.userReplys = items || []
 				    setTimeout(function(){
 				        _self.showLoad = false
@@ -102,9 +90,6 @@
 	}
 </script>
 <style>
-	.member{
-		margin-top: 60px;
-	}
 	.member-tagline{
 		color: rgba(0,0,0,0.6);
 		font-size: 18px;

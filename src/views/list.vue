@@ -1,16 +1,9 @@
 <template>
-    <nav-con :title="nodeName"></nav-con>
+    <nav-con :title="nodeName" v-ref:navcon></nav-con>
     <div class="wrap">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 col-md-9">
 						<load-con :show="showLoad"></load-con>
 		        <item-con :show="!showLoad" v-ref:listItem></item-con>
-					</div>
-				</div>
-			</div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -80,6 +73,12 @@ export default {
           }, 1000)
       })
     }
+  },
+
+  route:{
+    activate(){
+        this.$refs.navcon.showDrop = false
+    }
   }
 
 }
@@ -87,7 +86,7 @@ export default {
 <style>
 	.wrap{
 		height: auto;
-    margin-top: 60px;
+    margin: 60px 10px 0;
 	}
 	.nav-tabs{
 		display: flex;

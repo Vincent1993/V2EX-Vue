@@ -48,10 +48,11 @@
 	}
 	.list-inline{
 		margin: 0;
-		display: inline-block;
+		padding:0;
+		display: table-cell;
 	}
 	.list-inline>li{
-		padding: 0;
+		padding: 0 5px;
 		display: inline-block;
 	}
 	.steam-list-item{
@@ -66,6 +67,7 @@
 	}
 	.title{
 		font-size: 17px;
+		padding-left: 5px;
 	}
 	.author {
 	    font-size: 13px;

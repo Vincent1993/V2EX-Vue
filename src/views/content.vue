@@ -1,15 +1,11 @@
 <template>
 	<nav-con :title="'详情'"></nav-con>
 	<div class="content-wrap">
-	<div class="contaier" >
-		<div class="row">
-			<div class="col-md-6">
+
 		<load-con :show="showLoad"></load-con>
 		<con-head v-ref:ConHead :show="!showLoad"></con-head>
 		<con-reply v-ref:conReply :show="!showLoad"></con-reply>
-		</div>
-	</div>
-</div>
+
 	</div>
 </template>
 <script>
