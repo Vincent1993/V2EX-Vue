@@ -27,7 +27,6 @@
 	</div>
 </template>
 <script>
-import MD from 'markdown'
 import store from '../store'
 
 	export default {

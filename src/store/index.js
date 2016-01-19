@@ -1,7 +1,11 @@
 import { EventEmitter } from 'events'
+import { Promise } from 'es6-promise'
+//解决浏览器对fetch方法的原生支持
+import 'fetch-detector'
+import 'fetch-ie8'
 
 const store = new EventEmitter()
-const url = 'http://120.26.48.76:8890/api/'
+const url = 'http://localhost:8890/api/'
 
 store.fetchItems = (api) => {
   return fetch(api, {
@@ -24,7 +28,6 @@ store.fetchItems = (api) => {
     console.log(err)
   })
 }
-
 store.fetchItemsByTag = (param) => {
   const api = url + param
   return store.fetchItems(api)

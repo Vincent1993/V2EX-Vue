@@ -13,7 +13,7 @@
 		background-color: #fff;
 	}
 	img{
-		max-width: 300px;
+		max-width: 300px!important;
 	}
 	ul{
 		list-style-type: none;

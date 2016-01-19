@@ -32,6 +32,8 @@
   },
   "dependencies": {
     "exports-loader": "^0.6.2",
+    "fetch-detector": "^1.0.0",
+    "fetch-ie8": "^1.4.0",
     "imports-loader": "^0.6.5",
     "normalize.css": "^3.0.3",
     "vue": "^1.0.8",
