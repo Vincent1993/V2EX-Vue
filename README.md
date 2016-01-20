@@ -1,6 +1,6 @@
 #V2EX-mobile
 
-##基于Vue.js 和Bootstrap 仿制的V2EX
+###基于Vue.js仿制的V2EX
 
 >dev
 
