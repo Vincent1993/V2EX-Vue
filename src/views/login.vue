@@ -7,7 +7,7 @@
 	</div>
 </template>
 <script>
-	import navCon from '../components/nav.vue'
+	import navCon from '../components/Nav.vue'
 	export default{
 		name:'login',
 
