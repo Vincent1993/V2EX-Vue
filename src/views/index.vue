@@ -1,6 +1,6 @@
 <template>
 	<div class="screen">
-		<div class="logo"><img  src="../assets/v2ex.png"></div>
+		<div class="logo"><img  src="../assets/V2EX.png"></div>
 
 	</div>
 </template>
