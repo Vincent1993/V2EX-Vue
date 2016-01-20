@@ -5,8 +5,11 @@ import List from './views/list.vue'
 import Content from './views/content.vue'
 import User from './views/user.vue'
 import Node from './views/node.vue'
+import Index from './views/index.vue'
+import Login from './views/login.vue'
 import Resource from 'vue-resource'
 import filters from './filters/filter'
+
 // 挂载路由
 Vue.use(Router)
 Vue.use(Resource)
@@ -21,7 +24,7 @@ router.map({
     component: List
   },
   '/': {
-    component: List
+    component: Index
   },
   '/content/:id/':{
   	name:'content',
@@ -34,6 +37,10 @@ router.map({
   '/node':{
     name:'node',
     component:Node
+  },
+  '/login':{
+    name:'login',
+    component:Login
   }
 })
 

@@ -17,7 +17,7 @@ module.exports = {
         loaders:
             [{test: /\.vue$/,loader: 'vue',devtool: 'source-map'},
              {test: /\.js$/,exclude: /node_modules|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,loader: 'babel'},
-             { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}
+             {test: /\.(jpg|png|gif)$/,loader: "file-loader?name=images/[hash].[ext]"}
             ]},
     babel: {
         presets: ['es2015'],

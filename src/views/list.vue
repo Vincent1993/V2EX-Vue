@@ -63,10 +63,10 @@ export default {
     //获取相关节点列表
     getListByNode(nodeid,nodename){
         const _self = this
-        const params = $.param({node_id:nodeid})
+        const params = nodeid
         _self.nodeName = nodename
         _self.showLoad = true
-        store.fetchItemsByTag('topics/show.json?' + params).then(items => {
+        store.fetchItemsByTag('topics/show.json?node_id=' + params).then(items => {
           _self.$refs.listitem.items = items || []
           setTimeout(function(){
               _self.showLoad = false
