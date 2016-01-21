@@ -24,9 +24,14 @@
 			}
 		},
 		route:{
-			activate(){
+			data(){
+				if (this.$route.params.id === sessionStorage.searchKey) {
+					this.showLoad = false
+				}else{
 					this.$refs.conhead.getConById()
 					this.$refs.conreply.getReplyById()
+				};
+
 			}
 		},
 

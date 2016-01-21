@@ -6,9 +6,9 @@
 		</div>
 		<span class="nav-title">{{title}}</span>
 		<ul class="nav-list" v-show="showDrop">
-			<li @click="toggleLatest()"><i class="fa fa-clock-o"><span>最新</span></li>
-			<li @click="toggleHot()"><i class="fa fa-fire"><span>最热</span></li>
-			<li @click="toggleMan()"><i class="fa fa-user"><span>个人</span></li>
+			<li v-link="{ name: 'list',query: { tag: 'latest'}}"><i class="fa fa-clock-o"><span>最新</span></li>
+			<li v-link="{ name: 'list',query: { tag: 'hot'}}"><i class="fa fa-fire"><span>最热</span></li>
+			<li @click="toggleMan"><i class="fa fa-user"><span>个人</span></li>
 		</ul>
 	</nav>
 </template>
@@ -16,12 +16,10 @@
 	import store  from '../store'
 	export default {
 		name:'nav',
-		props:['title'],
+		props:['title','showDrop'],
 
 		data(){
 			return{
-				node:'',
-				showDrop:false
 			}
 		},
 
@@ -30,12 +28,12 @@
 				this.showDrop = !this.showDrop
 			},
 			toggleLatest(){
-				this.$parent.getLatest()
 				this.showDropDown()
+				// this.$route.router.go({name:'list',query:{tag:'latest'}})
 			},
 			toggleHot(){
-				this.$parent.getHot()
 				this.showDropDown()
+				// this.$route.router.go({name:'list',query:{tag:'hot'}})
 			},
 			toggleMan(){
 				this.showDropDown()

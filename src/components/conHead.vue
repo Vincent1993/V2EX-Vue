@@ -38,6 +38,7 @@ import store from '../store'
 			getConById(){
 				const _self = this
 				_self.$dispatch('showLoad',true)
+				sessionStorage.searchKey = _self.$parent.$route.params.id
 				const params = _self.$parent.$route.params.id
 				store.fetchItemsByTag('topics/show.json?id='+ params).then(items => {
 				    _self.conHeadCon = items[0]

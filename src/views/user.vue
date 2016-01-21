@@ -45,8 +45,19 @@
 
 		route:{
 			data(){
-				this.getUserInfo()
-				this.getUserReply()
+				if (this.$route.params.username === sessionStorage.userId) {
+					if (this.$route.params.username === localStorage.username) {
+						this.getUserInfo()
+						this.getUserReply()
+					}else{
+
+					};
+					this.showLoad = false
+				}else{
+					this.getUserInfo()
+					this.getUserReply()
+				};
+
 			}
 		},
 
@@ -56,6 +67,7 @@
 				const _self = this
 				_self.showLoad = true
 				const params = _self.$route.params.username
+				sessionStorage.userId = _self.$route.params.username
 				store.fetchItemsByTag('members/show.json?username=' + params).then(items => {
 				    _self.userInfo = items || []
 				    setTimeout(function(){

@@ -3,6 +3,7 @@
     <div class="wrap">
 						<load-con :show="showLoad"></load-con>
 		        <item-con :show="!showLoad" v-ref:listItem></item-con>
+            <back-totop></back-totop>
     </div>
 </template>
 
@@ -10,6 +11,7 @@
 import itemCon from '../components/Item.vue'
 import loadCon from '../components/loading.vue'
 import navCon from '../components/Nav.vue'
+import backTotop from '../components/backTotop.vue'
 import store from '../store'
 
 export default {
@@ -27,13 +29,25 @@ export default {
   components:{
     itemCon,
     loadCon,
-    navCon
+    navCon,
+    backTotop
   },
 
   ready(){
   	this.getLatest()
   },
 
+  route:{
+    data(transition){
+      let query = transition.to.query,tab = query.tab || 'latest';
+      if (this.$route.query.tag === 'latest' || '') {
+          // alert(1)
+          this.getLatest()
+      }else if(this.$route.query.tag === 'hot'){
+          this.getHot()
+      }
+    }
+  },
 
   methods:{
   	//获取最新列表
