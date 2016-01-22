@@ -1,5 +1,5 @@
 <template>
-	<nav class="gloable-nav nabar" :class="{'nav-border':showNavBorder}">
+	<nav class="gloable-nav navbar" :class="{'nav-border':showNavBorder}">
 		<div class="nav-brand">V2EX</div>
 		<div class="nav-bars" @click="showDropDown()">
 			<i class="fa fa-bars fa-large" :class="{ 'fa-bars': !showDrop, 'fa-close': showDrop }"></i>
@@ -7,7 +7,8 @@
 		<span class="nav-title">{{title}}</span>
 		<ul class="nav-list" v-show="showDrop">
 			<li v-link="{ name: 'list',query: { tag: 'latest'}}"><i class="fa fa-clock-o"><span>最新</span></li>
-			<li v-link="{ name: 'list',query: { tag: 'hot'}}"><i class="fa fa-fire"><span>最热</span></li>
+			<li v-link="{ name: 'list',query:{tag:'hot'}}"><i class="fa fa-fire"><span>最热</span></li>
+			<li v-link="{ name : 'node'}"><i class="fa fa-folder"></i><span>节点</span></li>
 			<li @click="toggleMan"><i class="fa fa-user"><span>个人</span></li>
 		</ul>
 	</nav>
@@ -16,10 +17,11 @@
 	import store  from '../store'
 	export default {
 		name:'nav',
-		props:['title','showDrop'],
-
+		props:['title'],
+		el:'navbar',
 		data(){
 			return{
+				showDrop:false
 			}
 		},
 
@@ -29,11 +31,11 @@
 			},
 			toggleLatest(){
 				this.showDropDown()
-				// this.$route.router.go({name:'list',query:{tag:'latest'}})
+				this.$route.router.go({name:'list',query:{tag:'latest'}})
 			},
 			toggleHot(){
 				this.showDropDown()
-				// this.$route.router.go({name:'list',query:{tag:'hot'}})
+				this.$route.router.go({name:'list',query:{tag:'hot'}})
 			},
 			toggleMan(){
 				this.showDropDown()

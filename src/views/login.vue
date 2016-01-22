@@ -27,6 +27,8 @@
 				let self = this
 				localStorage.username = self.username
 				self.$route.router.go({name:'user',params: { username: self.username }})
+				self.username = ''
+				self.password = ''
 			}
 		}
 	}
@@ -39,9 +41,9 @@
 	}
 	.input-block{
 		display: block;
-		width: 100%;
+		width: 90%;
 		height: 34px;
-		padding: 6px 12px;
+		padding: 6px 5%;
 		margin-bottom: 15px;
 		font-size: 14px;
 		line-height: 1.42857143;
@@ -56,7 +58,7 @@
 	.btn-login{
 		display: inline-block;
 		margin-bottom: 0;
-		width: 50%;
+		width: 25%;
 		float: right;
 		font-weight: 400;
 		text-align: center;

@@ -2,6 +2,7 @@
 	<nav-con :title="'个人'"></nav-con>
 	<div class="wrap member">
 		<load-con :show="showLoad"></load-con>
+		<div v-if="showLogout" @click="logout">注销登陆</div>
 		<div class="member-stauts" v-show="!showLoad">
 			<ul>
 				<li class="avatar-big"><img class="avatar-img" :src="userInfo.avatar_large"></li>
@@ -50,10 +51,10 @@
 						this.getUserInfo()
 						this.getUserReply()
 					}else{
-
+						this.showLoad = false
 					};
 					this.showLoad = false
-				}else{
+				} else {
 					this.getUserInfo()
 					this.getUserReply()
 				};
@@ -86,12 +87,24 @@
 				        _self.showLoad = false
 				    }, 1000)
 				})
+			},
+
+			//注销用户,清空localStorage中的username字段
+			logout(){
+				localStorage.removeItem('username')
+				this.$route.router.go({name:'login'})
 			}
 		},
 
 		filters:{
 			hasLocation(){
 				return this.userInfo.location ?  this.userInfo.location:'未知的星球'
+			}
+		},
+
+		computed:{
+			showLogout(){
+				return this.$route.params.username === localStorage.username?  true:false
 			}
 		},
 

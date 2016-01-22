@@ -1,17 +1,22 @@
 <template>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
-				<load-con :show="showLoad"></load-con>
-				<div class="node-list" v-show="!showLoad">
-					<a class="node-item" v-link="{ name: 'list',params: { node: node.id}}" v-for="node in nodeList">{{node.title}}<span class="badge topics-num">{{node.topics}}</span></a>
-				</div>
-			</div>
+	<nav-con :title="'节点'"></nav-con>
+		<load-con :show="showLoad"></load-con>
+		<div class="node-list wrap" v-show="!showLoad">
+		<div>
+			<input type="text" class="input-text" v-model="nodetitle" placeholder="搜索节点名称...">
+			<!-- <i class="fa fa-search"></i> -->
 		</div>
-	</div>
+			<a class="node-item"
+			v-link="{ name: 'list',query: { nodeid: node.id,nodename:node.title}}"
+			v-for="node in nodeList | filterBy nodetitle in 'title'">
+			{{node.title }}
+			<span class="badge topics-num">{{node.topics}}</span>
+			</a>
+		</div>
 </template>
 <script>
 	import loadCon from '../components/loading.vue'
+	import navCon from '../components/Nav.vue'
 	import store from '../store'
 	export default {
 		name:'Node',
@@ -19,13 +24,12 @@
 		data(){
 			return {
 				nodeList:[],
-				showLoad:false
+				showLoad:false,
+				nodetitle:''
 			}
 		},
-		route:{
-			data(){
-				this.getAllNode()
-			}
+		ready(){
+			this.getAllNode()
 		},
 
 		methods:{
@@ -43,7 +47,8 @@
 		},
 
 		components:{
-			loadCon
+			loadCon,
+			navCon
 		}
 	}
 </script>
@@ -58,5 +63,15 @@
 	}
 	.topics-num{
 		margin-left: 2px;
+	}
+	.input-text{
+		border: 2px solid #A09C9D;
+	    box-shadow: none;
+	    font-size: 16px;
+	    padding: 5px 5%;
+	    border-radius: 0;
+	    height: auto;
+	    width: 90%;
+	    text-align: center;
 	}
 </style>
