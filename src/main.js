@@ -14,6 +14,7 @@ import filters from './filters/filter'
 Vue.use(Router)
 Vue.use(Resource)
 Vue.config.debug = false
+Vue.config.silent = true
 
 // 初始化路由
 var router = new Router({

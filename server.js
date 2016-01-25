@@ -22,4 +22,6 @@ var app = new WebpackDevServer(webpack(config), {
     historyApiFallback: true,
     proxy:proxy
 });
-app.listen(8890);
+app.listen(8890,function(){
+    console.log('server start!')
+});
