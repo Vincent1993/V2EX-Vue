@@ -16,9 +16,13 @@
 
 ##界面截图
 
+###启动页面
+![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-Mobile.png)
 ###列表
 ![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-Mobile-list.png)
 ###详情
 ![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-Mobile-detail.png)
 ###用户
 ![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-Mobile-user.png)
+###节点
+![image](https://github.com/Vincent1993/V2EX-mobile/raw/master/screenshots/V2EX-Mobile-node.png)
