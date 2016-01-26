@@ -18,7 +18,7 @@ var proxy = [{
 //启动服务
 var app = new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
-    hot:true,
+    // hot:true,
     historyApiFallback: true,
     proxy:proxy
 });

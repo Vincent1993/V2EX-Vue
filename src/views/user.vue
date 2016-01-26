@@ -2,8 +2,9 @@
 	<nav-con :title="'个人'"></nav-con>
 	<div class="wrap member">
 		<load-con :show="showLoad"></load-con>
-		<div v-if="showLogout" @click="logout">注销登陆</div>
+
 		<div class="member-stauts" v-show="!showLoad">
+			<div v-if="showLogout" @click="logout">注销登陆</div>
 			<ul>
 				<li class="avatar-big"><img class="avatar-img" :src="userInfo.avatar_large"></li>
 				<li class="member-username"><h2>{{userInfo.username}}</h2></li>

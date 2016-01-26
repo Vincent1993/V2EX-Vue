@@ -2,6 +2,7 @@
     <nav-con :title="nodeName"v-ref:navcon></nav-con>
     <div class="wrap">
 						<load-con :show="showLoad"></load-con>
+            <fail-con :show="showFail"></fail-con>
 		        <item-con :show="!showLoad" v-ref:listItem></item-con>
             <back-totop></back-totop>
     </div>
@@ -10,6 +11,7 @@
 <script>
 import itemCon from '../components/Item.vue'
 import loadCon from '../components/loading.vue'
+import failCon from '../components/fail.vue'
 import navCon from '../components/Nav.vue'
 import backTotop from '../components/backTotop.vue'
 import store from '../store'
@@ -22,6 +24,7 @@ export default {
   	return{
   		navActive:true,
   		showLoad:false,
+      shwoFail:false,
       nodeName:'最新'
   	}
   },
@@ -30,6 +33,7 @@ export default {
     itemCon,
     loadCon,
     navCon,
+    failCon,
     backTotop
   },
 
@@ -51,6 +55,7 @@ export default {
           } else if (query === "hot") {
             this.getHot()
           } else if(nodeid){
+              if (nodeid != sessionStorage.nodeid) {};
             this.getListByNode(nodeid,nodename)
           }
         }
@@ -69,6 +74,8 @@ export default {
           setTimeout(function(){
               _self.showLoad = false
           }, 1000)
+      }).then(err => {
+        _self.showFail = true
       })
   	},
   	//获取热门列表
@@ -88,7 +95,7 @@ export default {
     getListByNode(nodeid,nodename){
         const _self = this
         const params = nodeid
-         sessionStorage.query = 'nodeid'
+        sessionStorage.query = nodeid
         _self.nodeName = nodename
         _self.showLoad = true
         store.fetchItemsByTag('topics/show.json?node_id=' + params).then(items => {

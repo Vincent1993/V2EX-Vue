@@ -1,6 +1,6 @@
 <template>
-<div class="steam-list" v-for="item in items" v-show="show">
-	<section class="steam-list-item">
+<div class="steam-list"  v-show="show">
+	<section class="steam-list-item" v-for="item in items">
 		<div class="man-picture">
 			<img class="avatar-img" :src="item.member.avatar_mini">
 		</div>
