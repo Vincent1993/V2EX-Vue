@@ -2,6 +2,8 @@
 
 ###基于Vue.js仿制的V2EX
 
+###线上访问地址 www.cusmos.me
+
 >dev
 
 `npm run dev`

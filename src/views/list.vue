@@ -55,8 +55,9 @@ export default {
           } else if (query === "hot") {
             this.getHot()
           } else if(nodeid){
-              if (nodeid != sessionStorage.nodeid) {};
-            this.getListByNode(nodeid,nodename)
+              if (nodeid != sessionStorage.nodeid) {
+                this.getListByNode(nodeid,nodename)
+              };
           }
         }
     }
