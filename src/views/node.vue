@@ -3,7 +3,7 @@
 		<load-con :show="showLoad"></load-con>
 		<div class="node-list wrap" v-show="!showLoad">
 		<div>
-			<input type="text" class="input-text" v-model="nodetitle" placeholder="搜索节点名称..." debounce="500">
+			<input type="text" class="input-text" v-model="nodetitle" placeholder="搜索节点名称..." debounce="300">
 			<!-- <i class="fa fa-search"></i> -->
 		</div>
 			<a class="node-item"
