@@ -2,17 +2,9 @@
 
 ###基于Vue.js仿制的V2EX
 
-###线上访问地址 www.cusmos.me
+###线上访问地址 www.cusmos.me/v2ex
 
 >dev
-
-`npm run dev`
-
->build
-
-`npm run build`
-
->run
 
 `npm run start`
 
