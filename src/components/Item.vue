@@ -54,6 +54,7 @@
 	.list-inline>li{
 		padding: 0 5px;
 		display: inline-block;
+		cursor: pointer;
 	}
 	.steam-list-item{
 		width: 100%;
@@ -68,6 +69,7 @@
 	.title{
 		font-size: 17px;
 		padding-left: 5px;
+		cursor: pointer;
 	}
 	.author {
 	    font-size: 13px;

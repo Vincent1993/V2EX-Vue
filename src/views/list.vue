@@ -15,6 +15,7 @@ import failCon from '../components/fail.vue'
 import navCon from '../components/Nav.vue'
 import backTotop from '../components/backTotop.vue'
 import store from '../store'
+// import spider from '../store/server'
 
 export default {
 

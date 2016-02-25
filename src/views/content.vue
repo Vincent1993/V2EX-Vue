@@ -31,7 +31,6 @@
 					this.$refs.conhead.getConById()
 					this.$refs.conreply.getReplyById()
 				};
-
 			}
 		},
 

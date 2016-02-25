@@ -4,7 +4,7 @@ import 'fetch-detector'
 import 'fetch-ie8'
 
 const store = new EventEmitter()
-const url = 'http://www.cusmos.me/api/'
+const url = 'http://localhost:8890/api/'
 
 store.fetchItems = (api) => {
   return fetch(api, {
