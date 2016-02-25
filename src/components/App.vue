@@ -10,7 +10,7 @@
 		width: 100%;
 	}
 	body{
-		font-family: -apple-system,"Microsoft YaHei",BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica Neue",sans-serif;
+		font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica Neue",sans-serif,"Microsoft YaHei";
 		font-size: 14px;
 		line-height: 1.5;
 		height: 100%;
