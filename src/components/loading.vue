@@ -17,6 +17,16 @@
 	}
 </script>
 <style>
+	.load {
+	    position: fixed;
+	    top: 0;
+	    bottom: 0;
+	    margin: 50% auto;
+	    text-align: center;
+	    width: 100px;
+	    left: 0;
+	    right: 0;
+	}
 	.spinner {
 	  margin: 100px auto;
 	  width: 50px;
