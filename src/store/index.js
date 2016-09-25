@@ -1,35 +1,29 @@
-import { EventEmitter } from 'events'
-//解决浏览器对fetch方法的原生支持
-import 'fetch-detector'
-import 'fetch-ie8'
+/*
+* @Author: Vincent1993
+* @Date:   2016-09-18 13:58:12
+* @Last Modified by:   Vincent1993
+* @Last Modified time: 2016-09-24 17:01:01
+*/
 
-const store = new EventEmitter()
-const url = 'http://localhost:8890/api/'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import plugins from './plugins';
+// modules
+import list from 'modules/list';
+import topics from 'modules/topics';
 
-store.fetchItems = (api) => {
-  return fetch(api, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
+import * as actions from 'actions';
+import * as getters from 'getters';
+Vue.use(Vuex);
+
+const debug = process.env.NODE_ENV !== 'production';
+export default new Vuex.Store({
+    actions,
+    getters,
+    modules: {
+        list,
+        topics
     },
-    mode: 'no-cors'
-  }).then(res => {
-    if (res.status >= 200 && res.status < 300) {
-      return Promise.resolve(res)
-    } else {
-      return Promise.reject(new Error(res.statusText))
-    }
-  }).then(res => {
-    return res.json()
-  }).then(data => {
-    return data
-  }).catch(err => {
-    console.log(err)
-  })
-}
-store.fetchItemsByTag = (param) => {
-  const api = url + param
-  return store.fetchItems(api)
-}
-
-export default store
+    strict: debug,
+    plugins
+});
