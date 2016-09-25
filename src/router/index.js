@@ -2,7 +2,7 @@
 * @Author: Vincent1993
 * @Date:   2016-09-24 11:09:15
 * @Last Modified by:   Vincent1993
-* @Last Modified time: 2016-09-25 15:15:15
+* @Last Modified time: 2016-09-25 21:43:34
 */
 
 import Vue from 'vue';
@@ -38,7 +38,7 @@ export default new Router({
             component: Node
         },
         {
-            path: '/user/:username',
+            path: '/user/:username/',
             name: 'user',
             component: User
         }

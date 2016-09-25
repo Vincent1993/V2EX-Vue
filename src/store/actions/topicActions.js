@@ -13,9 +13,9 @@ export const getTopicContentById = ({ commit, state }, topicId) => {
             GET_TOPIC_CONTENT_FAIL
         ],
         requestOptions: {
-            url: `${API}/topics/show.json?id=${topicId}`
-        },
-        additionData: topicId
+            url: `${API}/topics/show.json?id=${topicId}`,
+            addition: topicId
+        }
     });
 
     return request({ commit });
@@ -34,10 +34,43 @@ export const getTopicReplyById = ({ commit, state }, topicId) => {
         ],
         requestOptions: {
             url: `${API}/replies/show.json?topic_id=${topicId}`,
-            data: topicId
-        },
-        additionData: topicId
+            addition: topicId
+        }
     });
 
     return request({ commit });
+};
+
+/** 获取主题内容 如果缓存中存在则不重复获取 */
+export const getTopicContentInfoIfNeed = ({ commit, state }, topicId) => {
+    const isLoading = state.topics.contentList.isLoading;
+
+    if (isLoading) {
+        return;
+    }
+
+    const cacheTopicContent = state.topics.contentList.items[topicId];
+
+    if (!cacheTopicContent) {
+        return getTopicContentById({ commit }, topicId);
+    }
+
+    return cacheTopicContent;
+};
+
+/** 获取主题回复列表 如果缓存中存在则不重复获取 */
+export const getTopicReplyInfoIfNeed = ({ commit, state }, topicId) => {
+    const isLoading = state.topics.replyList.isLoading;
+
+    if (isLoading) {
+        return;
+    }
+
+    const cacheTopicReply = state.topics.replyList.items[topicId];
+
+    if (!cacheTopicReply) {
+        return getTopicReplyById({ commit }, topicId);
+    }
+
+    return cacheTopicReply;
 };

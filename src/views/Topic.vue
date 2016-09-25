@@ -2,7 +2,7 @@
     <div class="content-wrap">
 
         <Topic-Content :content="currentTopicContent"></Topic-Content>
-        <!-- <Topic-Reply :reply-data="currentTopicReply"></Topic-Reply> -->
+        <Topic-Reply :reply-data="currentTopicReply"></Topic-Reply>
     </div>
 </template>
 <script>
@@ -16,11 +16,11 @@
             TopicReply
         },
         created() {
-            this.$store.dispatch('getTopicContentById', this.currentTopicId);
-            this.$store.dispatch('getTopicReplyById', this.currentTopicId);
+            this.$store.dispatch('getTopicReplyInfoIfNeed', this.currentTopicId);
+            this.$store.dispatch('getTopicContentInfoIfNeed', this.currentTopicId);
         },
         methods: {
-            ...mapActions(['getTopicContentById', 'getTopicReplyById'])
+            ...mapActions(['getTopicReplyInfoIfNeed', 'getTopicContentInfoIfNeed'])
         },
         computed: {
             /** 返回当前主题ID */

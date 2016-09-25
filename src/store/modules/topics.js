@@ -2,7 +2,7 @@
 * @Author: Vincent1993
 * @Date:   2016-09-24 16:53:20
 * @Last Modified by:   Vincent1993
-* @Last Modified time: 2016-09-25 16:16:59
+* @Last Modified time: 2016-09-25 21:33:14
 */
 import {
     GET_TOPIC_CONTENT_REQUEST,
@@ -24,12 +24,11 @@ const state = {
     }
 };
 
-const insertDataToList = (data, type) => {
-    const { id } = data[0];
+const insertDataToList = (data, type, topicId) => {
     state[`${type}List`] = {
         ...state[`${type}List`],
         items: {
-            [id]: data
+            [topicId]: data
         },
         isLoading: false
     };
@@ -43,7 +42,8 @@ const mutations = {
         };
     },
     [GET_TOPIC_CONTENT_SUCCESS](state, payload) {
-        insertDataToList(payload.responseData, 'content');
+        const { responseData, requestOptions } = payload;
+        insertDataToList(responseData, 'content', requestOptions.addition);
     },
     [GET_TOPIC_CONTENT_FAIL](state) {
         state.contentList = {
@@ -58,7 +58,8 @@ const mutations = {
         };
     },
     [GET_TOPIC_REPLY_SUCCESS](state, payload) {
-        insertDataToList(payload.responseData, 'reply');
+        const { responseData, requestOptions } = payload;
+        insertDataToList(responseData, 'reply', requestOptions.addition);
     },
     [GET_TOPIC_REPLY_FAIL](state) {
         state.replyList = {

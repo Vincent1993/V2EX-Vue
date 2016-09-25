@@ -2,13 +2,15 @@
     <div class="conHead">
         <header class="postManMeta">
             <div class="postManHeader">
-                <router-link :to="{ name: 'user',query: { username: content.member.username}}">
                     <div class="postManMeta-avatar">
-                        <a class="avatar"><img :src="content.member.avatar_normal" class="avatar-img"></a>
+                        <router-link :to="{ name: 'user',params: { username: content.member.username}}" class="avatar">
+                            <img :src="content.member.avatar_normal" class="avatar-img">
+                        </router-link>
                     </div>
-                </router-link>
                 <div class="postManMeta-summary">
-                    <router-link :to="{ name: 'user',query: { username: content.member.username}}">{{content.member.username}}</router-link>
+                    <router-link :to="{ name: 'user',params: { username: content.member.username}}">
+                        {{content.member.username}}
+                    </router-link>
                     <span class="postManMeta-inline">发布于 {{timeFilter(content.created, true)}}</span>
                 </div>
             </div>
@@ -26,7 +28,7 @@
 <script>
     import { getLastTimeStr } from 'utils/filters';
     export default {
-        name: 'ContentHead',
+        name: 'Content',
         props: {
             content: {
                 type: Object,
