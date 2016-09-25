@@ -1,19 +1,15 @@
 <template>
-    <nav class="gloable-nav navbar" :class="{'nav-border':showNavBorder}">
+    <nav class="gloable-nav navbar">
         <div class="nav-brand">V2EX</div>
-        <div class="nav-bars" @click="showDropDown">
+        <div class="nav-bars" @click="toggleNavbar">
             <i class="fa fa-bars fa-large" :class="{ 'fa-bars': !showDrop, 'fa-close': showDrop }"></i>
         </div>
         <span class="nav-title">{{title}}</span>
         <ul class="nav-list" v-show="showDrop">
             <template v-for="nav in navList">
-                <li :key="nav.key" @click="navItemClick(nav.link)">
+                <li :key="nav.key" @click="navItemClick(nav.link, nav.key)">
                     <i :class="navItemClass(nav)"></i>{{nav.value}}
             </template>
-            <!-- <li v-link="{ name: 'list',query: { tag: 'latest'}}"><i class="fa fa-clock-o"><span>最新</span></li>
-            <li v-link="{ name: 'list',query:{tag:'hot'}}"><i class="fa fa-fire"><span>最热</span></li>
-            <li v-link="{ name : 'node'}"><i class="fa fa-folder"></i><span>节点</span></li>
-            <li @click="toggleMan"><i class="fa fa-user"><span>个人</span></li> -->
         </ul>
     </nav>
 </template>
@@ -44,14 +40,20 @@
                     [`fa-${item.icon}`]: true
                 };
             },
-            navItemClick(key) {
-                if (!key || typeof key !== String) {
-                    return;
+            navItemClick(link, key) {
+                let route = {};
+                if (link === 'list') {
+                    route = {
+                        name: link,
+                        query: { key }
+                    };
+                } else {
+                    route = {
+                        name: link
+                    };
                 }
                 this.hideDropDown();
-                this.$router.go({
-                    name: key
-                });
+                this.$router.push(route);
             },
             showDropDown() {
                 this.showDrop = true;
@@ -59,21 +61,11 @@
             hideDropDown() {
                 this.showDrop = false;
             },
-            toggleMan(){
-                this.showDropDown()
-                if (localStorage.username) {
-                    this.$route.router.go({name:'user',params: { username: localStorage.username }})
-                }else{
-                    this.$route.router.go('login')
-                };
-
+            toggleNavbar() {
+                this.showDrop = !this.showDrop;
             }
         },
-        computed:{
-            showNavBorder(){
-                return window.pageYOffset >=50 ? false : true;
-            }
-        }
+
     }
 </script>
 <style>

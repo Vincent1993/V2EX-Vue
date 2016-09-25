@@ -2,7 +2,7 @@
 * @Author: Vincent1993
 * @Date:   2016-09-24 16:53:20
 * @Last Modified by:   Vincent1993
-* @Last Modified time: 2016-09-24 22:38:07
+* @Last Modified time: 2016-09-25 16:16:59
 */
 import {
     GET_TOPIC_CONTENT_REQUEST,
@@ -43,7 +43,7 @@ const mutations = {
         };
     },
     [GET_TOPIC_CONTENT_SUCCESS](state, payload) {
-        insertDataToList(payload, 'content');
+        insertDataToList(payload.responseData, 'content');
     },
     [GET_TOPIC_CONTENT_FAIL](state) {
         state.contentList = {
@@ -58,7 +58,7 @@ const mutations = {
         };
     },
     [GET_TOPIC_REPLY_SUCCESS](state, payload) {
-        insertDataToList(payload, 'reply');
+        insertDataToList(payload.responseData, 'reply');
     },
     [GET_TOPIC_REPLY_FAIL](state) {
         state.replyList = {

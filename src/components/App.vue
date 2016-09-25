@@ -12,7 +12,7 @@
         data() {
             return {
                 navList: TOP_NAV_LIST
-            }
+            };
         },
         components: {
             NavBar

@@ -2,7 +2,7 @@
 * @Author: Vincent1993
 * @Date:   2016-09-18 13:58:12
 * @Last Modified by:   Vincent1993
-* @Last Modified time: 2016-09-24 17:01:01
+* @Last Modified time: 2016-09-25 14:51:32
 */
 
 import Vue from 'vue';
@@ -11,6 +11,7 @@ import plugins from './plugins';
 // modules
 import list from 'modules/list';
 import topics from 'modules/topics';
+import users from 'modules/users';
 
 import * as actions from 'actions';
 import * as getters from 'getters';
@@ -22,7 +23,8 @@ export default new Vuex.Store({
     getters,
     modules: {
         list,
-        topics
+        topics,
+        users
     },
     strict: debug,
     plugins

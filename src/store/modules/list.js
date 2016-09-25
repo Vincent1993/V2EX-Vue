@@ -2,7 +2,7 @@
 * @Author: Vincent1993
 * @Date:   2016-09-18 14:19:41
 * @Last Modified by:   Vincent1993
-* @Last Modified time: 2016-09-24 15:28:10
+* @Last Modified time: 2016-09-25 16:17:11
 */
 import {
     GET_HOT_LIST_REQUEST,
@@ -48,7 +48,7 @@ const mutations = {
         };
     },
     [GET_HOT_LIST_SUCCESS](state, payload) {
-        insertDataToList('hotList', payload);
+        insertDataToList('hotList', payload.responseData);
     },
     [GET_HOT_LIST_FAIL](state) {
         state.hotList = {

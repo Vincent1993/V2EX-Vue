@@ -60,7 +60,7 @@ const generateRequestAction = (options) => {
                 data: requestFilter(requestData)
             }, true);
 
-            commit(SUCCESS_TYPE, responseData, requestData);
+            commit(SUCCESS_TYPE, { responseData, requestOptions });
             yield responseData;
         } catch (error) {
             commit(FAIL_TYPE, error, requestData, additionData);
