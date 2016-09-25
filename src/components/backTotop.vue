@@ -1,33 +1,32 @@
 <template>
-<div class="iconfont" v-show="show" @click="goTop"><img class="icon-top" src="../assets/iconfont-rocket.png"></div>
+    <div class="iconfont" v-if="showGoTop" @click="goTop">
+        <img class="icon-top" src="../assets/iconfont-rocket.png">
+    </div>
 </template>
 <script>
     export default {
-    	name:'backTotop',
-        replace:true,
-        data (){
+        name: 'BackTotop',
+        data() {
             return {
-                show: false,
+                showGoTop: false
+            };
+        },
+        methods: {
+            goTop() {
+                window.scrollTo(0, 0);
             }
         },
-        ready (){
-			window.onscroll = function() {myFunction()};
-			const self = this
-			function myFunction() {
-			    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-			        self.show = true
-				}else{
-					self.show = false
-				}
-			}
-        },
-        methods:{
-            goTop (){
-                window.scrollTo(0,0);
-                this.show = false;
-            }
+        mounted() {
+            window.onscroll = () => {
+                const self = this;
+                if (document.body.scrollTop > 100 && self.showGoTop) {
+                    self.showGoTop = true;
+                } else {
+                    self.showGoTop = false;
+                }
+            };
         }
-    }
+    };
 </script>
 <style>
     .icon-top {

@@ -2,10 +2,12 @@
     <div>
         <nav-bar :nav-list="navList"></nav-bar>
         <router-view class="wrapper"></router-view>
+        <back-to-top></back-to-top>
     </div>
 </template>
 <script>
     import NavBar from 'components/Nav';
+    import BackToTop from 'components/BackToTop';
     import { TOP_NAV_LIST } from '../config';
     export default {
         name: 'App',
@@ -15,7 +17,8 @@
             };
         },
         components: {
-            NavBar
+            NavBar,
+            BackToTop
         }
     };
 </script>

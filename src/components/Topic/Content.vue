@@ -64,25 +64,28 @@
         display: table-cell;
         vertical-align: middle;
     }
-    .con-article{
-        text-indent: 32px;
-        word-break: break-all;
-        padding: 10px 0;
-        color: #2f2f2f;
-        font-size: 16px;
-        line-height: 1.7;
-    }
-    .con-info{
-        text-align: left;
-        font-size: 13px;
-        color:#9C9C9C;
-    }
-    .con-info span {
-        margin-right: 10px;
-    }
-    .con-title{
-        font-weight: 400;
-        font-style: normal;
+    .con {
+        &-article{
+            text-indent: 32px;
+            word-break: break-all;
+            padding: 10px 0;
+            color: #2f2f2f;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        &-info{
+            text-align: left;
+            font-size: 13px;
+            color:#9C9C9C;
+
+            span{
+                margin-right: 10px;
+            }
+        }
+        &-title{
+            font-weight: 400;
+            font-style: normal;
+        }
     }
     .author-img {
         display: inline-block;
