@@ -1,27 +1,33 @@
-'use strict'
+const WebpackDevServer = require('webpack-dev-server');
+const webpack = require('webpack');
 
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
-config.entry.unshift('webpack-dev-server/client?http://localhost:8890',"webpack/hot/dev-server");
-config.plugins.push(new webpack.HotModuleReplacementPlugin());
-config.plugins.push(new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
-        }
-      }))
-var proxy = [{
-    path: "/api/*",
-    target: "https://www.v2ex.com",
-    host: "v2ex.com"
-}]
-//启动服务
-var app = new WebpackDevServer(webpack(config), {
+const config = require('./webpack.config.dev.js');
+const port = 3555;
+// 是否使用https
+const useHttps = true;
+const protocol = useHttps ? 'https:' : 'http:';
+
+// for (const entry in config.entry) {
+//     if (entry === 'vendor') {
+//         continue;
+//     }
+
+//     config.entry[entry].unshift(
+//         `webpack-dev-server/client?${protocol}//localhost:${port}/`,
+//         'webpack/hot/dev-server'
+//     );
+// }
+
+config.output.publicPath = `${protocol}//localhost:${port}/dist/`;
+
+const compiler = webpack(config);
+const server = new WebpackDevServer(compiler, {
+    contentBase: __dirname,
+    hot: true,
     publicPath: config.output.publicPath,
-    hot:true,
-    historyApiFallback: true,
-    proxy:proxy
+    stats: {
+        colors: true
+    }
 });
-app.listen(8890,function(){
-    console.log('server start!')
-});
+
+server.listen(port);
