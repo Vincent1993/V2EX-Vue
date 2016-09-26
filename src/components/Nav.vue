@@ -65,8 +65,10 @@
                 this.showDrop = !this.showDrop;
             }
         },
-
-    }
+        beforeDestroy() {
+            this.showDrop = false;
+        }
+    };
 </script>
 <style>
     .gloable-nav{

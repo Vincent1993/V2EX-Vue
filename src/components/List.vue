@@ -1,6 +1,6 @@
 <template>
 <div class="steam-list" >
-    <section class="steam-list-item" v-for="item in listDataItem" :key="item.id">
+    <section class="steam-list-item" v-for="item in listData" :key="item.id">
         <div class="man-picture">
             <img class="avatar-img" :src="item.member.avatar_mini">
         </div>
@@ -29,18 +29,9 @@
         name: 'list',
         props: {
             listData: {
-                type: Object,
+                type: Array,
                 default: () => [],
                 required: true
-            }
-        },
-        computed: {
-            /** 返回列表内容 */
-            listDataItem() {
-                if (!this.listData.items.length) {
-                    return [];
-                }
-                return this.listData.items;
             }
         },
         methods: {

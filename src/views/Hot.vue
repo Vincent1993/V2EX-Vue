@@ -1,6 +1,6 @@
 <template>
     <div>
-        <List :list-data="hotListData"></List>
+        <List :list-data="currentTagTopicList"></List>
     </div>
 </template>
 <script>
@@ -12,19 +12,36 @@
             List
         },
         methods: {
-            ...mapActions(['getHotList', 'showLoading', 'hideLoading'])
+            ...mapActions(['getListByTagIfNoCache', 'showLoading', 'hideLoading']),
+            fetchData(tag) {
+                this.$store.dispatch('showLoading');
+                Promise.all([
+                    this.$store.dispatch('getListByTagIfNoCache', tag)
+                ])
+                .then(() => {
+                    this.$store.dispatch('hideLoading');
+                });
+            }
         },
         computed: {
-            ...mapGetters(['hotListData'])
+            currentTag() {
+                return this.$route.query.key;
+            },
+            currentTagTopicList() {
+                if (!this.topicList[this.currentTag]) {
+                    return [];
+                }
+                return this.topicList[this.currentTag];
+            },
+            ...mapGetters(['topicList'])
+        },
+        watch: {
+            '$route'() {
+                this.fetchData(this.currentTag);
+            }
         },
         created() {
-            this.$store.dispatch('showLoading');
-            Promise.all([
-                this.$store.dispatch('getHotList')
-            ])
-            .then(() => {
-                this.$store.dispatch('hideLoading');
-            });
+            this.fetchData(this.currentTag);
         }
     };
 </script>
