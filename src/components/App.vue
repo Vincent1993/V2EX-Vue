@@ -27,7 +27,18 @@
         computed: {
             ...mapGetters(['showLoading']),
             currentTitle() {
-                return this.$route.meta ? this.$route.meta.title : null;
+                return this.$route.meta.title ? this.$route.meta.title : this.tagOrNode;
+            },
+            tagOrNode() {
+                if (this.$route.query.key) {
+                    if (this.$route.query.key === 'latest') {
+                        return '最新';
+                    } else if (this.$route.query.key === 'hot') {
+                        return '最热';
+                    }
+                } else {
+                    return this.$route.query.node.split('!')[1];
+                }
             }
         }
     };
@@ -64,5 +75,7 @@
     .wrapper{
         height: auto;
         margin: 60px 10px 0;
+        overflow: auto;
+        word-wrap: break-word;
     }
 </style>

@@ -13,13 +13,22 @@
     export default {
         name: 'NodeList',
         created() {
-            this.$store.dispatch('getAllNodeList');
+            this.$store.dispatch('showLoading');
+            if (!this.nodeList.length) {
+                Promise.all([
+                    this.$store.dispatch('getAllNodeList')
+                ])
+                .then(() => {
+                    this.$store.dispatch('hideLoading');
+                });
+            }
+            this.$store.dispatch('hideLoading');
         },
         computed: {
             ...mapGetters(['nodeList'])
         },
         methods: {
-            ...mapActions(['getAllNodeList'])
+            ...mapActions(['getAllNodeList', 'showLoading', 'hideLoading'])
         }
     };
 </script>
