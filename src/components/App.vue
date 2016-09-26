@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav-bar :nav-list="navList"></nav-bar>
+        <nav-bar :nav-list="navList" :title="currentTitle"></nav-bar>
         <Loading v-show="showLoading"></Loading>
         <router-view v-show="!showLoading" class="wrapper"></router-view>
         <back-to-top></back-to-top>
@@ -25,7 +25,10 @@
             Loading
         },
         computed: {
-            ...mapGetters(['showLoading'])
+            ...mapGetters(['showLoading']),
+            currentTitle() {
+                return this.$route.meta ? this.$route.meta.title : null;
+            }
         }
     };
 </script>

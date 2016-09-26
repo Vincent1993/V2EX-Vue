@@ -1,47 +1,27 @@
 <template>
-        <div class="node-list wrap" v-show="!showLoad">
-        <div>
-            <input type="text" class="input-text" v-model="nodetitle" placeholder="搜索节点名称..." debounce="300">
-            <!-- <i class="fa fa-search"></i> -->
-        </div>
-            <a class="node-item"
-            v-link="{ name: 'list',query: { nodeid: node.id,nodename:node.title}}"
-            v-for="node in nodeList | filterBy nodetitle in 'title'">
-            {{node.title }}
-            <span class="badge topics-num">{{node.topics}}</span>
-            </a>
-        </div>
+    <div class="node-list wrap">
+        <template v-for="node in nodeList">
+            <router-link class="node-item" :to="{ name: 'list',query: { node: `${node.id}!${node.title}`}}">
+                {{node.title }}
+                <span class="badge topics-num">{{node.topics}}</span>
+            </router-link>
+        </template>
+    </div>
 </template>
 <script>
-
+    import { mapGetters, mapActions } from 'vuex';
     export default {
-        name:'Node',
-
-        data(){
-            return {
-                nodeList:[],
-                showLoad:false,
-                nodetitle:''
-            }
+        name: 'NodeList',
+        created() {
+            this.$store.dispatch('getAllNodeList');
         },
-        ready(){
-            this.getAllNode()
+        computed: {
+            ...mapGetters(['nodeList'])
         },
-
-        methods:{
-            //获取全部节点
-            getAllNode(){
-                const _self = this
-                _self.showLoad = true
-                store.fetchItemsByTag('nodes/all.json').then(items => {
-                    _self.nodeList = items || []
-                    setTimeout(function(){
-                        _self.showLoad = false
-                    }, 1000)
-                })
-            }
+        methods: {
+            ...mapActions(['getAllNodeList'])
         }
-    }
+    };
 </script>
 <style>
     .node-item{

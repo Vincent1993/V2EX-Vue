@@ -52,6 +52,21 @@
                         name: link
                     };
                 }
+
+                if (link === 'user') {
+                    if (window.localStorage.username) {
+                        route = {
+                            name: link,
+                            params: {
+                                username: window.localStorage.username
+                            }
+                        };
+                    } else {
+                        route = {
+                            name: 'login'
+                        };
+                    }
+                }
                 this.hideDropDown();
                 this.$router.push(route);
             },

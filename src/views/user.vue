@@ -58,14 +58,20 @@
             }
         },
         methods: {
-            ...mapActions(['getUserInfoIfNeed', 'getUserPostInfoIfNeed']),
+            ...mapActions(['getUserInfoIfNeed', 'getUserPostInfoIfNeed', 'showLoading', 'hideLoading']),
             timeFilter(date, friendily, format) {
                 return getLastTimeStr(date, friendily, format);
             }
         },
         created() {
-            this.$store.dispatch('getUserInfoIfNeed', this.currentUser);
-            this.$store.dispatch('getUserPostInfoIfNeed', this.currentUser);
+            this.$store.dispatch('showLoading');
+            Promise.all([
+                this.$store.dispatch('getUserInfoIfNeed', this.currentUser),
+                this.$store.dispatch('getUserPostInfoIfNeed', this.currentUser)
+            ])
+            .then(() => {
+                this.$store.dispatch('hideLoading');
+            });
         },
         computed: {
             ...mapGetters(['userInfo', 'userPostList']),

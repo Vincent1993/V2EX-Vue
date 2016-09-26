@@ -9,7 +9,9 @@
                 <router-link :to="{ name: 'topic' ,query: { topicId: item.id}}">{{item.title}}</router-link>
             </div>
             <ul class="list-inline tags">
-                <li class="tag">{{item.node.title}}</li>
+                <li class="tag">
+                <router-link :to="{ name: 'list',query: { node: `${item.node.id}!${item.node.title}`}}">{{item.node.title}}</router-link>
+                </li>
                 <span class="split">·</span>
             </ul>
             <ul class="list-inline user-info">
