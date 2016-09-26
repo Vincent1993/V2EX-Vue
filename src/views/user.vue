@@ -64,13 +64,13 @@
             }
         },
         created() {
-            this.$store.dispatch('showLoading');
+            this.showLoading();
             Promise.all([
-                this.$store.dispatch('getUserInfoIfNeed', this.currentUser),
-                this.$store.dispatch('getUserPostInfoIfNeed', this.currentUser)
+                this.getUserInfoIfNeed(this.currentUser),
+                this.getUserPostInfoIfNeed(this.currentUser)
             ])
             .then(() => {
-                this.$store.dispatch('hideLoading');
+                this.hideLoading();
             });
         },
         computed: {

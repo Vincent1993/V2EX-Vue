@@ -13,16 +13,16 @@
     export default {
         name: 'NodeList',
         created() {
-            this.$store.dispatch('showLoading');
+            this.showLoading();
             if (!this.nodeList.length) {
                 Promise.all([
-                    this.$store.dispatch('getAllNodeList')
+                    this.getAllNodeList();
                 ])
                 .then(() => {
-                    this.$store.dispatch('hideLoading');
+                    this.hideLoading();
                 });
             }
-            this.$store.dispatch('hideLoading');
+            this.hideLoading();
         },
         computed: {
             ...mapGetters(['nodeList'])

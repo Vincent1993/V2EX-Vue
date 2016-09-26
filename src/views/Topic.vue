@@ -16,13 +16,13 @@
             TopicReply
         },
         created() {
-            this.$store.dispatch('showLoading');
+            this.showLoading();
             Promise.all([
-                this.$store.dispatch('getTopicReplyInfoIfNeed', this.currentTopicId),
-                this.$store.dispatch('getTopicContentInfoIfNeed', this.currentTopicId)
+                this.getTopicReplyInfoIfNeed(this.currentTopicId),
+                this.getTopicContentInfoIfNeed(this.currentTopicId)
             ])
             .then(() => {
-                this.$store.dispatch('hideLoading');
+                this.hideLoading();
             });
         },
         methods: {

@@ -14,21 +14,21 @@
         methods: {
             ...mapActions(['getListByTagIfNoCache', 'getListByNodeIfNoCache', 'showLoading', 'hideLoading']),
             fetchDataByTag(tag) {
-                this.$store.dispatch('showLoading');
+                this.showLoading();
                 Promise.all([
-                    this.$store.dispatch('getListByTagIfNoCache', tag)
+                    this.getListByTagIfNoCache(tag)
                 ])
                 .then(() => {
-                    this.$store.dispatch('hideLoading');
+                    this.hideLoading();
                 });
             },
             fetchDataByNode(node) {
-                this.$store.dispatch('showLoading');
+                this.showLoading();
                 Promise.all([
-                    this.$store.dispatch('getListByNodeIfNoCache', node)
+                    this.getListByNodeIfNoCache(node)
                 ])
                 .then(() => {
-                    this.$store.dispatch('hideLoading');
+                    this.hideLoading();
                 });
             }
         },
