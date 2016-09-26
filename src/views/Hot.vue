@@ -12,13 +12,19 @@
             List
         },
         methods: {
-            ...mapActions(['getHotList'])
+            ...mapActions(['getHotList', 'showLoading', 'hideLoading'])
         },
         computed: {
             ...mapGetters(['hotListData'])
         },
         created() {
-            this.$store.dispatch('getHotList');
+            this.$store.dispatch('showLoading');
+            Promise.all([
+                this.$store.dispatch('getHotList')
+            ])
+            .then(() => {
+                this.$store.dispatch('hideLoading');
+            });
         }
     };
 </script>

@@ -16,11 +16,17 @@
             TopicReply
         },
         created() {
-            this.$store.dispatch('getTopicReplyInfoIfNeed', this.currentTopicId);
-            this.$store.dispatch('getTopicContentInfoIfNeed', this.currentTopicId);
+            this.$store.dispatch('showLoading');
+            Promise.all([
+                this.$store.dispatch('getTopicReplyInfoIfNeed', this.currentTopicId),
+                this.$store.dispatch('getTopicContentInfoIfNeed', this.currentTopicId)
+            ])
+            .then(() => {
+                this.$store.dispatch('hideLoading');
+            });
         },
         methods: {
-            ...mapActions(['getTopicReplyInfoIfNeed', 'getTopicContentInfoIfNeed'])
+            ...mapActions(['getTopicReplyInfoIfNeed', 'getTopicContentInfoIfNeed', 'showLoading', 'hideLoading'])
         },
         computed: {
             /** 返回当前主题ID */

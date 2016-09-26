@@ -1,5 +1,5 @@
 <template>
-    <div class="load" v-show="show">
+    <div class="load">
         <div class="spinner">
           <div class="rect1"></div>
           <div class="rect2"></div>
@@ -11,13 +11,7 @@
 </template>
 <script>
     export default{
-        name: 'Loading',
-        props: {
-            show: {
-                type: Boolean,
-                default: false
-            }
-        }
+        name: 'Loading'
     };
 </script>
 <style>
