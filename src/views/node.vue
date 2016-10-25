@@ -16,7 +16,7 @@
             this.showLoading();
             if (!this.nodeList.length) {
                 Promise.all([
-                    this.getAllNodeList();
+                    this.getAllNodeList()
                 ])
                 .then(() => {
                     this.hideLoading();

@@ -5,7 +5,6 @@
 - Vuex2
 - Vue-Router2
 
-## 线上访问地址 www.cusmos.me/v2ex
 
 ## 如何开发
 ```
@@ -15,7 +14,7 @@
 
     npm start
 
-    [本地调试](https://localhost:3555)
+    [https://localhost:3555](本地调试)
 ```
 
 ## 目录结构
@@ -25,7 +24,7 @@
         assets/                         ---> 静态资源文件
         components/                     ---> 组件文件
         config/                         ---> 项目配置文件
-        filters/                        ---> 过滤器(Vue2不存在过滤器，之后统一并入共用函数库中)
+        filters/                        ---> 过滤器
         router/                         ---> vue-router配置文件
         store/                          
             actions/                    ---> vuex actions
