@@ -52,7 +52,7 @@
     "url-loader": "0.5.7",
     "vue-hot-reload-api": "2.0.6",
     "vue-html-loader": "1.2.3",
-    "vue-loader": "8.5.2",
+    "vue-loader": "9.7.0",
     "vue-style-loader": "1.0.0",
     "vuex-router-sync": "3.0.0",
     "webpack": "1.13.2",

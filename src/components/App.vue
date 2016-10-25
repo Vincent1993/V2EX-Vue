@@ -36,9 +36,11 @@
                     } else if (this.$route.query.key === 'hot') {
                         return '最热';
                     }
-                } else {
-                    return this.$route.query.node.split('!')[1];
                 }
+                if (this.$route.query.node) {
+                    this.$route.query.node.split('!')[1];
+                }
+                return null
             }
         }
     };

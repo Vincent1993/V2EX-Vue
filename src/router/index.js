@@ -20,7 +20,8 @@ const router = new Router({
     routes: [
         {
             path: '/',
-            component: Index
+            component: Index,
+            redirect: '/list?key=latest'
         },
         {
             path: '/list',
