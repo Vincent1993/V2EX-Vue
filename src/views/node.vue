@@ -13,8 +13,8 @@
     export default {
         name: 'NodeList',
         created() {
-            this.showLoading();
             if (!this.nodeList.length) {
+                this.showLoading();
                 Promise.all([
                     this.getAllNodeList()
                 ])
@@ -22,7 +22,6 @@
                     this.hideLoading();
                 });
             }
-            this.hideLoading();
         },
         computed: {
             ...mapGetters(['nodeList'])
