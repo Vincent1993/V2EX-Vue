@@ -7,7 +7,6 @@ const isEnvDev = process.env.NODE_ENV !== 'production';
 const buildDirectory = isEnvDev ? './build/' : './dist/';
 
 module.exports = mergeWith({
-    devtool: 'source-map',
     output: {
         path: path.resolve(__dirname, './build/'),
         filename: 'build.js'
