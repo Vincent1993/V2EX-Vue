@@ -2,10 +2,10 @@
  * @Author: Vincent1993
  * @Date:   2016-09-24 14:33:56
  * @Last Modified by:   Vincent1993
- * @Last Modified time: 2016-09-24 23:25:41
+ * @Last Modified time: 2017-02-07 00:33:44
  */
 
-export const API = 'https://www.v2ex.com/api';
+export const API = 'http://localhost:3555/api';
 
 export const TOP_NAV_LIST = [{
     key: 'latest',

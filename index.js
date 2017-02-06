@@ -1,3 +1,7 @@
-var server = require("./src/store/server.js");
+const express = require('express');
+const proxy = require('http-proxy-middleware');
 
-server.start(2);
+const app = express();
+
+app.use('/api', proxy({ target: 'http://www.v2ex.com', changeOrigin: true }));
+app.listen(3555);

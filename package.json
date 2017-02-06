@@ -5,6 +5,8 @@
   "main": "main.js",
   "scripts": {
     "dev": "node server.js",
+    "build:webpack": "webpack --config webpack.config.prod.js",
+    "build:production": "cross-env NODE_ENV=production npm run build:webpack",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "start": "node server.js"
   },
@@ -41,9 +43,11 @@
     "eslint-loader": "1.5.0",
     "eslint-plugin-html": "1.5.2",
     "eslint-plugin-vue": "0.1.1",
+    "express": "4.14.1",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.9.0",
     "fs": "0.0.1-security",
+    "http-proxy-middleware": "0.17.3",
     "json-loader": "0.5.4",
     "lodash": "4.16.1",
     "path": "0.12.7",

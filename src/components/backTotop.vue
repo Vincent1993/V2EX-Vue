@@ -1,6 +1,6 @@
 <template>
     <div class="iconfont" v-if="showGoTop" @click="goTop">
-        <img class="icon-top" src="../assets/iconfont-rocket.png">
+        <img class="icon-top">
     </div>
 </template>
 <script>
